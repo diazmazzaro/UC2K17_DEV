@@ -1,0 +1,21 @@
+300k
+
+Running script AggregatePoints...
+Submitted.
+Executing...
+Executing (AggregatePoints): AggregatePoints "Feature Set" Hexagon 10 NauticalMiles # # # # # # null ais_path #
+Start Time: Tue Apr 18 19:03:50 2017
+Using URL based GPRecordSet param: https://ags-enterprise1.aeroterra.com/arcgis/rest/services/Hosted/ais_china/FeatureServer/0
+Starting new distributed job with 8 tasks.
+1/8 distributed tasks completed.
+5/8 distributed tasks completed.
+8/8 distributed tasks completed.
+Finished writing
+extent = Some(Envelope: [-72.13550573045299, -65.36238796972734, -47.161828646674316, -23.287961038894384])
+interval = None
+count = 2392
+Feature service layer created: https://ags-enterprise1.aeroterra.com/arcgis/rest/services/Hosted/ais_path/FeatureServer/0
+Succeeded at Tue Apr 18 19:04:21 2017 (Elapsed Time: 30.78 seconds)
+Succeeded.
+Completed script AggregatePoints...
+
