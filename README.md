@@ -3,26 +3,26 @@
 ## Welcome to Aeroterra ESRI UC 2K17
 ### Agenda
 1. Real Time data
-⋅⋅1. Data Straming
-⋅⋅2. Geoevent Processor
-Creating next generation Maps
-Conectado a Hosted Services
-Creando un mapa
-Publicando un mapa listo para usar en ArcGIS Portal
-Building Web Apps 
-Validar datos publicados en portal
-Crear una app mediante template
-Generar una app de multiplataforma
-Agregar un widget
-Construir una app JS en 5 simples pasos
-Cache en HD
-Vector Tiles que son?
-Adoptando un Base Vector Tile de AGOL
-Publicando un Vector Tile
-Gran volumen, poco tiempo
-Conceptos de Geoanalytics 
-Análisis de agregación
-Análisis con SpaceTime Cube
-Insights 
-Python Server API
-GitHub proyects
+  1. Data Straming
+  2. Geoevent Processor
+1. Creating next generation Maps
+1. Conectado a Hosted Services
+1. Creando un mapa
+1. Publicando un mapa listo para usar en ArcGIS Portal
+1. Building Web Apps 
+1. Validar datos publicados en portal
+1. Crear una app mediante template
+1. Generar una app de multiplataforma
+1. Agregar un widget
+1. Construir una app JS en 5 simples pasos
+1. Cache en HD
+1. Vector Tiles que son?
+1. Adoptando un Base Vector Tile de AGOL
+1. Publicando un Vector Tile
+1. Gran volumen, poco tiempo
+1. Conceptos de Geoanalytics 
+1. Análisis de agregación
+1. Análisis con SpaceTime Cube
+1. Insights 
+1. Python Server API
+1. GitHub proyects
