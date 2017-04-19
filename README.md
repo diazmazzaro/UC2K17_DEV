@@ -4,7 +4,7 @@
 ### Agenda
 1. Real Time data
   1. Data Straming
-  2. Geoevent Processor
+  1. Geoevent Processor
 Creating next generation Maps
 Conectado a Hosted Services
 Creando un mapa
