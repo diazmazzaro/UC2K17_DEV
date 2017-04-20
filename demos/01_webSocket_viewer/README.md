@@ -3,6 +3,6 @@
 ## DEMO: Web Socket Reader
 ![Alt text](./demos/10_custom_uiux/screen.png?raw=true "screenshot")
 
-demo [Alexandre Bodelot](http://localhost:5001/index.html)
+demo [GO!](http://localhost:5001/index.html)
 
 
