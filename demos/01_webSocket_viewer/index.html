@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <style type="text/css">
+    body {      
+      font-family: sans-serif;
+      background-color: black;
+      color: white;
+      overflow-x: hidden;
+    }
+    textarea#json-input {
+      width: 100%;
+      height: 200px;
+    }
+    div.json-menu{
+      width: 100%;
+      height: 25px;
+      text-align: center;
+      background-color: #252525;
+      vertical-align: middle;
+      padding: 10px;
+    }
+    div.json-menu:hover{
+      background-color: #656565;
+      cursor: pointer;
+    }
+
+  </style>
+  <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script src="json-viewer/jquery.json-viewer.js"></script>
+  <link href="json-viewer/jquery.json-viewer.css" type="text/css" rel="stylesheet" />
+  <script>
+    function init(){
+      const socket = new WebSocket('ws://localhost:8001');
+
+      // Connection opened
+      socket.addEventListener('open', function (event) {
+        socket.send('Hello Server!');
+      });
+
+      // Listen for messages
+      socket.addEventListener('message', function (event) {
+        var options = {
+          collapsed: false,
+          withQuotes: false
+        };
+        console.log('Message from server', event.data);
+        try{
+          $('#json-renderer').jsonViewer(JSON.parse(event.data), options);
+          window.scrollTo(0,document.body.scrollHeight);
+        }
+        catch(err){}
+        
+        
+        
+        // var node = document.createElement("LI");
+
+        // node.innerText = event.data;
+        // document.getElementById('ulSent').appendChild(node);
+      });
+    }
+  /*  var exampleSocket = new WebSocket("ws://localhost:8001");
+    exampleSocket.onmessage = function (event) {
+  		console.log(event.data);
+      $('#json-renderer').jsonViewer(event.data, {});
+    }
+	var streamSocket = new WebSocket("ws://GE-EM-01.AERO.TERRA:6180/arcgis/ws/services/test/StreamServer/subscribe");
+	streamSocket.onmessage = function (event) {
+		lbl.innerHTML = event.data;
+	}*/
+
+  </script>
+</head>
+<body >
+<div class="json-menu" onclick="init();">
+  CONNECT
+</div>
+<pre id="json-renderer" style="margin: 0 5px;"></pre>
+</body>
+</html>
