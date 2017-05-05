@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+  <meta name="description" content="[StreamLayer - 4.3]">
+  <!--
+  ArcGIS API for JavaScript, https://js.arcgis.com
+  For more information about the layers-streamlayer sample, read the original sample description at developers.arcgis.com.
+  https://developers.arcgis.com/javascript/latest/layers-streamlayer/index.html
+  -->
+<title>StreamLayer - 4.3</title>
+  <style>
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      background-color: #fff;
+      overflow: hidden;
+      font-family: sans-serif;
+    }
+    
+    .controls {
+      margin-left: 10px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+    
+    #viewDiv {
+      height: 75%;
+      width: 100%;
+    }
+  </style>
+  <link rel="stylesheet" href="https://js.arcgis.com/4.3/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.3"></script>
+  <script>
+    require([
+      "esri/Map",
+      "esri/views/MapView",
+      "esri/layers/StreamLayer",
+      "esri/layers/GraphicsLayer",
+
+      "esri/geometry/Polygon",
+      "esri/Graphic",
+      "esri/symbols/SimpleFillSymbol",
+
+      "dojo/on",
+      "dojo/dom",
+      "dojo/domReady!"
+    ], function(Map, MapView, StreamLayer, GraphicsLayer,
+      Polygon, Graphic, SimpleFillSymbol,
+      on, dom) {
+      var map,
+        streamLayer,
+        graphicsLayer,
+        controller;
+
+      /***************************************
+       * Set up map view with initial extent
+       ***************************************/
+      map = new Map({
+        basemap: "gray"
+      });
+
+      mapView = new MapView({
+        container: "viewDiv",
+        map: map,
+        extent: { // autocasts as new Extent()
+          xmin: -13646696,
+          ymin: 6000482,
+          xmax: -13577505,
+          ymax: 6070056,
+          spatialReference: { // autocasts as new SpatialReference()
+            wkid: 102100
+          }
+        }
+      });
+
+      graphicsLayer = new GraphicsLayer();
+      map.add(graphicsLayer);
+
+      // Connect click events to UI buttons
+      on(dom.byId("toggleStreamLayerButton"), "click", toggleStreamLayer);
+      on(dom.byId("toggleSpatialFilterButton"), "click",
+        toggleSpatialFilter);
+
+      /*************************************************
+       *
+       * Functions to add and remove Stream Layer
+       *
+       *************************************************/
+      function toggleStreamLayer() {
+        if (streamLayer) {
+          removeStreamLayer();
+        }
+        else {
+          addStreamLayer();
+        }
+      }
+
+      function addStreamLayer() {
+        // URL to stream service
+        var svcUrl = dom.byId("streamUrlText").value;
+
+        // Construct Stream Layer
+        streamLayer = new StreamLayer({
+          url: svcUrl,
+          purgeOptions: {
+            displayCount: 10000
+          }
+        });
+
+        // When graphics controller created, register listeners for events
+        streamLayer.on("graphics-controller-create", function(event) {
+          controller = event.graphicsController;
+
+          // Connect and disconnect events
+          controller.on("connect", processConnect);
+          controller.on("disconnect", processDisconnect);
+
+          // FilterChange event
+          controller.on("filter-change", processFilterChange);
+        });
+
+        map.add(streamLayer);
+      }
+
+      function removeStreamLayer() {
+        if (streamLayer) {
+          map.remove(streamLayer);
+          streamLayer = null;
+          controller = null;
+          graphicsLayer.removeAll();
+        }
+      }
+
+      /*********************************************************
+       *
+       * Stream layer event handlers
+       *
+       *********************************************************/
+      function processConnect() {
+        dom.byId("toggleStreamLayerButton").value = "Remove Stream Layer";
+        dom.byId("streamUrlText").style.backgroundColor = "#008000";
+        dom.byId("toggleSpatialFilterButton").value = "Apply Filter";
+        dom.byId("divFilterControls").style.display = "block";
+      }
+
+      function processDisconnect() {
+        dom.byId("toggleStreamLayerButton").value = "Add Stream Layer";
+        dom.byId("streamUrlText").style.backgroundColor = "#8b0000";
+        dom.byId("divFilterControls").style.display = "none";
+      }
+
+      function processFilterChange(event) {
+        // Clear layer graphics
+        clearGraphics(streamLayer);
+
+        // The event contains a filter property that is the current filter set on the service
+        // update map graphic to show current spatial filter
+        var bbox = event.filter.geometry;
+
+        graphicsLayer.removeAll();
+        if (bbox) {
+          graphicsLayer.add(new Graphic({
+            geometry: Polygon.fromExtent(bbox),
+            symbol: new SimpleFillSymbol({
+              style: "none",
+              outline: { // autocasts as new SimpleLineSymbol()
+                color: [5, 112, 176],
+                width: 2
+              }
+            })
+          }));
+        }
+      }
+
+      /************************************************
+       *
+       * Functions to set and clear spatial filter
+       *
+       ************************************************/
+      function toggleSpatialFilter() {
+        var currentSpatialFilter = streamLayer && streamLayer.filter.geometry ?
+          streamLayer.filter.geometry.clone() : null;
+
+        if (!currentSpatialFilter) {
+          // Set spatial filter to map extent
+          var extent = mapView.extent.expand(0.9);
+          setSpatialFilter(extent);
+          dom.byId("toggleSpatialFilterButton").value = "Clear Filter";
+        }
+        else {
+          setSpatialFilter(null);
+          dom.byId("toggleSpatialFilterButton").value = "Apply Filter";
+        }
+      }
+
+      // Set spatial filter on stream layer. Setting to null clears filter
+      function setSpatialFilter(bbox) {
+        streamLayer.updateFilter({
+          geometry: bbox
+        });
+      }
+
+      // Clear graphics
+      function clearGraphics(layer) {
+        if (layer) {
+          mapView.whenLayerView(layer).then(function(view) {
+            view.controller.graphics.removeAll();
+          }).otherwise(function(err) {
+            console.log("Couldn't retrieve layer view: ", err);
+          });
+        } else {
+          console.log("A valid layer must be input to this function");
+          return;
+        }
+      }
+    });
+  </script>
+</head>
+<body>ws://GE-EM-01.AERO.TERRA:6180/arcgis/ws/services/GEO-Points/StreamServer
+  <div id="viewDiv"></div>
+  <div class="controls">
+    <span>Stream service url: </span><input type="text" id="streamUrlText" value="http://ge-em-01.aero.terra:6080/arcgis/rest/services/GEO-Points/StreamServer"
+      style="color:#ffffff; width:600px; background-color: #8b0000" /><br>
+    <input type="button" id="toggleStreamLayerButton" value="Make Stream Layer" />
+  </div>
+  <div id="divFilterControls" class="controls" style="margin-left: 20px; display: none">
+    <span>Filter messages by map extent (Zoom to desired filter extent): </span>
+    <input type="button" id="toggleSpatialFilterButton" value="Apply Filter" /><br>
+  </div>
+</body>
+</html>

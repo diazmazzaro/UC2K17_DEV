@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="description" content="[Sesores de Temperatura]">
+  <!--
+  ArcGIS API for JavaScript, https://js.arcgis.com
+  For more information about the get-started-sceneview sample, read the original sample description at developers.arcgis.com.
+  https://developers.arcgis.com/javascript/latest/get-started-sceneview/index.html
+  -->
+<title>UC 2017 - Sensores</title>
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    div.temperatura {
+      position: absolute;
+      right: 15px;
+      top: 15px; 
+      background-color: red;
+      font-family: Verdana, sans-serif;
+      font-size: 50pt;
+    }
+
+    div.temperatura[t=hot] {
+      background-color: red;
+    }
+
+    div.temperatura[t=warm] {
+      background-color: orange;
+    }
+
+    div.temperatura[t=temp] {
+      background-color: yellow;
+      color: black !important;
+    }
+
+    div.temperatura[t=low] {
+      background-color: green;
+    }
+
+    div.temperatura[t=cold] {
+      background-color: blue;
+    }
+
+    div.temperatura > div{
+      
+      text-align: center;
+    }
+    div.temperatura > div:first-child{
+      background-color: #ff8282;
+      padding: 4px;
+    }
+    div.temperatura > div:last-child{
+      font-size: 70pt;
+      color:white;
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.3/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.3/"></script>
+
+  <script>
+    require([
+      "esri/Map",
+      "esri/views/SceneView",
+      "esri/layers/GraphicsLayer",
+      "esri/Graphic",
+      "esri/geometry/Point",
+      "esri/symbols/SimpleMarkerSymbol",
+      "dojo/domReady!"
+    ], function(Map, SceneView, GraphicsLayer, Graphic, Point, SimpleMarkerSymbol) {
+
+      var map = new Map({
+        basemap: "dark-gray-vector",
+        ground: "world-elevation"
+      });
+
+      var view = new SceneView({
+        container: "viewDiv",
+        map: map,
+        scale: 5000000,
+        center: [-58.372,-34.593]
+      });
+
+      var graphicsLayer = new GraphicsLayer();
+      map.add(graphicsLayer);
+
+      var addPoint = function(obj){
+      var point = new Point({
+        x: obj.lat,
+        y: obj.lon/*,
+        z: 100*/
+      }),
+
+      markerSymbol = new SimpleMarkerSymbol({
+        color: [226, 119, 40],
+
+        outline: { // autocasts as new SimpleLineSymbol()
+          color: [65, 65, 65],
+          width: 2
+        }
+      });
+
+      var pointGraphic = new Graphic({
+        geometry: point,
+        symbol: markerSymbol
+      });
+      
+      graphicsLayer.removeAll();
+
+      document.getElementById("txtTemp").innerHTML = obj.temp + "°";
+      if(obj.temp > 25){
+        document.getElementById("tempDiv").setAttribute("t", "hot");
+        pointGraphic.symbol.color = "red";
+      }
+      else if(obj.temp > 18){
+        document.getElementById("tempDiv").setAttribute("t", "warm");
+        pointGraphic.symbol.color = "orange";
+      }
+      else if(obj.temp > 10){
+        document.getElementById("tempDiv").setAttribute("t", "temp");
+        pointGraphic.symbol.color = "yelow";
+      }
+      else if(obj.temp > 1){
+        document.getElementById("tempDiv").setAttribute("t", "low");
+        pointGraphic.symbol.color = "green";
+      }
+      else{
+        document.getElementById("tempDiv").setAttribute("t", "cold");
+        pointGraphic.symbol.color = "blue";
+      }
+      
+      graphicsLayer.add(pointGraphic);
+    }
+
+    var intSensors = function(){
+      
+        var oReq = new XMLHttpRequest();
+        oReq.addEventListener("load", function(data){
+          console.log(oReq.response);
+          var jObj = JSON.parse(oReq.response);
+          addPoint(jObj);
+          setTimeout(function(){ 
+            intSensors();
+          }, 1500);
+        });
+        //oReq.open("GET", "http://192.168.125.145/TEM?" + Math.random().toString());
+        oReq.open("GET", "http://192.168.125.145/TEM?" + Math.random().toString());
+        oReq.send();
+          
+        
+    }
+
+    intSensors();
+
+    });
+    window._last = null;
+
+  </script>
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+  <div id="tempDiv" class="temperatura">
+    <div>Temperatura</div>
+    <div id="txtTemp"></div>
+  </div>
+</body>
+</html>

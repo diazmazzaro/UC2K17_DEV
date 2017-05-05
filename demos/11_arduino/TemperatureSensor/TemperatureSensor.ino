@@ -2,8 +2,10 @@
 #include <WiFiClient.h>
 #include <ESP8266WebServer.h>
 #include <ESP8266mDNS.h>
+#include <SoftwareSerial.h>
 #include <DHT.h>
 #include <Adafruit_NeoPixel.h>
+#include <TinyGPS++.h>
 #ifdef __AVR__
   #include <avr/power.h>
 #endif
@@ -13,25 +15,33 @@
 #define NUMPIXELS      2
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 
-
 #define DHTPIN 14     // what digital pin we're connected to
-
 // Uncomment whatever type you're using!
-#define DHTTYPE DHT11   // DHT 11
+#define DHTTYPE DHT11     // DHT 11
 //#define DHTTYPE DHT22   // DHT 22  (AM2302), AM2321
 //#define DHTTYPE DHT21   // DHT 21 (AM2301)
 DHT dht(DHTPIN, DHTTYPE);
 
+TinyGPSPlus gps;
+#define PIN_GPS_TX      15            //GPS TX
+#define PIN_GPS_RX      13            //GPS RX
+static const uint32_t GPSBaud = 9600; //GPS Baudrate
+SoftwareSerial ss(PIN_GPS_RX, PIN_GPS_TX);
+
+
+#define PIN_US_TR      5                 //ULTRASONIC TRIGGER PIN
+#define PIN_US_EC      4            //ULTRASONIC ECHO PIN
+
 
 #define HOSTNAME     "ASA-TEMP-001"
-const char *ssidAP = "UC2k17-TEMP";
-const char *passwordAP = "pdm123asa";
+const char *ssidAP = "UC2k17";
+const char *passwordAP = "asa12345678";
 
-const char* ssid = "wawawan2";
-const char* password = "pabloandres";
+const char* ssid = "ASA-VISITAS";
+const char* password = "Strong776655";
 
 ESP8266WebServer server(80);
-
+long dit;
 const int led = 13;
 String html = "";
 
@@ -87,6 +97,52 @@ String htmlSelector =  "   <div >"
 "   }"
 " });"
 " </script>";
+
+long getDistance(){
+  long duration;
+  int distance;
+
+  digitalWrite(PIN_US_TR, LOW);
+  delayMicroseconds(2);
+  // Sets the trigPin on HIGH state for 10 micro seconds
+  digitalWrite(PIN_US_TR, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(PIN_US_TR, LOW);
+  // Reads the echoPin, returns the sound wave travel time in microseconds
+  duration = pulseIn(PIN_US_EC, HIGH);
+  
+  // Calculating the distance
+  distance= duration*0.034/2;
+
+  return distance;
+}
+
+void pixelColor(short r, short g, short b){
+  for(int i=0;i<NUMPIXELS;i++){
+    pixels.setPixelColor(i, pixels.Color(r,g,b));
+  }
+  pixels.show();
+}
+
+void pixelRed(){
+  pixelColor(255,0,0);
+}
+
+void pixelOrange(){
+  pixelColor(244,146,0);
+}
+
+void pixelYellow(){
+  pixelColor(255,216,0);
+}
+
+void pixelGreen(){
+  pixelColor(0,250,0);
+}
+
+void pixelBlue(){
+  pixelColor(0,0,250);
+}
 
 void handleRoot() {
   digitalWrite(led, 1);
@@ -256,19 +312,74 @@ void handleIP(){
   
 }
 
-void handleTEM() {
-  String message = "{'lat':-39.456;'lon':-33.00992;'temp':";
-  float t = dht.readTemperature();
+void handleGPS(){
+  
+  Serial.println(gps.charsProcessed());
+  Serial.print("Latitude  : ");
+  String message = "{\"lat\":";
+  Serial.println(gps.location.lat(), 5);
+  message = message + gps.location.lat();
+  Serial.print("Longitude : ");
+  message = message + "\"lon\":";
+  message = message + gps.location.lat();
+  Serial.println(gps.location.lng(), 4);
+  Serial.print("Satellites: ");
+  
+  Serial.println(gps.satellites.value());
+  Serial.print("Elevation : ");
+  Serial.print(gps.altitude.feet());
+  Serial.println("ft"); 
+  Serial.print("Time UTC  : ");
+  Serial.print(gps.time.hour());                       // GPS time UTC 
+  Serial.print(":");
+  Serial.print(gps.time.minute());                     // Minutes
+  Serial.print(":");
+  Serial.println(gps.time.second());                   // Seconds
+  Serial.print("Heading   : ");
+  Serial.println(gps.course.deg());
+  Serial.print("Speed     : ");
+  Serial.println(gps.speed.mph());
 
+  
+  server.send(200, "text/plain", message);
+}
+
+void handleTEM() {
+  String message = "{\"lat\":-58.3728,\"lon\":-34.5935,\"temp\":";
+  float t = dht.readTemperature();
   Serial.print("Temperatura:");
   Serial.println(t);
-  
+  Serial.print("Distance:");
+  Serial.println(dit);
   float h = dht.readHumidity();
   float hic = dht.computeHeatIndex(t, h, false);
   message = message + t;
+  message = message + ",\"hum\":";
+  message = message + h;
+  message = message + ",\"dist\":";
+  message = message + dit;
   message = message + "}";
+
+  if(t > 25){
+    pixelRed();
+  }
+  else if(t > 18){
+    pixelOrange();
+  }
+  else if(t > 10){
+    pixelYellow();
+  }
+  else if(t > 1){
+    pixelGreen();
+  }
+  else{
+    pixelBlue();
+  }
+  
   server.send(200, "text/plain", message);
 }
+
+
 
 void handleLED() {
   digitalWrite(led, 1);
@@ -355,7 +466,21 @@ void handleHEXA() {
   server.send(200, "text/plain", message);
   digitalWrite(led, 0);
 }
-
+void setAP(){
+    //WiFi.disconnect();
+    WiFi.mode(WIFI_AP_STA);
+    IPAddress Ip(192, 168, 4, 1);
+    IPAddress NMask(255, 255, 255, 0);
+    WiFi.softAPConfig(Ip, Ip, NMask);
+    WiFi.softAP(ssidAP);
+    //WiFi.begin();
+    Serial.print("AP: ");
+    Serial.print(ssidAP);
+    //WiFi.softAP(ssidAP, passwordAP); //<--- OPEN for Dev
+    IPAddress myIP = WiFi.softAPIP();
+    Serial.print("AP IP address: ");
+    Serial.println(myIP);
+}
 void handleNotFound(){
   digitalWrite(led, 1);
   String message = "File Not Found\n\n";
@@ -374,13 +499,18 @@ void handleNotFound(){
 }
 
 void setup(void){
-
   Serial.begin(115200);
     // This is for Trinket 5V 16MHz, you can remove these three lines if you are not using a Trinket
 #if defined (__AVR_ATtiny85__)
   if (F_CPU == 16000000) clock_prescale_set(clock_div_1);
 #endif
 
+  Serial.println("GPS example");  
+  Serial.println(TinyGPSPlus::libraryVersion());
+
+  pinMode(PIN_US_TR, OUTPUT);
+  pinMode(PIN_US_EC, INPUT);
+  
   pinMode(PIN_RELAY, OUTPUT);
   digitalWrite(PIN_RELAY, 0);  
   // End of trinket special code
@@ -389,23 +519,28 @@ void setup(void){
   dht.begin();
   for(int i=0;i<NUMPIXELS;i++){
     pixels.setPixelColor(i, pixels.Color(0,0,0));
-    delay(250);
   }
   pixels.show();
   Serial.println("PIXEL OK!");
   pinMode(led, OUTPUT);
   digitalWrite(led, 0);
-  
-  //WiFi.begin("pap", "pabloandres");
-  WiFi.begin();
-  Serial.println("");
+  String _isConn = "False";
+  if(WiFi.getAutoConnect())
+    _isConn = "True";
+  Serial.println("Is auto connect mode enabled: " + _isConn);
   Serial.print("Connecting to:");
-  Serial.print(WiFi.SSID());
-  Serial.println("");
-  //WiFi.reconnect();  
+  Serial.println(WiFi.SSID());
+  if(WiFi.SSID() == "" ){
+    Serial.println("NO SSID saved");
+    //WiFi.softAP(ssidSoft, password);
+    Serial.print("Connecting to:");
+    Serial.println(ssid);
+    WiFi.begin(ssid, password);
+  }
+  //WiFi.mode(WIFI_STA);
+  //WiFi.begin(ssid, password);
   int i = 0;
-  // Wait for connection
-  while (WiFi.status() != WL_CONNECTED && i++ < 40) {
+  while (WiFi.status() != WL_CONNECTED && i++ < 45) {
     delay(500);
     Serial.print(".");
   }
@@ -416,14 +551,38 @@ void setup(void){
     Serial.println(WiFi.SSID());
     Serial.print("IP address: ");
     Serial.println(WiFi.localIP());
-/*
-  if (MDNS.begin("esp8266")) {
-    Serial.println("MDNS responder started");
-  }*/
   }
   else{
-//Soft AP-------------------
+    setAP();
+  }
 
+  setAP();
+  
+  /*WiFi.begin();
+  Serial.println("");
+  Serial.print("Connecting to:");
+  Serial.print(WiFi.SSID());
+  Serial.println("");
+  
+  //WiFi.reconnect();  
+  int i = 0;
+  // Wait for connection
+  while (WiFi.status() != WL_CONNECTED && i++ < 45) {
+    delay(500);
+    Serial.print(".");
+  }
+
+  if(WiFi.status() == WL_CONNECTED){
+    Serial.println("");
+    Serial.print("Connected to ");
+    Serial.println(WiFi.SSID());
+    Serial.print("IP address: ");
+    Serial.println(WiFi.localIP());
+]
+  }
+  else{*/
+//Soft AP-------------------
+/*
     switch(WiFi.status()) {
         case WL_CONNECTED:
             Serial.println("Connected");
@@ -434,20 +593,15 @@ void setup(void){
         default:
             Serial.println("Disconnected");
     }
-
-    Serial.print("Starting SOFT AP");
-    //WiFi.softAP(ssidAP, passwordAP); //<--- OPEN for Dev
+*/ 
     
-    IPAddress Ip(192, 168, 4, 1);
-    IPAddress NMask(255, 255, 255, 0);
-    WiFi.softAPConfig(Ip, Ip, NMask);
-    WiFi.softAP(ssidAP);
-    IPAddress myIP = WiFi.softAPIP();
-    Serial.print("AP IP address: ");
-    Serial.print(myIP);
-//-------------------Soft AP
-  }
 
+//-------------------Soft AP
+  //}
+
+  delay(1500);     
+  ss.begin(GPSBaud);
+  
   server.on("/", handleRoot);
   server.on("/LED", handleLED);
   server.on("/HEXA", handleHEXA);
@@ -456,6 +610,7 @@ void setup(void){
   server.on("/ON", handleON);
   server.on("/IP", handleIP);
   server.on("/TEM", handleTEM);
+  server.on("/GPS", handleGPS);
   
 
   server.on("/SCAN", handleSCAN);
@@ -468,9 +623,22 @@ void setup(void){
 
   server.begin();
   Serial.println("HTTP server started");
-
+  
 }
 
-void loop(void){
+static void smartDelay(unsigned long ms)                // This custom version of delay() ensures that the gps object is being "fed".
+{
+  unsigned long start = millis();
+  do 
+  {
+    while (ss.available())
+      gps.encode(ss.read());      
+  } while (millis() - start < ms);
+}
+
+
+void loop(void){  
+  dit = getDistance();
   server.handleClient();
+  //smartDelay(500);  
 }
