@@ -65,13 +65,14 @@
         "dijit/registry", "plugins/RasterLayer","esri/layers/WebTiledLayer",
         "esri/config",
         "esri/layers/VectorTileLayer",
+        "esri/layers/FeatureLayer",
         "dojo/domReady!"
       ], function(
         Map, ArcGISTiledMapServiceLayer,
         domUtils, esriRequest,
         parser, number, JSON, dom,
         registry, RasterLayer, WebTiledLayer, esriConfig,
-        VectorTileLayer
+        VectorTileLayer, FeatureLayer
       ){
         parser.parse();
         // does the browser support canvas?
@@ -83,7 +84,17 @@
         });
         var tileLyr = new VectorTileLayer("vector/root.json");
         map.addLayer(tileLyr);
-        map.on("load", mapLoaded);
+
+        var featureCalamarLayer = new FeatureLayer("https://ags-enterprise4.aeroterra.com/arcgis/rest/services/Hosted/illex_web/FeatureServer/0");
+      
+        
+        var featureHexLayer = new FeatureLayer("https://ags-enterprise4.aeroterra.com/arcgis/rest/services/Hosted/AIS_FISHING_HEX_10MN/FeatureServer/0");
+        
+        featureHexLayer.on("load", mapLoaded);
+        map.addLayer(featureHexLayer);
+        map.addLayer(featureCalamarLayer);
+
+        //map.on("load", mapLoaded);
 
         function mapLoaded() {
 
