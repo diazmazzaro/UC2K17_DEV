@@ -2,23 +2,22 @@
 #include <TinyGPS++.h>
 
 TinyGPSPlus gps;
-#define PIN_GPS_TX      11             //GPS TX
-#define PIN_GPS_RX      12             //GPS RX
+#define PIN_GPS_TX      11            //GPS TX
+#define PIN_GPS_RX      12            //GPS RX
 static const uint32_t GPSBaud = 9600; //GPS Baudrate
 SoftwareSerial ss(PIN_GPS_RX, PIN_GPS_TX);
 
 #define PIN_IO_TX      4              //IO TX
 #define PIN_IO_RX      5              //IO RX
+static const uint32_t IOBaud = 9600;  //IO Baudrate
 SoftwareSerial io_serial(PIN_IO_RX, PIN_IO_TX);
 
 void setup() {
   // put your setup code here, to run once:
-  Serial.begin(9600);
-  
-  //io_serial.begin(9600);
+  Serial.begin(GPSBaud);
+  io_serial.begin(9600);
   delay(100);
-  ss.begin(GPSBaud);
-  //
+  ss.begin(GPSBaud); 
   
   pinMode(LED_BUILTIN, OUTPUT);
   Serial.println("<GPS Sensor is ready>");
@@ -26,6 +25,7 @@ void setup() {
 
 static void smartDelay(unsigned long ms)                // This custom version of delay() ensures that the gps object is being "fed".
 {
+  ss.listen();
   unsigned long start = millis();
   do 
   {
@@ -124,6 +124,7 @@ void _responseTIME(Stream &serial){
 
 void loop() {
   request(Serial);
+  io_serial.listen();
   request(io_serial);
   if(--led_count > 0)
     digitalWrite(LED_BUILTIN, HIGH);

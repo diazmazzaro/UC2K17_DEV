@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xml:lang="es"><Esri><CreaDate>20170508</CreaDate><CreaTime>11463800</CreaTime><ArcGISFormat>1.0</ArcGISFormat><SyncOnce>TRUE</SyncOnce><DataProperties><lineage><Process ToolSource="c:\program files (x86)\arcgis\desktop10.5\ArcToolbox\Toolboxes\Editing Tools.tbx\Densify" Date="20170508" Time="114638">Densify OGRGeoJSON DISTANCE "2 Meters" "0,0000009 DecimalDegrees" 10</Process></lineage></DataProperties></Esri></metadata>
