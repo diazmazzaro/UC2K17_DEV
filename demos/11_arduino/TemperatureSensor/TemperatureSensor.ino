@@ -5,7 +5,7 @@
 #include <SoftwareSerial.h>
 #include <DHT.h>
 #include <Adafruit_NeoPixel.h>
-#include <TinyGPS++.h>
+//#include <TinyGPS++.h>
 #ifdef __AVR__
   #include <avr/power.h>
 #endif
@@ -22,14 +22,14 @@ Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ80
 //#define DHTTYPE DHT21   // DHT 21 (AM2301)
 DHT dht(DHTPIN, DHTTYPE);
 
-TinyGPSPlus gps;
+//TinyGPSPlus gps;
 #define PIN_GPS_TX      15            //GPS TX
 #define PIN_GPS_RX      13            //GPS RX
 static const uint32_t GPSBaud = 9600; //GPS Baudrate
 SoftwareSerial ss(PIN_GPS_RX, PIN_GPS_TX);
 
 
-#define PIN_US_TR      5                 //ULTRASONIC TRIGGER PIN
+#define PIN_US_TR      5            //ULTRASONIC TRIGGER PIN
 #define PIN_US_EC      4            //ULTRASONIC ECHO PIN
 
 
@@ -37,8 +37,11 @@ SoftwareSerial ss(PIN_GPS_RX, PIN_GPS_TX);
 const char *ssidAP = "UC2k17";
 const char *passwordAP = "asa12345678";
 
-const char* ssid = "ASA-VISITAS";
-const char* password = "Strong776655";
+//const char* ssid = "ASA-VISITAS";
+//const char* password = "Strong776655";
+
+const char* ssid = "wawawan2";
+const char* password = "pabloandres";
 
 ESP8266WebServer server(80);
 long dit;
@@ -312,36 +315,20 @@ void handleIP(){
   
 }
 
+String getGPS(){
+  String message = "";
+  
+  Serial.println("GPS");
+  ss.print("GET");
+  while(ss.available())
+    message = message + (char)ss.read();
+  Serial.println(message);
+  return message;
+}
 void handleGPS(){
   
-  Serial.println(gps.charsProcessed());
-  Serial.print("Latitude  : ");
-  String message = "{\"lat\":";
-  Serial.println(gps.location.lat(), 5);
-  message = message + gps.location.lat();
-  Serial.print("Longitude : ");
-  message = message + "\"lon\":";
-  message = message + gps.location.lat();
-  Serial.println(gps.location.lng(), 4);
-  Serial.print("Satellites: ");
   
-  Serial.println(gps.satellites.value());
-  Serial.print("Elevation : ");
-  Serial.print(gps.altitude.feet());
-  Serial.println("ft"); 
-  Serial.print("Time UTC  : ");
-  Serial.print(gps.time.hour());                       // GPS time UTC 
-  Serial.print(":");
-  Serial.print(gps.time.minute());                     // Minutes
-  Serial.print(":");
-  Serial.println(gps.time.second());                   // Seconds
-  Serial.print("Heading   : ");
-  Serial.println(gps.course.deg());
-  Serial.print("Speed     : ");
-  Serial.println(gps.speed.mph());
-
-  
-  server.send(200, "text/plain", message);
+  server.send(200, "text/plain", getGPS());
 }
 
 void handleTEM() {
@@ -358,6 +345,8 @@ void handleTEM() {
   message = message + h;
   message = message + ",\"dist\":";
   message = message + dit;
+  message = message + ", \"gps:\"";
+  message = message + getGPS();
   message = message + "}";
 
   if(t > 25){
@@ -505,9 +494,6 @@ void setup(void){
   if (F_CPU == 16000000) clock_prescale_set(clock_div_1);
 #endif
 
-  Serial.println("GPS example");  
-  Serial.println(TinyGPSPlus::libraryVersion());
-
   pinMode(PIN_US_TR, OUTPUT);
   pinMode(PIN_US_EC, INPUT);
   
@@ -538,7 +524,7 @@ void setup(void){
     WiFi.begin(ssid, password);
   }
   //WiFi.mode(WIFI_STA);
-  //WiFi.begin(ssid, password);
+  WiFi.begin(ssid, password);
   int i = 0;
   while (WiFi.status() != WL_CONNECTED && i++ < 45) {
     delay(500);
@@ -626,19 +612,9 @@ void setup(void){
   
 }
 
-static void smartDelay(unsigned long ms)                // This custom version of delay() ensures that the gps object is being "fed".
-{
-  unsigned long start = millis();
-  do 
-  {
-    while (ss.available())
-      gps.encode(ss.read());      
-  } while (millis() - start < ms);
-}
 
 
 void loop(void){  
   dit = getDistance();
   server.handleClient();
-  //smartDelay(500);  
 }
