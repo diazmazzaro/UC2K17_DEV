@@ -325,8 +325,18 @@ String getGPS(){
   Serial.println(message);
   return message;
 }
-void handleGPS(){
+
+String getUTC(){
+  String message = "";
   
+  Serial.println("TIME");
+  ss.print("TIME");
+  while(ss.available())
+    message = message + (char)ss.read();
+  Serial.println(message);
+  return message;
+}
+void handleGPS(){ 
   
   server.send(200, "text/plain", getGPS());
 }
@@ -347,6 +357,8 @@ void handleTEM() {
   message = message + dit;
   message = message + ", \"gps:\"";
   message = message + getGPS();
+  message = message + ", \"utc:\"";
+  message = message + getUTC();
   message = message + "}";
 
   if(t > 25){

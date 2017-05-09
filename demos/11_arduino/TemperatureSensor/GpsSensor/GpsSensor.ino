@@ -7,25 +7,26 @@ TinyGPSPlus gps;
 static const uint32_t GPSBaud = 9600; //GPS Baudrate
 SoftwareSerial ss(PIN_GPS_RX, PIN_GPS_TX);
 
-#define PIN_IO_TX      4              //IO TX
-#define PIN_IO_RX      5              //IO RX
+#define PIN_IO_TX      6              //IO TX
+#define PIN_IO_RX      7              //IO RX
 static const uint32_t IOBaud = 9600;  //IO Baudrate
 SoftwareSerial io_serial(PIN_IO_RX, PIN_IO_TX);
 
+#define PIN_LED_BLUE   2             //GPS TX
+
 void setup() {
+  pinMode(PIN_LED_BLUE, OUTPUT);
   // put your setup code here, to run once:
   Serial.begin(GPSBaud);
-  io_serial.begin(9600);
-  delay(100);
-  ss.begin(GPSBaud); 
-  
+  ss.begin(GPSBaud);
+  io_serial.begin(4800);
   pinMode(LED_BUILTIN, OUTPUT);
   Serial.println("<GPS Sensor is ready>");
 }
 
 static void smartDelay(unsigned long ms)                // This custom version of delay() ensures that the gps object is being "fed".
 {
-  ss.listen();
+  //ss.listen();
   unsigned long start = millis();
   do 
   {
@@ -58,15 +59,10 @@ int led_count = 0;
 void request(Stream &serial){
   String req = "";
   while (serial.available()){
-    //Serial.print((char)Serial.read());
     req = req + (char)serial.read();
     led_count = 2;
   }
-  
-  if(req != "")
-    //Serial.println("REQ:" + req);
-  
-    
+      
   response(serial, req);
 }
 void response(Stream &serial, String method){
@@ -78,6 +74,9 @@ void response(Stream &serial, String method){
     else
       _responseNO(serial);
   }
+  else if (method == "LED") {
+    _responseBlueLED(serial);
+  }
   else if (method == "TIME") {
     //Serial.println("get time");
     if(gps.time.isValid()){
@@ -87,11 +86,20 @@ void response(Stream &serial, String method){
       _responseNO(serial);
   }
   else if(method != ""){
-    _responseNO(serial);
+    _responseERROR(serial);
   }
 }
 void _responseNO(Stream &serial){
   serial.println("{\"gps\":none}");
+}
+
+void _responseERROR(Stream &serial){
+  serial.println("{\"gps\":\"error\"}");
+}
+
+void _responseBlueLED(Stream &serial){
+  digitalWrite(PIN_LED_BLUE, HIGH);
+  serial.println("{\"led\":true}");
 }
 
 void _responseGPS(Stream &serial){
@@ -124,13 +132,16 @@ void _responseTIME(Stream &serial){
 
 void loop() {
   request(Serial);
-  io_serial.listen();
+  //io_serial.listen();
   request(io_serial);
-  if(--led_count > 0)
+  if(--led_count > 0){
     digitalWrite(LED_BUILTIN, HIGH);
-  else if(led_count <= 0)
+    digitalWrite(PIN_LED_BLUE, HIGH);
+  }    
+  else if(led_count <= 0){
     digitalWrite(LED_BUILTIN, LOW);
-  
+    digitalWrite(PIN_LED_BLUE, LOW); 
+  }  
   //response(Serial, "GET");
   /*if(gps.location.isValid()){
     Serial.print("{\"gps\":{\"lat\":");
