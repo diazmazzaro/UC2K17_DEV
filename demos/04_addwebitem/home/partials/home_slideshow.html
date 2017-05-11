@@ -1,0 +1,207 @@
+<style>
+  .blue{
+    color: #007ac2!important;
+  }
+  .black{
+    color: black!important;
+  }
+  .green{
+    color: #2a7433!important;
+  }
+  .carousel-image{
+    margin-right: 0;
+    overflow: visible;
+    height: 420px!important;
+  }
+  .carousel-indicators{
+    text-align: left!important;
+    color: black!important;
+  }
+  .carousel-indicators li{
+    margin-right: 10px;
+    border: 1px solid #FFF!important;
+    background-color: #FFF!important;
+  }
+  .carousel-indicators .active{
+    margin-right: 10px;
+    border: 1px solid #007AC2!important;
+    background-color: #007AC2!important;
+  }
+
+  .carousel-caption {
+    padding-bottom: 100px;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: left!important;
+  }
+
+  .carousel-caption h1{
+    font-size: 4.36em!important;
+  }
+  .carousel-caption h2{
+    font-size: 3em!important;
+  }
+  .carousel-caption h4{
+
+  }
+  #slideshow{
+    position: relative;
+  }
+  .item{
+    height: 420px;
+    overflow: visible;
+  }
+  .item-wrap{
+    /*background-color: rgba(0, 0, 0, .3);*/
+    width: 100%;
+    height: 100%;
+  }
+
+  #item1{
+    background: url('/UC2017/images/banner-uc2017.png');
+    background: url("/UC2017/images/banner-uc2017.png"), -moz-linear-gradient(left, #2d01fb 0%, #03ffff 100%) ;
+    background: url("/UC2017/images/banner-uc2017.png"), -webkit-linear-gradient(left, #2d01fb 0%,#03ffff 100%);
+    background: url("/UC2017/images/banner-uc2017.png"), linear-gradient(to left, #2d01fb 0%,#03ffff 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  #item2{
+    background: url('/home/images/banner_inteligencia-operacional.jpg');
+    background: url("/home/images/banner_inteligencia-operacional.jpg"), -moz-linear-gradient(left, #2d01fb 0%, #03ffff 100%) ;
+    background: url("/home/images/banner_inteligencia-operacional.jpg"), -webkit-linear-gradient(left, #2d01fb 0%,#03ffff 100%);
+    background: url("/home/images/banner_inteligencia-operacional.jpg"), linear-gradient(to left, #2d01fb 0%,#03ffff 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  #item3{
+    background: url('/home/images/The-science-of-where.jpg');
+    background: url("/home/images/The-science-of-where.jpg"), -moz-linear-gradient(left, #2d01fb 0%, #03ffff 100%) ;
+    background: url("/home/images/The-science-of-where.jpg"), -webkit-linear-gradient(left, #2d01fb 0%,#03ffff 100%);
+    background: url("/home/images/The-science-of-where.jpg"), linear-gradient(to left, #2d01fb 0%,#03ffff 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  #item4{
+    background: url('/home/images/safe-com-bg.jpg') top center;
+    background: url("/home/images/safe-com-bg.jpg"), -moz-linear-gradient(left, #2d01fb 0%, #03ffff 100%) ;
+    background: url("/home/images/safe-com-bg.jpg"), -webkit-linear-gradient(left, #2d01fb 0%,#03ffff 100%);
+    background: url("/home/images/safe-com-bg.jpg"), linear-gradient(to right, #2d01fb 0%,#03ffff 100%);
+    color: white;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }    
+  .carousel-caption.center{
+    text-align: center!important;
+  }
+  @media screen and (max-width: 1100px) {
+    .carousel-caption.center{
+      text-align: left!important;
+    }
+    .carousel-caption.center img{
+      display: none;
+    }
+
+    .carousel-caption h1{
+      font-size: 3em !important;
+    }
+    
+  }
+</style>
+<div id="carousel-header" class="carousel slide" data-ride="carousel">
+  
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-header" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-header" data-slide-to="1"></li>
+    <li data-target="#carousel-header" data-slide-to="2"></li>
+    <li data-target="#carousel-header" data-slide-to="3"></li>
+  </ol>
+ 
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <!-- slideshow 2 -->
+    <div id="item1" class="item active">
+      <a href="/UC2017/">
+      <div class="item-wrap">
+        <div class="carousel-caption center" style="padding-bottom:40px;">
+            <img style="max-width: 150px;margin-top:25px;" src="/UC2017/images/uc17_logo.png">
+            <h2>Conferencia de Usuarios Esri 2017</h2>
+            <h4>Sumate a uno de los eventos GIS mas grandes de la Argentina el 10, <span style="font-size:24px!important;font-weight:bold;">11</span>, y 12 de Mayo</h4>
+            <a href="/UC2017/agenda.shtml"><button class="btn-lg btn-warning" style="margin-top:25px;margin-right:25px;">Ver la Agenda →</button></a>
+            <a href="/UC2017/registro.shtml"><button class="btn-lg btn-primary" style="margin-top:25px;">Registrarme →</button></a>
+        </div>
+      </div></a>
+    </div>
+    
+    <div id="item2" class="item">
+      <a href="/inteligencia-operacional/">
+      <div class="item-wrap">
+        <div class="carousel-caption">
+            <h1>¿Estás viendo <br>el cuadro completo?</h1>
+            <h4>Mejora la inteligencia operacional de tu organización →</h4>
+        </div>
+      </div></a>
+    </div>
+    
+    <div id="item3" class="item">
+      <a href="/quienes-somos/">
+      <div class="item-wrap">
+        <div class="carousel-caption">
+            <h1>Descubre todo <br>el potencial de tus datos</h1>
+            <h4>Conoce cómo con The Science of Where →</h4>
+        </div>
+      </div></a>
+    </div>
+
+     <!-- slideshow 5 -->
+    <div id="item4" class="item">
+      <a href="/gobierno/smart_community/safe_community/"> 
+      <div class="item-wrap">
+        <div class="carousel-caption">
+          <h1 style="color:#5bc0de">Safe Communities</h1>
+          <h4 class="black">Comunidades Seguras</h4>
+          <a href="/gobierno/smart_community/safe_community/"><button class="btn btn-lg btn-info">Ir al portal →</button></a>
+        </div>
+      </div></a>
+    </div>
+   
+   
+  </div>
+ 
+  <!-- Controls 
+  <a class="left carousel-control" href="#carousel-header" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-header" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+  -->
+</div> <!-- Carousel -->
+<script>
+$( document ).ready(function() {
+	$(".carousel").hover(
+	  function(){
+	    $(".carousel").carousel('pause');
+	  },
+	  function() {
+	    $(".carousel").carousel('cycle');
+	  }
+	);
+  $('.carousel').carousel({
+    interval: 7500
+  });
+  $('.carousel-caption').fadeOut("fast", function (){
+    $('.carousel-caption').slideDown("slow"); 
+  });
+  window.setInterval(function(){
+    if($('.item').hasClass('left')){
+      $('.carousel-caption').fadeOut("fast");
+    } else if($('.item').hasClass('active')){
+      $('.carousel-caption').slideDown("slow");
+    }
+  }, 100);
+})
+ // $('.carousel-caption').fadeOut("fast", function (){
+ //      $('.carousel-caption').slideDown("slow"); 
+ //    });
+</script>

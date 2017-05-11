@@ -1,0 +1,42 @@
+
+<script>
+  require([
+    "esri/config",
+    "esri/Map",
+    "esri/views/SceneView",
+    "esri/layers/VectorTileLayer",
+    "esri/WebScene",
+    "dojo/domReady!"
+  ], function(esriConfig, Map, SceneView,VectorTileLayer,WebScene) {
+
+    // var map = new Map({
+    //   basemap: "streets",
+    //   ground: "world-elevation"
+    // });
+
+    /*var tileLyr = new VectorTileLayer({
+      url: "js/vector/root.json"
+    });
+    map.add(tileLyr);*/
+    esriConfig.portalUrl = "https://ags-enterprise4.aeroterra.com/arcgis";
+    var scene = new WebScene({
+        portalItem: { // autocasts as new PortalItem()
+          id: "458ffa78b088418bba304889ce82764d"
+        }
+      });
+
+    var view = new SceneView({
+      container: "viewDiv",
+      map: scene,
+      scale: 50000000,
+      center: [-58.3816,-34.6037]
+    });
+
+  });
+</script>
+<style type="text/css">
+  #viewDiv{
+    height: 450px;
+  }
+</style>
+<div id="viewDiv"></div>

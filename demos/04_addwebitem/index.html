@@ -1,0 +1,178 @@
+<html>
+<head>
+  <title>Sistemas de Informaci&oacute;n Geogr&aacute;fica - SIG | Aeroterra S.A.</title>
+  <meta charset="iso-8859-1">
+  <meta charset="UTF-8">
+  <link rel="canonical" href="http://aeroterra.com/" />
+  <!-- keywords -->
+  <meta name="Keywords" content="Aeroterra, GIS, SIG, Esri, ArcGIS, Mapas, ge&oacute;grafos, cart&oacute;grafos, Informaci&oacute;n geogr&aacute;fica">
+  <meta name="viewport" content="width=device-width" />
+  <!-- end keywords -->
+  <!-- description -->
+  <meta name="Description" content="Aeroterra S.A. tiene m&aacute;s de 40 años de experiencia en Sistemas de Informaci&oacute;n Geogr&aacute;fica. Solucione problemas reales en tiempo real! Conozca m&aacute;s sobre GIS!" />
+  <meta name="google-site-verification" content="TxbVVwtFgPDn-uRV9WwKYJQNC_-Puc3tPy-xfEpcn2g" />
+  <!--end description-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+   <!-- Latest compiled and minified JavaScript -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/home/css/fonts.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.3/esri/css/main.css">
+<script src="https://js.arcgis.com/4.3/"></script>
+
+</head>
+<body style="overflow-x: hidden;">
+  <style>
+  a:link {
+    text-decoration: none!important;
+    color: inherit;
+  }
+
+  a:visited {
+      text-decoration: none!important;
+      color: inherit;
+  }
+
+  a:hover {
+      color: inherit;
+  }
+
+  a:active {
+      text-decoration: none!important;
+      color: inherit;
+  }
+	.home_primary{
+		margin-top: 30px;
+		text-align: center;
+	}
+	.home_primary div img{
+  	width: 98%;
+    transition: all .5s ease-in-out;
+  }
+  .home_primary div{
+    overflow: hidden;
+  }
+  .home_primary div img:hover{
+    width: 100%;
+  }
+  #home_secondary{
+    margin-top: 30px;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #E5F1F9;
+  }
+  #home_secondary_img{
+    transition: all .5s ease-in-out;
+    cursor: pointer;
+    width: 98%;
+    height: auto;
+  }
+  #home_secondary_img:hover{
+    width: 100%;
+  }
+	.green{
+		color: #2A7433;
+	}
+  </style>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="text-center modal-content">
+        <div class="modal-header">
+
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+
+        </div>
+        <div class="modal-footer">
+          <a href="/Contacto/index.html" class="btn btn-primary" style="color:#FFF">Contacto</a>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="header"></div>
+  <div id="slideshow"></div>
+  <div class="home_primary container">
+  	<h1 style="margin-bottom:25px;">Sepa m&aacute;s sobre Sistema de Informaci&oacute;n Geogr&aacute;fica - GIS</h1>
+  	
+    <div class="col-md-6 col-lg-6">
+      <a href="/UC2017/agenda.shtml"><img src="/home/images/banner_uc17_agenda.png" alt="UC2017"></a>
+      <h2 class="green">&#161;No te la pierdas!</h2>
+      <h4>La UC2017 lleva tu GIS a otro nivel</h4>
+    </div>
+
+    <div class="col-md-6 col-lg-6">
+  		<a target="_blank" href="https://www.youtube.com/user/aerot1973"> <img src="/home/images/Banner_canalyt.jpg" alt="UC2017"></a>
+      <h2 class="green">Conoce m&aacute;s sobre GIS</h2>
+  		<h4>Visita nuestro canal de Youtube</h4>
+  	</div>
+    
+  </div>
+  <div id="home_secondary" class="row">
+	<div class="container">
+
+		<div class="col-md-4 col-lg-4">
+			<a id="subVideo1" href="https://www.youtube.com/watch?v=4yMa4KHmex4">
+				<img id="home_secondary_img" src="/home/images/TSOW_home.jpg" alt="news1">
+			</a>
+			<h4 class="green">The Science of Where</h4>
+			<h5>Descubre todo el potencial de tus datos</h5>
+		</div>
+		<div class="col-md-4 col-lg-4">
+			<a id="subVideo2" type="button" data-toggle="modal" data-target="#myModal" >
+				<img id="home_secondary_img" src="/home/images/PNA_HOME.jpg" alt="news2">
+			</a>
+			<h4 class="green">Sistema Guardacostas</h4>
+			<h5>ArcGIS para gesti&oacute;n de datos en Seguridad Nacional</h5>
+		</div>
+		<div class="col-md-4 col-lg-4">
+			<a target="_blank" id="subVideo3" href="http://arcg.is/2kGGsjh" >
+				<img id="home_secondary_img" src="/home/images/storymaparte_home.jpg" alt="news3">
+			</a>
+			<h4 class="green">StoryMap de Arte Argentino en Madrid </h4>
+      <h5>Muestra de artistas argentinos en ARCO 2017</h5>
+    </div>
+	</div>
+</div>
+  <div id="home_subfooter"></div>
+  <div id="fat_footer"></div>
+  <script type="text/javascript">
+    $( document ).ready(function() {
+      $("#header").load("/home/partials/header.html"); 
+      //$("#slideshow").load("/home/partials/home_slideshow.html"); 
+      $("#slideshow").load("/home/partials/map.html"); 
+      $("#home_subfooter").load("/home/partials/home_subfooter.html");
+      $("#fat_footer").load("/home/partials/fat_footer.html");
+
+      // $("#subVideo1").on('click', function(){
+      //   $(".modal-header").empty();
+      //   $(".modal-header").html('<h1 class="green">Drone2Map</h1>');
+      //   $(".modal-body").empty();
+      //   $(".modal-body").html('<iframe style="width:730px; height:410px;" src="https://www.youtube.com/embed/UxfhrhlBU4c" frameborder="0"></iframe>');
+      // });
+      $("#subVideo2").on('click', function(){
+        $(".modal-header").empty();
+        $(".modal-header").html('<h1 class="green">Sistema Guardacostas</h1>');
+        $(".modal-body").empty();
+        $(".modal-body").html('<iframe style="width:720px; height:410px;" src="https://www.youtube.com/embed/hFxL88fcGsw" frameborder="0"></iframe>');
+      });
+      $("#subVideo3").on('click', function(){
+        $(".modal-header").empty();
+        $(".modal-header").html('<h1 class="green">El Futuro de la Inteligencia</h1>');
+        $(".modal-body").empty();
+        $(".modal-body").html('<iframe style="width:720px; height:410px;" src="https://www.youtube.com/embed/eNMvk4dFB6s" frameborder="0"></iframe>');
+      });
+    });
+  </script>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1146889-1";
+urchinTracker();
+</script>
+</body>
+</html>

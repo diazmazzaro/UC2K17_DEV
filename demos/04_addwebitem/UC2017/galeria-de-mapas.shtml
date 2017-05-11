@@ -1,0 +1,403 @@
+<html>
+<head>
+<title>UC 2017 - Galer&iacute;a de Mapas</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google Analytics -->
+  <meta name="google-site-verification" content="TxbVVwtFgPDn-uRV9WwKYJQNC_-Puc3tPy-xfEpcn2g" />
+
+  <!-- Keywords -->
+  <meta name="Keywords" content="Aeroterra, Aeroterra SA, Aeroterra S.A., GIS. SIG, Esri, ArcGIS,  Mapas, geógrafos, cartógrafos, Información geográfica, UC2016, User Conference 2016, Eventos" />
+
+  <!-- Description -->
+  <meta name="Description" content="Aeroterra SA tiene más de 40 años de experiencia promoviendo soluciones basadas en la plataforma GIS #1 a nivel mundial que permiten entender nuestro entorno y sus problemas a través del análisis y la interpretación" />
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/UC2017/css/galeria.css">
+  <link rel="stylesheet" href="/home/css/fonts.css">
+</head>
+<body>
+
+  <!-- Modal -->
+  <div style="margin-top:100px;" class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="text-center modal-content">
+        <div class="modal-header">
+
+          <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+
+        </div>
+        <div class="modal-footer">
+          <a href="/UC2017/contacto.shtml" class="btn btn-primary" style="color:white!important;">Contacto</a>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<div id="header"></div>
+  <div id="topBanner-import"></div>
+  <div id="subnav-import"></div>
+  <script type="text/javascript">
+    $( document ).ready(function() {
+      $("#header").load("/home/partials/header.html"); 
+      $("#subnav-import").load("./partials/header.html");
+      $("#topBanner-import").load("./partials/banner.html");
+      $("#sub-footer").load("./partials/footer.html");
+      $("#footer").load("/home/partials/fat_footer.html");
+    });
+  </script>
+
+  <div class="container section">
+    <img class="uc-featured-image" alt="Registro" src="./images/uc17_banner_galeria.jpg">
+    <br>
+    <br>
+    <h2> <font color="#007AC2">Participa de nuestra Galería de Mapas y gana importantes premios</font></h2><br>
+    <p> Queremos ilustrar las últimas innovaciones en GIS compartiendo ejemplos de tu trabajo. Con tus mapas podrás ganar entradas gratis a la UC2017 y acceso a capacitación GIS.
+    <br><br>
+    Junto a tu organización podrás postular uno o dos mapas para participar de nuestra Galería de Mapas. Se seleccionarán 20 imágenes que pasarán a formar parte de nuestra Galería Web. Esas 20 imágenes tendrán una entrada gratis a la UC2017. De las 20, se seleccionarán 10 que se exhibirán en nuestra Galería de Mapas el día 11 de mayo en el Sheraton Buenos Aires Hotel & Convention Center. El público elegirá un ganador. El ganador obtendrá un destacado voucher de capacitación.
+    </p>
+    <br>
+    
+     
+
+    
+     
+        <h3><font color="#007AC2">¿Qué buscamos?</font></h3>
+        <ul>
+          <li>Imágenes que representan el uso de la tecnología ArcGIS</li>
+          <li>Mapas que ayudaron a tomar una decisión sobre recursos, operaciones o estrategias</li>
+          <li>Mapas que ayudaron a comunidades a trabajar en forma conjunta</li>
+          <li>Mapas que ayudaron a la gente a entender un tema complejo</li>
+          <li>Mapas que ilustran el análisis espacial, el modelado y la ciencia</li>
+          <li>Mapas que ilustran la integración con otros sistemas</li>
+        </ul>
+        <p>Visita estos <a href="http://www.esri.com/events/user-conference/exhibits/map-gallery-results">ejemplos</a> para orientarte en la producción de tu contenido.</p>
+
+      <br>
+        <h3><font color="#007AC2">¿Quiénes pueden participar?</font></h3>
+        <ul>
+          <li>Clientes de Esri con Mantenimiento al día.</li>
+          
+        </ul>
+
+      <br>
+
+      
+        <h3><font color="#007AC2">¿Cuáles serán los requisitos para tu trabajo?</font></h3>
+        <ul>
+          <li>Archivos JPEG, PDF o PNG. </li>
+          <li>Formato a Exportar desde ArcGIS: RGB a 72dpi.</li>
+          
+        </ul>
+      <br>
+
+    <h3><font color="#007AC2">Fechas importantes</font></h3>
+
+  <table class="uc-table">
+    <tbody>
+      <tr>
+        <td colspan="1">
+          01-03-2017
+        </td>
+        <td colspan="2">
+          Apertura convocatoria Galería de Mapas.
+        </td>
+        
+      </tr>
+      <tr>
+        <td colspan="1">
+          31-03-2017
+        </td>
+        <td colspan="2">
+         Cierre de la convocatoria. Fecha límite para el envío de imágenes.
+       </td>
+      </tr>
+      <tr>
+        <td colspan="1">
+          07-04-2017
+        </td>
+        <td colspan="2">
+          Anuncio de los seleccionados para la nuestra Galería Web, ganadores de una entrada a la UC2017.
+        </td>
+        
+      </tr>
+      <tr>
+        <td colspan="1">
+          11-05-2017
+        </td>
+        <td colspan="2">Exhibición de las imágenes ganadoras en la UC2017.
+        </td>
+      </tr>
+      <tr>
+        <td colspan="1">
+          19-05-2017
+        </td>
+        <td colspan="2">
+          Anuncio del ganador del voucher de capacitación.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  
+
+  <h3><font color="#007AC2">¿Cómo participo?</font></h3>
+  <p>Ya cerramos las inscripciones para este año. ¡Te esperamos el año que viene!</p><br><br>
+  <!--<p style="margin-top:25px; text-decoration:underline;"><a href="./Bases-y-condiciones-Galeria-de-Mapas.pdf" target="_blank">Descarga las bases y condiciones <span class="glyphicon glyphicon-download"></span></a></p>
+  <style>
+    option span.blue{
+      color: #007ac2!important;
+    }
+    .uc-featured-image {
+        margin-bottom: 20px;
+        margin-top: 20px;
+        width: 100%;
+    }
+    .uc-featured-blurb {
+      margin-top: 50px;
+      margin-bottom: 50px;
+      padding-bottom: 3px;
+      font-size: 16px !important;
+      color: #696969;
+      line-height: 1.5em;
+      text-align: left;
+    }
+    #contact-form{
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    .pad50{
+      padding: 50px;
+    }
+    .form-group.half{
+      width: 49%;
+      float: left;
+    }
+    .form-group.half.right-side{
+      margin-left: 2%;
+    }
+    .form-group.half{
+      width: 49%;
+      float: left;
+    }
+    .form-group.half.right-side{
+      margin-left: 2%;
+    }
+    @media screen and (max-width: 670px) {
+      table tr td:first-child{
+        width: 33.33%;
+      }
+      table tr td:last-child{
+        width: 66.33%;
+      }
+      .pad50{
+        padding: 0px;
+        margin-bottom: 50px;
+        margin-top: 50px;
+      }
+    }
+  </style>
+  <script type="text/javascript"><!-- 
+      function formCheck(formobj){
+        // Enter name of mandatory fields
+        var fieldRequired = Array("Nombre", "Apellido", "E-mail", "Tipo de Relacion", "Industria de Interes", "Empresa", "Cargo", "Pais", "Telefono");
+        // Enter field description to appear in the dialog box
+        var fieldDescription = Array("Nombre", "Apellido", "E-mail", "Tipo de Relacion", "Industria de Interes", "Empresa", "Cargo", "Pais", "Telefono");
+        // dialog message
+        var alertMsg = "Por favor complete todos los campos que son obligatorios  marcados con *.";
+       
+        var l_Msg = alertMsg.length;
+        
+        if (formobj.elements["FiltroDeBot"].value !== "" || formobj.elements["FiltroDeBot2"].value !== ""){
+          window.location = "http://www.aeroterra.com/Contacto/Gracias_consultas.shtml";
+          return false;
+        }
+
+        for (var i = 0; i < fieldRequired.length; i++){
+            var obj = formobj.elements[fieldRequired[i]];
+            if (obj){
+               switch(obj.type){
+               case "select-one":
+                   if (obj.selectedIndex == -1 || obj.options[obj.selectedIndex].text == ""){
+                               alertMsg += " - " + fieldDescription[i] + "\n";
+                   }
+                   break;
+               case "select-multiple":
+                   if (obj.selectedIndex == -1){
+                               alertMsg += " - " + fieldDescription[i] + "\n";
+                   }
+                   break;
+               case "text":
+               case "textarea":
+                   if (obj.value == "" || obj.value == null){
+                               alertMsg += " - " + fieldDescription[i] + "\n";
+                   }
+                   break;
+               default:
+               }
+               if (obj.type == undefined){
+                   var blnchecked = false;
+                   for (var j = 0; j < obj.length; j++){
+                               if (obj[j].checked){
+                                           blnchecked = true;
+                               }
+                   }
+                   if (!blnchecked){
+                               alertMsg += " - " + fieldDescription[i] + "\n";
+                   }
+               }
+            }
+        }
+
+        if (alertMsg.length == l_Msg){
+            return true;
+        }else{
+            alert(alertMsg);
+            return false;
+        }
+    }
+    //--> <!--</script>
+  <div id="form-consultas" class="container pad50">
+    
+    <form action="http://www.aeroterra.com/formmail.php" method="post" id="formu" onSubmit="return formCheck(this);" align="left">
+      <input class="form-control" type="hidden" name="recipient" value="avidal@aeroterra.com" />
+      <input class="form-control" type="hidden" name="redirect" value="/UC2017/Gracias-galeria.shtml" />
+      <input class="form-control" type="hidden" name="subject" value="UC 2017 - Galeria de Mapas" />
+      <div class="form-group" style="display:none">
+        <label for="FiltroDeBot">Filter</label>
+        <input name="FiltroDeBot" type="text" class="form-control" value="" size="40" />
+      </div>
+      <div class="form-group half">
+        <label for="Nombre">*Nombre</label>
+        <input class="form-control" type="text" name="Nombre" class="frame3" size="50" />
+      </div>
+      <div class="form-group half right-side">
+        <label for="Apellido">*Apellido</label>
+        <input class="form-control" type="text" name="Apellido" class="frame3" size="50" />
+      </div>
+      <div class="form-group half">
+        <label for="E-mail">*E-mail</label>
+        <input class="form-control" type="text" name="E-mail" class="frame3" size="50" />
+      </div>
+      <div class="form-group half right-side">
+        <label for="Tipo de Relacion">*Tipo de Relacion</label>
+        <select class="form-control" name="Tipo de Relacion" class="frame3" id="Basico2">
+          <option value="" selected>Seleccionar</option>
+          <option value="Cliente">Cliente</option>
+          <option value="Cliente Potencial">Cliente Potencial</option>
+          <option value="Usuario Gratuito">Usuario Gratuito</option>
+          <option value="Partner de Esri">Partner de Esri</option>
+          <option value="Potencial Partner de Esri">Potencial Partner de Esri</option>
+          <option value="Prensa">Prensa</option>
+          <option value="Otro">Otro</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="Industria de Interes">*Industria de Inter&eacute;s</label><select class="form-control" name="Industria de Interes" class="frame3">
+          <option value="" selected>Seleccionar</option>
+          <option value="Agro, Ganaderia y Pesca">Agro, Ganader&iacute;a y Pesca</option>
+          <option value="Arquitectura, Ingenieria y Construcción">Arquitectura, Ingenier&iacute;a y Construcci&oacute;n</option>
+          <option value="Bancos y Seguros">Bancos y Seguros</option>
+          <option value="Consultoria">Consultor&iacute;a</option>
+          <option value="Educación">Educaci&oacute;n</option>
+          <option value="Energia">Energ&iacute;a</option>
+          <option value="Forestal">Forestal</option>
+          <option value="Información">Informaci&oacute;n</option>
+          <option value="Medio Ambiente">Medio Ambiente</option>
+          <option value="Minería">Miner&iacute;a</option>
+          <option value="Petróleo y Gas">Petr&oacute;leo y Gas</option>
+          <option value="Retail y Comercio">Retail y Comercio</option>
+          <option value="Salud y Servicios Sociales">Salud y Servicios Sociales</option>
+          <option value="Seguridad, Defensa y Emergencias">Seguridad, Defensa y Emergencias</option>
+          <option value="Servicios Inmobiliarios">Servicios Inmobiliarios</option>
+          <option value="Servicios Profesionales">Servicios Profesionales</option>
+          <option value="Tecnologia">Tecnolog&iacute;a</option>
+          <option value="Transporte">Transporte</option>
+          <option value="Turismo">Turismo</option>
+          <option value="Otro">Otro</option>
+        </select>
+      </div>
+      
+      <div class="form-group half">
+        <label for="Empresa">*Empresa</label> 
+        <input class="form-control" type="text" name="Empresa" class="frame3" size="50" />
+      </div>
+      <div class="form-group half right-side">
+        <label for="Cargo">*Cargo</label>
+        <input class="form-control" name="Cargo" type="text" class="frame3" id="Cargo" size="50" />
+      </div>
+      <div class="form-group half">
+        <label for="Pais">*Pa&iacute;s</label>
+        <input class="form-control" type="text" name="Pais" class="frame3" size="50" />
+      </div>
+      <div class="form-group half right-side">
+        <label for="Telefono">*Tel&eacute;fono</label>
+        <input class="form-control" type="text" name="Telefono" class="frame3" size="20" />
+      </div>
+      <div class="form-group half">
+        <label for="Domicilio">Domicilio</label>
+        <input class="form-control" type="text" name="Domicilio" class="frame3" size="50" />
+      </div>
+      <div class="form-group half right-side">
+        <label for="Localidad">Localidad</label>
+        <input class="form-control" type="text" name="Localidad" class="frame3" size="20" />
+      </div>
+      <div class="form-group half">
+        <label for="Provincia">Provincia</label>
+        <input class="form-control" type="text" name="Provincia" class="frame3" size="50" />
+      </div>
+      <div class="form-group half right-side">
+        <label for="Referencia">Referido por</label>
+        <select class="form-control" name="Referencia" class="frame3" id="Basico2">
+          <option value="Seleccionar" selected>Seleccionar</option>
+          <option value="Búsqueda por Internet">Búsqueda por Internet</option>
+          <option value="Campaña de Marketing">Campaña de Marketing</option>
+          <option value="Ejecutivo de Aeroterra">Ejecutivo de Aeroterra</option>
+          <option value="Esri EEUU">Esri EEUU</option>
+          <option value="Evento / Seminario">Evento / Seminario</option>
+          <option value="Redes sociales">Redes sociales</option>
+          <option value="Web de Aeroterra">Web de Aeroterra</option>
+          <option value="Sitios Webs">Sitios Web</option>
+          <option value="Publicidad">Publicidad</option>
+          <option value="Prensa">Prensa</option>
+          <option value="Otro">Otro</option>
+        </select>
+      </div>
+      <div class="form-group" style="display:none">
+        <label for="FiltroDeBot2">Filter</label>
+        <input name="FiltroDeBot2" type="text" class="form-control" value="" size="40" />
+      </div>
+      <div class="form-group">
+        <label for="Consulta">Comentarios</label>
+        <textarea class="form-control" placeholder="Consulta" name="Consulta" type="text" value="" size="40"></textarea>
+      </div>
+      <div class="form-group text-center">
+        <span style="font-size: 11px;">Todos los campos marcados con * son obligatorios.</span>
+      </div>
+      <div class="form-group">
+        <div align="center">
+          <input type="reset" name="Reset" value="BORRAR" class="btn btn-default" />
+          <input type="submit" name="Submit2" value="ENVIAR DATOS" class="btn btn-primary" />
+        </div>
+      </div>
+    </form>-->
+  </div> 
+  </div>
+  <div id="sub-footer"></div>
+  <div id="footer"></div>
+  <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    _uacct = "UA-1146889-1";
+    urchinTracker();
+  </script>
+</body>
+</html>

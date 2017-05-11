@@ -1,0 +1,228 @@
+<html>
+<head>
+<title>Conferencia Esri 2017 - Registros</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="/UC2017/css/registro.css">
+  <link rel="stylesheet" href="/home/css/fonts.css">
+
+  <script src="/UC2017/js/registros.js" type="text/javascript"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+   <!-- Jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+   <!-- Keywords -->
+  <meta name="Keywords" content="Registro, Registracion, User Conference, UC 2017, Conferencia de Usuarios, Aeroterra, Conferencia Esri" />
+
+  <!-- Description -->
+  <meta name="Description" content="La Conferencia Esri 2017 presenta los adelantos, lanzamientos y nuevos desarrollos en la utilización de Sistemas de Información Geográfica, así como su integración con otros sistemas." />
+</head>
+<body>
+
+  <!-- Modal -->
+  <div style="margin-top:100px; z-index:9999!important;" class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="text-center modal-content">
+        <div class="modal-header">
+
+          <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+
+        </div>
+        <div class="modal-footer">
+          <a href="/UC2017/contacto.shtml" class="btn btn-primary" style="color:white!important;margin-top:0px"
+          >Contacto</a>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<div id="header"></div>
+  <div id="topBanner-import"></div>
+  <div id="subnav-import"></div>
+  <script type="text/javascript">
+    $( document ).ready(function() {
+      $("#header").load("/home/partials/header.html"); 
+      $("#subnav-import").load("./partials/header.html");
+      $("#topBanner-import").load("./partials/banner.html");
+      $("#sub-footer").load("./partials/footer.html");
+      $("#footer").load("/home/partials/fat_footer.html");
+    });
+  </script>
+
+  <div class="container section">
+    <img class="uc-featured-image" alt="Registro" src="./images/uc17_banner_registro.jpg">
+    <br>
+    <br>
+    <a class="btn-registrar" type="button" data-toggle="modal" data-target="#myModal" ><button class="btn btn-warning btn-lg btn-esri"><strong>Reg&iacute;strate</strong></button></a>
+    <table class="uc-table">
+    <tbody>
+        <tr>
+          <td colspan="9">
+            <h4>Categor&iacute;as de registros
+          </h4></td>
+      </tr>
+        <tr>
+          <th colspan="1">
+            Categor&iacute;a
+          </th>
+          <th colspan="8">
+            Descripci&oacute;n 
+          </th>
+          <td colspan="1" bgcolor="#FFFFFF">
+            <span style="font-weight: bold">Precio General</span></td>
+            
+        </tr>
+        <tr>
+          <td colspan="1">
+            A
+          </td>
+          <td colspan="8">
+            <span style="font-weight: bold">USUARIOS</span> con sede principal en Argentina o Uruguay y <span style="font-weight: bold">con Mantenimiento</span> vigente <sup>(2)</sup></td>
+          <td colspan="1">
+            Sin Cargo<sup>(3)</sup></td>
+            
+        </tr>
+        <tr>
+          <td colspan="1">
+            B
+          </td>
+          <td colspan="8">
+            <span style="font-weight: bold">USUARIOS</span> con sede principal en Argentina o Uruguay y <span style="font-weight: bold">sin Mantenimiento</span> vigente</td>
+          <td colspan="1">
+            ARS 2.500
+          </td>
+        
+        </tr>
+        <tr>
+          <td colspan="1">
+            C
+          </td>
+          <td colspan="8">
+            Usuario Adicional <sup>(4)</sup></td>
+          <td colspan="1">
+            ARS 2.000
+          </td>
+          
+        </tr>
+        <tr>
+          <td colspan="1">
+            D
+          </td>
+          <td colspan="8">Usuarios o Partners <strong>sin sede principal</strong> en Argentina o Uruguay</td>
+          <td colspan="1">ARS 4.000</td>
+         
+        </tr>
+        <tr>
+          <td colspan="1">
+            E
+          </td>
+          <td colspan="8">
+            <strong>No Usuarios</strong></td>
+          <td colspan="1">ARS 4.000</td>
+          
+        </tr>
+        <tr>
+          <td colspan="1">
+            F
+          </td>
+          <td colspan="8">
+           Partners <sup>(5)</sup> - Sponsors <sup>(6)</sup></td>
+          <td colspan="1">Sin Cargo</td>
+          
+        </tr>
+        <tr>
+          <td colspan="1">
+            G
+          </td>
+          <td colspan="8">
+            Prensa</td>
+          <td colspan="1"><a href="./contacto.shtml" target="_blank">Consultar</a></td>
+          
+        </tr>
+        <tr>
+          <td colspan="1">
+            H
+          </td>
+          <td colspan="8">
+           Ingreso a Expo y Tracks</td>
+          <td colspan="1"><a href="./contacto.shtml" target="_blank">Consultar</a></td>
+          
+        </tr>
+
+        <tr>
+          <td colspan="10" class="referencias"><p><br>
+            <sup>(1)</sup> Los precios est&aacute;n expresados en pesos argentinos. Los Precios incluyen IVA 21%. 
+            <sup>(2)</sup> Mantenimiento de Licencias pago al 31 de marzo de 2017. <a href="./contacto.shtml" target="_blank">Consultar</a> la cantidad de entradas sin cargo.
+             <br>
+             <sup>(3)</sup> Un (1) Usuario Adicional de regalo por cada tres (3) Registraciones Anticipadas.<br>
+            <sup>(4)</sup> S&oacute;lo aplica a usuarios con Mantenimiento vigente. Tarifa para Grupos (5 personas o m&aacute;s) consultar. <br>
+            <sup>(5)</sup> Una entrada sin cargo con la membres&iacute;a al EPN Silver vigente al 31 de marzo de 2017. <br>&nbsp;&nbsp;&nbsp;&nbsp;Tres entradas sin cargo con la membres&iacute;a al EPN Gold vigente al 31 de marzo de 2017.
+            <br>
+          <sup>(6)</sup> <a href="./contacto.shtml" target="_blank">Consultar</a> la cantidad de entradas sin cargo seg&uacute;n el nivel de sponsoreo.<br>
+          
+            <hr />
+            <h4>&iquest;Qu&eacute; incluye la registraci&oacute;n a la UC?</h4>
+          <ul>
+            <li>Material de la conferencia </li>
+            <li>Sesiones t&eacute;cnicas</li>
+            <li>Sesi&oacute;n plenaria</li>
+            <li>Track industrias: Smart Communities - Agropecuario y Forestal - Oil&Gas y Utilities</li>
+            <li>EXPO GIS</li>
+            <li>Coffee Break</li>
+            <li>Almuerzo</li>            
+            
+          </ul></td>
+        </tr>
+    </tbody>
+    </table>
+    <a class="btn-registrar" type="button" data-toggle="modal" data-target="#myModal" ><button class="btn btn-warning btn-lg btn-esri"><strong>Reg&iacute;strate</strong></button></a>
+    <div class="row" style="margin-bottom:20px;">
+      <div class="col-md-4 col-lg-4">
+        <h4>Confirmaci&oacute;n</h4>
+        <p>
+          Todo registro está sujeto a aprobación. La confirmaci&oacute;n de registro se comunicar&aacute; por escrito. Todos los pagos se realizar&aacute;n en pesos argentinos y las tarifas de inscripci&oacute;n deber&aacute;n pagarse en su totalidad para obtener la confirmaci&oacute;n de inscripci&oacute;n. Las inscripciones pagadas por transferencia bancaria, no recibir&aacute;n la confirmaci&oacute;n hasta que dicha transferencia se haga efectiva. Aeroterra S.A. se reserva el derecho a rechazar cualquier inscripci&oacute;n incompleta. Una vez se haya completado el registro, la factura ser&aacute; emitida y enviada a los asistentes.
+        </p>
+      </div>
+      <div class="col-md-4 col-lg-4">
+        <h4>Pol&iacute;ticas de Cancelaci&oacute;n</h4>
+        <p>
+          Las cancelaciones ser&aacute;n aceptadas hasta el 1 de abril de 2017, reembolsando el pago en su totalidad. La notificaci&oacute;n de cancelaci&oacute;n deber&aacute; enviarse por escrito al sector administrativo de la Conferencia. Despu&eacute;s del 1 de abril de 2017, no se reembolsar&aacute; el importe. Aquellos inscriptos confirmados que no participen o que env&iacute;en su cancelaci&oacute;n despu&eacute;s del 1 de abril de 2017, perder&aacute;n su derecho a reembolso. </p>
+        <p>Aeroterra S.A. se reserva el derecho de cancelar cualquier registro. Si Aeroterra S.A. cancela un registro, se reembolsar&aacute;n los importes correspondientes a registros pagos en su totalidad. No se devolver&aacute;n los importes de registros en caso de que el asistente no se presente al evento.</p>
+      </div>
+      <div class="col-md-4 col-lg-4">
+        <h4>Opciones de Pago</h4>
+        <h5>Pago Online con Tarjeta de Cr&eacute;dito/D&eacute;bito</h5>
+        <p>
+          Encuentre en el siguiente link las opciones de pagos online con tarjetas: 
+          <br> 
+          <a id="btn-credito" type="button" data-toggle="modal" data-target="#myModal" >
+          <button class="btn btn-primary btn-esri">Online con Tarjeta de Cr&eacute;dito</button></a>
+        </p>
+        <h5>Transferencia Bancaria</h5>
+        <p>
+          Encuentre en el siguiente link los datos para realizar su transferencia bancaria:
+          <br>
+          <a id="btn-bancaria" type="button" data-toggle="modal" data-target="#myModal" ><button class="btn btn-primary btn-esri">Transferencia Bancaria</button></a>
+        </p>
+        <h5>Cheque</h5>
+        <p>
+          Extendido a la orden de: AEROTERRA S.A.
+        </p> 
+       </div>
+      </div>
+  </div>
+  <div id="sub-footer"></div>
+  <div id="footer"></div>
+  <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    _uacct = "UA-1146889-1";
+    urchinTracker();
+  </script>
+</body>
+</html>

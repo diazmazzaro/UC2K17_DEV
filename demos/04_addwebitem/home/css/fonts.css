@@ -1,0 +1,20 @@
+/* ASSIGN FONT TO HTML ELEMENTS AND CLASSES */
+@font-face {
+  font-family: 'Avenir_Chrome';
+  src: url('/home/Avenir/AvenirLTStd-Light.otf');
+}
+@font-face {
+  font-family: 'Avenir_Explorer';
+  src: url('/home/Avenir/AvenirLTStd-Light.otf');
+}
+body, section, section h1, #main, #main #right, #main #left, .h1,.h2,.h3,.h4,.h5,.h6, .container h1,h1,h2,h3,h4,h5,h6, .container, section h2, section h3, section h4, section h5, article, article h1, article h2, article h3, article h4, h1 a, h2 a, h3 a, h4 a, h5 a, #navbar li, ul, ol, li, div, span, div div ul a li, th, tr, td, table {
+	font-weight: normal;
+	font-style: normal;
+	line-height: normal;
+	font-variant: normal;
+	/* font-family:'Avenir LT W01 85 Heavy', Arial, Helvetica, sans-serif; */
+	font-family: 'Avenir_Chrome', 'Avenir_Explorer', Arial, Helvetica, sans-serif;
+}
+.btn, .btn-lg, .form-control, .modal-content {
+  border-radius: 0px!important;
+}

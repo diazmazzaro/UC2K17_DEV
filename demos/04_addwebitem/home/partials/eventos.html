@@ -1,0 +1,216 @@
+<script>
+  function formEventosCheck(formobj){
+    // Enter name of mandatory fields
+    var fieldRequired = Array("Nombre", "Apellido", "E-mail", "Industria");
+    // Enter field description to appear in the dialog box
+    var fieldDescription = Array("Nombre", "Apellido", "E-mail", "Industria");
+    // dialog message
+    var alertMsg = "Por favor complete los campos obligatorios marcados con * \n";
+    
+    var l_Msg = alertMsg.length;
+    
+    if (formobj.elements["FiltroDeBot"].value !== "" || formobj.elements["FiltroDeBot2"].value !== ""){
+      window.location = "http://www.aeroterra.com/Contacto/Gracias_consultas.shtml";
+      return false;
+    }
+
+    for (var i = 0; i < fieldRequired.length; i++){
+      var obj = formobj.elements[fieldRequired[i]];
+      if (obj){
+        switch(obj.type){
+        case "select-one":
+          if (obj.selectedIndex == -1 || obj.options[obj.selectedIndex].text == ""){
+            alertMsg += " - " + fieldDescription[i] + "\n";
+          }
+          break;
+        case "select-multiple":
+          if (obj.selectedIndex == -1){
+            alertMsg += " - " + fieldDescription[i] + "\n";
+          }
+          break;
+        case "text":
+        case "textarea":
+          if (obj.value == "" || obj.value == null){
+            alertMsg += " - " + fieldDescription[i] + "\n";
+          }
+          break;
+        default:
+        }
+        if (obj.type == undefined){
+          var blnchecked = false;
+          for (var j = 0; j < obj.length; j++){
+            if (obj[j].checked){
+              blnchecked = true;
+            }
+          }
+          if (!blnchecked){
+            alertMsg += " - " + fieldDescription[i] + "\n";
+          }
+        }
+      }
+    }
+
+    if (alertMsg.length == l_Msg){
+      return true;
+    }else{
+      alert(alertMsg);
+      return false;
+    }
+  }
+  // -->
+</script>      
+<style>
+	#contact-form{
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+	.pad50{
+		padding: 50px;
+	}
+	.form-group.half{
+		width: 49%;
+		float: left;
+	}
+	.form-group.half.right-side{
+		margin-left: 2%;
+	}
+	.section-header{
+	    border-bottom: 1px solid #CCC;
+	    height: 20px;
+	    text-align: center;
+	    position: relative;
+	    width: 100%;
+	}
+	#section-eventos{
+		margin-top: 50px;
+	}
+	.section-header #content_title{
+		font-size: 32px;
+		background-color: white;
+		padding: 20px 20px 20px 20px;
+	}
+	#section-eventos h2{
+		font-size: 18px;
+	    margin: 0 0 20px 0;
+	}
+	#section-eventos a{
+		color: #2A7433!important;
+	}
+	#eventos-list li{
+		position: relative;
+		padding-left: 250px;
+		margin-bottom: 50px;
+	}
+	#eventos-list a{
+		position: absolute;
+		left: 0;
+		top:-15px;
+	}
+	#modal-inscripcion h2{
+		margin-top: 25px;
+	}
+</style>
+<div style="margin-top:100px;" class="modal fade" id="modal-inscripcion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header text-center">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h2>Recibe las últimas noticias sobre GIS</h2>
+    </div>
+    <div class="modal-body">
+
+
+	<!-- Form Inscripcion -->
+
+
+	<form action="/formmail.php" method="post" id="formu" onSubmit="return formEventosCheck(this);">
+	    <input type="hidden" name="recipient" value="uc@aeroterra.com" />
+	    <input type="hidden" name="recipient_cc" value="mkt@aeroterra.com" />
+	    <input type="hidden" name="redirect" value="/Contacto/Gracias_consultas.shtml" />
+	    <input type="hidden" name="subject" value="Suscripción a Novedades" />
+	    <div class="form-group" style="display:none">
+	      <label for="FiltroDeBot">Filter</label>
+	      <input name="FiltroDeBot" type="text" class="form-control" value="" size="40" />
+	    </div>
+	    <div class="form-group half">
+	      <label for="Nombre">*Nombre</label>
+	      <input class="form-control" placeholder="Nombre" name="Nombre" type="text" value="" size="40">
+	    </div>
+	    <div class="form-group half right-side">
+	      <label for="Apellido">*Apellido</label>
+	      <input class="form-control" placeholder="Apellido" name="Apellido" type="text" value="" size="40">
+	    </div>
+	    <div class="form-group half">
+	      <label for="E-mail">*E-mail</label>
+	      <input class="form-control" placeholder="E-mail" name="E-mail" type="text" value="" size="40">
+	    </div>
+	    <div class="form-group half right-side">
+	      <label for="Tel.Cel">Tel. Cel.</label>
+	      <input class="form-control" placeholder="Telefono/Celular" name="Tel.Cel" type="text" value="" size="40">
+	    </div>
+	    <div class="form-group half">
+	      <label for="Empresa">Empresa</label>
+	      <input class="form-control" placeholder="Empresa" name="Empresa" type="text" value="" size="40">
+	    </div>
+	    <div class="form-group half right-side">
+	      <label for="Cargo">Cargo</label>
+	      <input class="form-control" placeholder="Cargo" name="Cargo" type="text" value="" size="40">
+	    </div>
+	    <div class="form-group" style="display:none">
+	      <label for="FiltroDeBot2">Filter</label>
+	      <input name="FiltroDeBot2" type="text" class="form-control" value="" size="40" />
+	    </div>
+	    <div class="form-group">
+		   <label for="Industria">*Industria de Interes</label>
+		   <select class="form-control" name="Industria" style="margin-top:5px;margin-bottom:5px;">
+			   <option value="" selected="selected"></option>
+			   <option value="Agricultura">Agricultura</option>
+			   <option value="Bancos">Bancos</option>
+			   <option value="Catastro">Catastro</option>
+			   <option value="Electricidad">Electricidad</option>
+			   <option value="Forestal">Forestal</option>
+			   <option value="Mineria">Mineria</option>
+			   <option value="Oil y Gas">Oil & Gas</option>
+			   <option value="Retail">Retail</option>
+			   <option value="Safe Community">Safe Community</option>
+			   <option value="Salud">Salud</option>
+			   <option value="Seguros">Seguros</option>
+			   <option value="Smart Community">Smart Community</option>
+			   <option value="Transporte Publico">Transporte Publico</option>
+		   </select>
+		</div>
+	    <div class="form-group text-center">
+	      <input type="submit" name="Submit" value="Suscribirme" class="btn-lg btn-primary"/>
+	    </div>
+	</form>
+    </div>
+    <div class="modal-footer">
+    	<div class="text-center" style="font-size: 11px; color: #999;">¡Todos los campos marcados con * son obligatorios!</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div id="section-eventos" class="page-section head-marg">
+	<div class="container">
+		<div class="section-header">
+			<a href="/eventos/"><span id="content_title">Eventos y Noticias</span></a>
+		</div>
+		<div style="margin-top:50px;">
+			<ul id="eventos-list" class="list-unstyled">
+				<li>
+					<a id="eventos-btn" href="/UC/" class="btn btn-lg btn-default">UC2017 <span class="glyphicon glyphicon-arrow-right"></span></a>
+					<h2>No te pierdas la UC2017 de el 10 al 12 de Mayo en el Sheraton Hotel de Buenos Aires</h2>
+				</li>
+				<li>
+					<a id="eventos-btn" type="button" data-toggle="modal" data-target="#modal-inscripcion" class="btn btn-lg btn-default">Suscribite Hoy <span class="glyphicon glyphicon-arrow-right"></span></a>
+					<h2>Recibe las últimas noticias sobre GIS para tu industria</h2>
+				</li>
+				<li>
+					<a id="eventos-btn" href="/eventos/" class="btn btn-lg btn-default">Mas Eventos <span class="glyphicon glyphicon-arrow-right"></span></a>
+					<h2>Próximos Eventos GIS</h2>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>  

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Conferencia Esri 2017 - Sponsors & Expo</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+  <!-- Latest compiled and minified Bootstrap JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <!-- Google Analytics -->
+  <meta name="google-site-verification" content="TxbVVwtFgPDn-uRV9WwKYJQNC_-Puc3tPy-xfEpcn2g" />
+
+  <!-- Keywords -->
+  <meta name="Keywords" content="Sponsors y Expo, Sponsor, User Conference, UC 2017, Conferencia de Usuarios, Aeroterra, Conferencia Esri" />
+
+  <!-- Description -->
+  <meta name="Description" content="La Conferencia Esri 2017 presenta los adelantos, lanzamientos y nuevos desarrollos en la utilización de Sistemas de Información Geográfica, así como su integración con otros sistemas." />
+
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="./css/expo.css">
+  <link rel="stylesheet" href="/home/css/main.css">
+  <link rel="stylesheet" href="/home/css/fonts.css">
+  <style>
+    #organizadores h5{
+      margin-top: 75px;
+      font-size: 16px;
+    }
+    #organizadores #sponsors{
+      text-align: center;
+    }
+    #organizadores #sponsors h5{
+      text-align: left;
+    }
+    #organizadores #sponsors a img{
+      margin: 25px 50px;
+    }
+    #organizadores a img{
+      height: auto;
+      width: auto;
+    }
+    @media screen and (max-width: 420px) {
+      .pad50{
+        padding: 0px!important;
+      }
+      #content{
+        margin: 50px 0px;
+      }
+      #organizadores h5, #organizadores #sponsors h5{
+        text-align: center;
+      }
+      #organizadores #sponsors a img{
+        margin: 15px auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Modal Notificar -->
+  <div style="margin-top: 100px;" class="modal fade" id="modal-notificar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h2>Sumarme</h2>
+        </div>
+        <div class="modal-body">
+          <div id="form-sponsor"></div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <!-- Modal Notificar End -->
+  <div id="header"></div>
+  <div id="topBanner-import"></div>
+  <div id="subnav-import"></div>
+  <script type="text/javascript">
+    $( document ).ready(function() {
+      $("#form-sponsor").load("./partials/formulario-sponsor.html");
+
+
+      $("#header").load("/home/partials/header.html"); 
+      $("#footer").load("/home/partials/fat_footer.html");
+      $("#subnav-import").load("./partials/header.html");
+      $("#topBanner-import").load("./partials/banner.html");
+    });
+  </script>
+  
+  <div class="pad50">
+    <div class="container text-center">
+      <img class="uc-featured-image" alt="Agenda" src="./images/uc17_banner_expo.jpg">
+      <p class="uc-featured-blurb pad50">La Conferencia Local de Usuarios Esri es el evento para capacitarte, empezar con GIS y entusiasmarte. Los expertos de Aeroterra y nuestros partners proveen asistencia personalizada para alcanzar tus necesidades específicas.</p>
+    </div>
+    <section id="organizadores" class="container">
+      <div class="row animation-element">
+        <div class="col-xs-12 col-md-8 col-lg-8">
+          <div class="row">
+            <h5 style="padding-left:20px;"><strong>Organiza:</strong></h5>
+          </div>
+          <div class="col-xs-12 col-md-5 col-lg-5">
+            <a target="_blank" href="http://www.aeroterra.com"><img src="./images/logos/organiza/aeroterra_logo.jpg" alt="Organizador Logo"></a>
+          </div>
+          <div class="col-xs-12 col-md-4 col-lg-4">
+            <a target="_blank" href="http://www.esri.com" target="_blank"><img style="margin-top:15px;" src="./images/esri-logo.jpg" alt="Organizador Logo"></a>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-md-4 col-lg-4">
+          <div class="row">
+            <h5><strong>Fue declarada de inter&eacute;s por:</strong></h5>
+          </div>
+          <div class="col-xs-12">
+            <img src="/UC2017/images/logos/IGN-CONAE-ASOCGEOLOG.jpg" alt="Delcarado Interes Logo">
+          </div>
+        </div>
+      </div>
+      <div class="row animation-element">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+          <div class="row">
+            <h5 style="padding-left:20px;"><strong>Sponsor Principal:</strong></h5>
+          </div>
+          <div style="padding: 15px 25px;">
+            <a target="_blank" href="https://www.microsoft.com/en-us"><img src="./images/logos/microsoft-logo.png" alt="Sponsor Principal Logo"></a>
+            <a target="_blank" href="http://www.aulagis.com"><img src="./images/logos/sponsor/aulagis_logo.jpg" alt="Sponsor Logo"></a>
+            <a target="_blank" href="http://www.smartlis.solutions/"><img src="./images/logos/smartLIS.jpg" alt="Sponsor Logo"></a>
+          </div>
+        </div>
+      </div>
+      <div id="sponsors" class="row animation-element">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+          <div class="row">
+            <h5 style="padding-left:20px;"><strong>Sponsors:</strong></h5>
+          </div>
+          <div style="padding: 15px 25px;">
+            <a target="_blank" href="https://www.digitalglobe.com/"><img src="./images/logos/sponsor/digital_globe.jpg" alt="Sponsor Logo"></a>
+            <a target="_blank" href="https://www.xploretech.com/es/"><img src="./images/logos/sponsor/XPLO.jpg" alt="Sponsor Logo"></a>
+            <a target="_blank" href="http://exactearth.com/"><img src="./images/logos/exactearth-logo.png" alt="Sponsor Logo"></a>
+            <a target="_blank" href="https://www.osisoft.com/"><img src="./images/logos/sponsor/OSISOFT.jpg" alt="Sponsor Logo"></a>
+            <a target="_blank" href="http://www.newtech.com.ar/index.php"><img src="./images/logos/newtech_logo.png" alt="Sponsor Logo"></a>
+            <a target="_blank" href="http://www.ub.edu.ar/"><img src="./images/logos/sponsor/belgrano_logo.jpg" alt="Sponsor Logo"></a>
+            <a target="_blank" href="http://quito.unigis.net/"><img src="./images/logos/sponsor/unigis_logo.jpg" alt="Sponsor Logo"></a>
+            <a target="_blank" href="http://www.ica.com.uy"><img src="./images/logos/sponsor/ICA.jpg" alt="Sponsor Logo"></a>
+            <a target="_blank" href="http://www.ciampagna.com.ar/"><img src="./images/logos/sponsor/Ciampagna_logo.jpg" alt="Sponsor Logo"></a>
+            <a target="_blank" href="http://www.consultoraigeo.com.ar/WebIgeo/index.html"><img style="width:150px;" src="./images/logos/IGEO.png" alt="Sponsor Logo"></a>
+            <a target="_blank" href="https://indoo.rs/"><img src="./images/logos/sponsor/indoors.jpg" alt="Sponsor Logo"></a>
+            <a target="_blank" href="http://www.smartactiva.com/"><img src="./images/logos/sponsor/smartactiva.jpg" alt="Sponsor Logo"></a>
+           
+            <!--<a target="_blank" href="http://taguay.com.ar/es/"><img src="./images/logos/sponsor/taguay.jpg" alt="Sponsor Logo"></a>
+
+            <div class="row animation-element">
+        <div>
+          <div>
+            <h5 style="padding-left:20px;"><strong>Medios Oficiales:</strong></h5>
+          </div>
+          <div>
+            <a target="_blank" href="http://www.marketingenrealestate.com/es/"><img src="./images/logos/sponsor/prensa-real-state.jpg" alt="Medio Oficial Logo"></a>
+            
+          </div>
+        </div>
+      </div>-->
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <div id="content" class="row text-center">
+      <p class="notificar-info">Quiero participar como Sponsor</p>
+      <a type="button" data-toggle="modal" data-target="#modal-notificar"><button class="btn-lg btn-primary"><span class="glyphicon glyphicon-thumbs-up"></span> Sumarme</button></a>
+    </div>
+  </div>
+  
+  <div id="footer"></div>
+  <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+    _uacct = "UA-1146889-1";
+    urchinTracker();
+  </script>
+</body>
+</html>

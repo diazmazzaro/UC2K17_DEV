@@ -1,0 +1,173 @@
+.uc-featured-image {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 100%;
+}
+.uc-featured-blurb {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-bottom: 3px;
+    font-size: 16px !important;
+    color: #696969;
+    line-height: 1.5em;
+    text-align: center;
+}
+.col-md-5.col-lg-5{
+	padding: 0;
+}
+.col-md-7.col-lg-7{
+	padding: 0;
+}
+.role-active{
+
+}
+.display-text{
+    padding: 30px 40px 40px 60px;
+    line-height: 2;
+    font-size: 18px;
+    text-align: left;
+}
+#role{
+	background: #f0f0f0;
+    box-sizing: border-box;
+    color: #595959;
+    cursor: pointer;
+    font-size: 28px;
+    float: left;
+    padding: 10px 0 10px 20px;
+    width: 50%;
+}
+#industry{
+	background: #f0f0f0;
+    box-sizing: border-box;
+    color: #595959;
+    cursor: pointer;
+    font-size: 28px;
+    float: left;
+    padding: 10px 0 10px 20px;
+    width: 50%;
+}
+#role .icon{
+	background: url("../images/Justify_Icon_Role_Sprite.png") 0 0 no-repeat;
+    float: left;
+    height: 60px;
+    width: 60px;
+}
+#industry .icon{
+	background: url("../images/Justify_Icon_Industry_Sprite.png") 0 0 no-repeat;
+    float: left;
+    height: 60px;
+    width: 60px;
+}
+.title{
+	color: #595959;
+    float: left;
+    padding: 10px 20px;
+}
+/*Role options CSS*/
+div#role-options{
+    cursor: pointer;
+    padding-left: 15px;
+    background-color: #e6d2f0;
+}
+.role-wrapper{
+    width: 103%;
+	padding: 25px 25px 25px 25px;
+    transition: background .25s ease-in-out;
+}
+.role-icon.manager{
+	background: url("../images/Justify_Icon_Manager_Sprite.png") 0 0 no-repeat;
+    height: 50px;
+    float: left;
+    width: 50px;
+}
+.role-icon.analyst{
+	background: url("../images/Justify_Icon_Analyst_Sprite.png") 0 0 no-repeat;
+    height: 50px;
+    float: left;
+    width: 50px;
+}
+.role-icon.researcher{
+	background: url("../images/Justify_Icon_Researcher_Sprite.png") 0 0 no-repeat;
+    height: 50px;
+    float: left;
+    width: 50px;
+}
+.role-icon.developer{
+	background: url("../images/Justify_Icon_Developer_Sprite.png") 0 0 no-repeat;
+    height: 50px;
+    float: left;
+    width: 50px;
+}
+.role-type{
+    color: #222;
+    font-size: 18px;
+    float: left;
+    padding: 17px 20px;
+}
+#role-options .role-wrapper.row:hover{
+	background-color: rgba(0, 0, 0, .2)!important;
+}
+
+/*Industry Options CSS*/
+div#industry-options{
+    cursor: pointer;
+    padding-left: 15px;
+    background-color: #d3eaf9;
+}
+div.industry-wrapper:hover{
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, .2)!important;
+}
+.industry-wrapper{
+    width: 103%;
+    padding: 25px 25px 25px 25px;
+    transition: background .25s ease-in-out;
+}
+.industry-icon.localGov{
+	background: url("../images/Justify_Icon_Gov1_Sprite.png") 0 0 no-repeat;
+    height: 50px;
+    float: left;
+    width: 50px;
+}
+.industry-icon.nationalGov{
+	background: url("../images/Justify_Icon_Gov2_Sprite.png") 0 0 no-repeat;
+    height: 50px;
+    float: left;
+    width: 50px;
+}
+.industry-icon.resources{
+	background: url("../images/Justify_Icon_Natural_Sprite.png") 0 0 no-repeat;
+    height: 50px;
+    float: left;
+    width: 50px;
+}
+.industry-icon.utilities{
+	background: url("../images/Justify_Icon_Utilities_Sprite.png") 0 0 no-repeat;
+    height: 50px;
+    float: left;
+    width: 50px;
+}
+.industry-icon.education{
+	background: url("../images/Justify_Icon_Education_Sprite.png") 0 0 no-repeat;
+    height: 50px;
+    float: left;
+    width: 50px;
+}
+.industry-icon.negotions{
+	background: url("../images/Justify_Icon_Commercial_Sprite.png") 0 0 no-repeat;
+    height: 50px;
+    float: left;
+    width: 50px;
+}
+.industry-type{
+    color: #222;
+    font-size: 18px;
+    float: left;
+    padding: 17px 20px;
+}
+#video{
+    margin-top: 50px;
+    margin-bottom: 75px;
+    text-align: center;
+}

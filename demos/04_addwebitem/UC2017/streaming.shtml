@@ -1,0 +1,266 @@
+<html>
+<head>
+ <title>Conferencia Esri 2017 - Agenda</title>
+  <meta charset="UTF-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  
+  <link rel="stylesheet" href="/UC2017/css/agenda.css">
+  <link rel="stylesheet" href="/home/css/fonts.css">
+   <!-- Keywords -->
+  <meta name="Keywords" content="Agenda, User Conference, UC 2017, Conferencia de Usuarios, Aeroterra, Conferencia Esri" />
+
+  <!-- Description -->
+  <meta name="Description" content="La Conferencia Esri 2017 presenta los adelantos, lanzamientos y nuevos desarrollos en la utilización de Sistemas de Información Geográfica, así como su integración con otros sistemas." />
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+</head>
+
+<body>
+  <div id="header"></div>
+  <div id="topBanner-import"></div>
+  <div id="subnav-import"></div>
+  <script type="text/javascript">
+    $( document ).ready(function() {
+      $("#header").load("/home/partials/header.html"); 
+      $("#subnav-import").load("./partials/header.html");
+      $("#topBanner-import").load("./partials/banner.html");
+    });
+  </script>
+  <div class="container section">
+    <div id="form-consultas" class="container pad50">
+    <h1 class="text-center">¡UC 2017 en VIVO!</h1>
+    <div style="text-align: center;">
+      <iframe src="https://www.ustream.tv/embed/21261984?html5ui&autoplay=true" style="border: 0 none transparent;"  webkitallowfullscreen allowfullscreen frameborder="no" width="720" height="405"></iframe>
+    </div>
+  </div>  
+    <div class="row text-center" style="margin-bottom:30px;">
+      <a href="./registro.shtml">
+        <button style="border:none!important;border-radius:0px!important" class="btn-lg btn-primary"> REGISTRO →</button>
+      </a>
+    </div>
+  </div>
+  <div id="footer-import"></div>
+  <div id="footer"></div>
+<script type="text/javascript">
+  $( document ).ready(function() {
+    $("#footer-import").load("./partials/footer.html"); 
+    $("#footer").load("/home/partials/fat_footer.html");
+    $("td.expo-gis").on("mouseover", function(){
+      $("td.expo-gis").css("background-color", "#00aab7");
+      $("td.expo-gis").css("border-top", "1px solid #00aab7");
+      $("td.expo-gis").css("border-bottom", "1px solid #00aab7");
+    });
+    $("td.expo-gis").on("mouseout", function(){
+      $("td.expo-gis").css("background-color", "#6d1e6d");
+      $("td.expo-gis").css("border-top", "1px solid #6d1e6d");
+      $("td.expo-gis").css("border-bottom", "1px solid #6d1e6d");
+    });
+    $("td.expo-gis").on("click", function(){
+      window.location = "./expo.shtml"
+    });
+
+    $('.agenda_seguridad').hide('drop');
+    $('.agenda_developers').hide('drop');
+    $('.agenda_educacion').hide('drop');
+    $('#tracksGeneral').hide('drop');
+    $('.agenda_agricultura').hide('drop');
+    $('.agenda_communities').hide('drop');
+    $('.agenda_utilities').hide('drop');
+    $('.agenda_pre').hide('drop');
+    $('.agenda_post').hide('drop');
+    $('.control_plenaria').parent('td').children('ul').hide('drop');
+
+    function show_preliminar(){
+      $('#agenda_general').parent('li.attendease-date').addClass('active');
+      $('.agenda_general').show('drop');
+      $("#agenda_general").children('span.glyphicon').removeClass('glyphicon-plus-sign');
+      $("#agenda_general").children('span.glyphicon').addClass('glyphicon-minus-sign');
+      $("#agenda_general").addClass('black');
+    }
+   function hide_seguridad(){
+      $('a.button_seguridad').parent('li.attendease-date').removeClass('active');
+      $('.agenda_seguridad').hide('drop');
+      $(".button_seguridad").children('span.glyphicon').removeClass('glyphicon-minus-sign');
+      $(".button_seguridad").children('span.glyphicon').addClass('glyphicon-plus-sign');
+      $(".button_seguridad").removeClass('blue');
+    }
+    function hide_agricultura(){
+      $('a.button_agricultura').parent('li.attendease-date').removeClass('active');
+      $('.agenda_agricultura').hide('drop');
+      $(".button_agricultura").children('span.glyphicon').removeClass('glyphicon-minus-sign');
+      $(".button_agricultura").children('span.glyphicon').addClass('glyphicon-plus-sign');
+      $(".button_agricultura").removeClass('blue');
+    }
+    function hide_communities(){
+      $('a.button_communities').parent('li.attendease-date').removeClass('active');
+      $('.agenda_communities').hide('drop');
+      $(".button_communities").children('span.glyphicon').removeClass('glyphicon-minus-sign');
+      $(".button_communities").children('span.glyphicon').addClass('glyphicon-plus-sign');
+      $(".button_communities").removeClass('blue');
+    }
+    function hide_utilities(){
+      $('a.button_utilities').parent('li.attendease-date').removeClass('active');
+      $('.agenda_utilities').hide('drop');
+      $(".button_utilities").children('span.glyphicon').removeClass('glyphicon-minus-sign');
+      $(".button_utilities").children('span.glyphicon').addClass('glyphicon-plus-sign');
+      $(".button_utilities").removeClass('blue');
+    }
+    function hide_preliminar(){
+      $("#agenda_general").parent('.attendease-date').removeClass('active');
+      
+      $('.agenda_general').hide('drop');
+      $("#agenda_general").children('span.glyphicon').removeClass('glyphicon-minus-sign');
+      $("#agenda_general").children('span.glyphicon').addClass('glyphicon-plus-sign');
+      $("#agenda_general").removeClass('black');
+    }
+    function hide_developer(){
+      $('a.button_developers').parent('li.attendease-date').removeClass('active');
+      $('.agenda_developers').hide('drop');
+      $(".button_developers").children('span.glyphicon').removeClass('glyphicon-minus-sign');
+      $(".button_developers").children('span.glyphicon').addClass('glyphicon-plus-sign');
+      $(".button_developers").removeClass('blue');
+    }
+    function hide_educacion(){
+      $('a.button_educacion').parent('li.attendease-date').removeClass('active');
+      $('.agenda_educacion').hide('drop');
+      $(".button_educacion").children('span.glyphicon').removeClass('glyphicon-minus-sign');
+      $(".button_educacion").children('span.glyphicon').addClass('glyphicon-plus-sign');
+      $(".button_educacion").removeClass('blue');
+    }
+    $('.control_plenaria').on('click', function(){
+      if($(this).children('span.glyphicon').hasClass('glyphicon-plus-sign')){
+        $(this).parent('td').children('ul').show('drop');
+        $(this).children('span.glyphicon').removeClass('glyphicon-plus-sign').addClass('glyphicon-minus-sign');
+      } else {
+        $(this).parent('td').children('ul').hide('drop');
+        $(this).children('span.glyphicon').removeClass('glyphicon-minus-sign').addClass('glyphicon-plus-sign');
+        
+      }
+    });
+    $("#agenda_general").on('click', function(){
+      if($(this).children('span.glyphicon').hasClass('glyphicon-plus-sign')){
+        $('.agenda_general').show('drop');
+        $('#tracksGeneral').show('drop')
+        $(this).children('span.glyphicon').removeClass('glyphicon-plus-sign');
+        $(this).children('span.glyphicon').addClass('glyphicon-minus-sign');
+        $(this).addClass('black');
+
+        hide_developer();
+        hide_educacion();
+        hide_utilities();
+        hide_seguridad();
+        hide_agricultura();
+        hide_communities();
+      }
+  });
+  $(".button_seguridad").on('click', function(){
+    if($(this).children('span.glyphicon').hasClass('glyphicon-plus-sign')){
+      $('.agenda_seguridad').show('drop')
+      $(this).children('span.glyphicon').removeClass('glyphicon-plus-sign');
+      $(this).children('span.glyphicon').addClass('glyphicon-minus-sign');
+      $(this).addClass('blue');
+      $('a.button_seguridad').parent('li.attendease-date').addClass('active');
+
+      hide_developer();
+      hide_educacion();
+      hide_utilities();
+      hide_preliminar();
+      hide_agricultura();
+      hide_communities();
+    }
+  });
+  $(".button_agricultura").on('click', function(){
+    if($(this).children('span.glyphicon').hasClass('glyphicon-plus-sign')){
+      $('.agenda_agricultura').show('drop')
+      $(this).children('span.glyphicon').removeClass('glyphicon-plus-sign');
+      $(this).children('span.glyphicon').addClass('glyphicon-minus-sign');
+      $(this).addClass('blue')
+      $('a.button_agricultura').parent('li.attendease-date').addClass('active');
+
+      hide_developer();
+      hide_educacion();
+      hide_utilities();
+      hide_preliminar();
+      hide_seguridad();
+      hide_communities();
+    }
+  });
+  $(".button_communities").on('click', function(){
+    if($(this).children('span.glyphicon').hasClass('glyphicon-plus-sign')){
+      $('.agenda_communities').show('drop')
+      $(this).children('span.glyphicon').removeClass('glyphicon-plus-sign');
+      $(this).children('span.glyphicon').addClass('glyphicon-minus-sign');
+      $(this).addClass('blue')
+      $('a.button_communities').parent('li.attendease-date').addClass('active');
+
+      hide_developer();
+      hide_educacion();
+      hide_utilities();
+      hide_preliminar();
+      hide_seguridad();
+      hide_agricultura();
+    }
+  });
+  $(".button_utilities").on('click', function(){
+    if($(this).children('span.glyphicon').hasClass('glyphicon-plus-sign')){
+      $('.agenda_utilities').show('drop')
+      $(this).children('span.glyphicon').removeClass('glyphicon-plus-sign');
+      $(this).children('span.glyphicon').addClass('glyphicon-minus-sign');
+      $(this).addClass('blue')
+      $('a.button_utilities').parent('li.attendease-date').addClass('active');
+
+      hide_developer();
+      hide_educacion();
+      hide_communities();
+      hide_preliminar();
+      hide_seguridad();
+      hide_agricultura();
+    }
+  });
+  $(".button_developers").on('click', function(){
+    if($(this).children('span.glyphicon').hasClass('glyphicon-plus-sign')){
+      $('.agenda_developers').show('drop')
+      $(this).children('span.glyphicon').removeClass('glyphicon-plus-sign');
+      $(this).children('span.glyphicon').addClass('glyphicon-minus-sign');
+      $(this).addClass('blue')
+      $('a.button_developers').parent('li.attendease-date').addClass('active');
+
+      hide_utilities();
+      hide_educacion();
+      hide_communities();
+      hide_preliminar();
+      hide_seguridad();
+      hide_agricultura();
+    }
+  });
+  $(".button_educacion").on('click', function(){
+    if($(this).children('span.glyphicon').hasClass('glyphicon-plus-sign')){
+      $('.agenda_educacion').show('drop')
+      $(this).children('span.glyphicon').removeClass('glyphicon-plus-sign');
+      $(this).children('span.glyphicon').addClass('glyphicon-minus-sign');
+      $(this).addClass('blue')
+      $('a.button_educacion').parent('li.attendease-date').addClass('active');
+
+      hide_utilities();
+      hide_developer();
+      hide_communities();
+      hide_preliminar();
+      hide_seguridad();
+      hide_agricultura();
+    }
+  });
+  
+});
+</script>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1146889-1";
+urchinTracker();
+</script>
+</body>
+</html>

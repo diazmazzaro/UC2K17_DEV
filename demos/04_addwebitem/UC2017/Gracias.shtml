@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Aeroterra UC 2017 - Gracias!</title>
+  <meta charset="UTF-8">
+  
+  <!-- Jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+  <!-- Latest compiled and minified Bootstrap JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <!-- Google Analytics -->
+  <meta name="google-site-verification" content="TxbVVwtFgPDn-uRV9WwKYJQNC_-Puc3tPy-xfEpcn2g" />
+
+  <!-- Keywords -->
+  <meta name="Keywords" content="Aeroterra, Aeroterra SA, Aeroterra S.A., GIS. SIG, Esri, ArcGIS,  Mapas, geógrafos, cartógrafos, Información geográfica, UC2016, User Conference 2016, Eventos" />
+
+  <!-- Description -->
+  <meta name="Description" content="Aeroterra SA tiene más de 40 años de experiencia promoviendo soluciones basadas en la plataforma GIS #1 a nivel mundial que permiten entender nuestro entorno y sus problemas a través del análisis y la interpretación" />
+
+  <link rel="stylesheet" href="/home/css/main.css">
+</head>
+<body>
+  <div id="header"></div>
+  <div id="topBanner-import"></div>
+  <div id="subnav-import"></div>
+  <script type="text/javascript">
+    $( document ).ready(function() {
+      $("#header").load("/home/partials/header.html");
+      $("#footer-import").load("./partials/footer.html"); 
+      $("#subnav-import").load("./partials/header.html"); 
+      $("#topBanner-import").load("./partials/banner.html");
+      $("#footer").load("/home/partials/fat_footer.html");
+    });
+  </script>
+  <div class="container text-center" style="padding: 50px 0px;">
+    <h1><span style="text-transform:uppercase">&iexcl;Gracias por tu inter&eacute;s en la UC2017!</span></h1>
+    <p class="uc-featured-blurb">Nos pondremos en contacto a la brevedad.</p>
+  </div>
+  <div id="footer-import"></div>
+  <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+  </script>
+  <div id="footer"></div>
+  <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+  _uacct = "UA-1146889-1";
+  urchinTracker();
+  </script>
+</body>
+</html>

@@ -1,0 +1,650 @@
+.top-btns{
+    height: 75px;
+    width: 100%;
+}
+.pad50{
+    padding: 50px;
+}
+.uc-featured-blurb {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-bottom: 3px;
+    font-size: 18px !important;
+    color: #696969;
+    line-height: 1.5em;
+    text-align: center;
+}
+
+.notificar-info{
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+#agenda_menu{
+    margin-bottom:10px;
+    color:white; 
+    background-color: #6d1e6d; 
+    padding-bottom:25px;
+}
+.btn-gris{
+    background-color: black!important;
+}
+.btn-gris:hover{
+    background-color: black!important;
+}
+.btn-rojo{
+    background-color: rgb(153,0,0)!important;
+}
+.btn-rojo:hover{
+    background-color: rgb(143,0,0)!important;
+}
+.btn-violeta{
+    background-color: rgb(109, 60, 109)!important;
+}
+.btn-violeta:hover{
+    background-color: rgb(109, 30, 109)!important;
+}
+.blue{
+    color: #007AC2;
+}
+table h4{
+    color: #007AC2!important;
+}
+.black{
+    color: black;
+}
+.uc-featured-image {
+    margin-bottom: 20px;
+    margin-top: 80px;
+    width: 100%;
+}
+
+
+.pre_info{
+    text-align: justify;
+}
+button.btn{
+    border-radius: 0px!important;
+}
+.btn-group-lg>.btn, .btn-lg{
+    border-radius: 0px!important;
+}
+.uc-featured-blurb {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-bottom: 3px;
+    font-size: 16px !important;
+    color: #696969;
+    line-height: 1.5em;
+    text-align: center;
+}
+.section h1 {
+    font-size: 27px;
+    color: #007ac2;
+    margin: 0 0 18px 0;
+    padding: 0;
+    line-height: normal;
+}
+.uc-table {
+    font-family: 'Avenir LT W01 35 Light', Arial, Helvetica, sans-serif;
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    font-size: 14px !important;
+}
+table {
+    border:1px solid #e4e4e4;
+    border-collapse: collapse;
+    border-spacing: 0;
+    color: black;
+}
+.uc-table th {
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #FFF;
+    background: #333;
+    font-size: 16px;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    vertical-align: top;
+}
+.uc-table td{
+    width: 18%;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    vertical-align: top;
+}
+.expo-gis{
+    transition: all .3s ease-in;
+    cursor: pointer;
+    background-color: #6d1e6d;
+    color: white;
+    border-bottom: 1px solid #6d1e6d;
+    border-top: 1px solid #6d1e6d;
+}
+.uc-table tr:nth-child(even) {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #e4e4e4;
+    border-top: 1px solid #e4e4e4;
+}
+.apertura_expo{
+    width:21.25%;
+    border:1px solid #e4e4e4; 
+    background-color:#6d1e6d;
+    text-align: center;
+    color: white;
+}
+.plenaria{
+    background-color: #e7e7e7!important;
+    border-left: 1px solid #e4e4e4;
+    border-right: 1px solid #e4e4e4;
+}
+h4.plenaria-title strong{
+    color: #FFF!important;
+}
+h4.plenaria-title {
+    font-size: 40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+td.time{
+    width: 16%;
+    border: 1px solid #e4e4e4;
+    vertical-align: middle;
+    text-align: center;
+}   
+.confirmacion-msg{
+    background-color: #555!important;
+    color: #FFF;
+}
+.date{
+    color: #FFF;
+    background-color: #555;
+    border:1px solid #e4e4e4; 
+    font-size: 18px;
+    /*margin-bottom:30px; */
+}
+.date div.blue{
+    font-size: 24px;
+    font-weight: bolder;
+}
+.date td:first-child{
+    width: 75%;
+}
+.date td:last-child{
+    width: 25%;
+}
+.date td{
+    padding: 20px 50px;
+}
+.date div.head-info{
+    font-size: 16px;
+    color: #FFF;
+}
+.date.catastro{
+    background-color: #f0ad4e!important;
+    color: white;
+}
+.date.agro{
+    background-color: #2f903c!important;
+    color: white;
+}
+.date.seg-publica{
+    background-color: rgb(51, 122, 183)!important;
+    color: white;
+}
+.date.developers{
+    background-color: black!important;
+    color: white;
+}
+.date.educacion{
+    background-color: rgb(153,0,0)!important;
+    color: white;
+}
+.date.utilities{
+    background-color: rgb(109, 60, 109)!important;
+    color: white;
+}
+span.glyphicon.glyphicon-globe{
+    position: absolute;
+    font-size: 12px;
+    left: 0px;
+    color:#2f903c;
+}
+span.glyphicon.glyphicon-plus-sign, span.glyphicon.glyphicon-minus-sign{
+    color: black;
+    font-size: 14px;
+}
+a.glyphicon.glyphicon-plus-sign{
+    display: none!important;
+}
+a span.glyphicon.glyphicon-plus-sign{
+    display: none!important;
+}
+a.glyphicon.glyphicon-minus-sign{
+    display: none!important;
+}
+a span.glyphicon.glyphicon-minus-sign{
+    display: none!important;
+}
+button.glyphicon.glyphicon-plus-sign{
+    display: none!important;
+}
+button span.glyphicon.glyphicon-plus-sign{
+    display: none!important;
+}
+button.glyphicon.glyphicon-minus-sign{
+    display: none!important;
+}
+button span.glyphicon.glyphicon-minus-sign{
+    display: none!important;
+}
+.attendease-date-nav a{
+    color: black;
+}
+.green{
+    color:#2f903c!important;
+}
+
+
+.btn-success{
+    background-color:#2f903c!important;
+}
+span.glyphicon.glyphicon-ok-circle{
+    position: absolute;
+    font-size: 10px;
+    left: 0px;
+}
+span.glyphicon.glyphicon-user{
+    /*color: #007AC2;*/
+    color: darkgrey;
+    font-size: 10px;
+}
+ul.list-unstyled li{
+    padding-left: 20px;
+    position: relative;
+}
+.pre-conferencia{
+    width:42.5%;
+    text-align:center!important;
+    border-right:1px solid #e4e4e4;
+}
+td.sala-capacitacion{
+    background-color: white!important;
+    border-bottom: 1px solid #e4e4e4!important;
+    border-top: 1px solid #e4e4e4!important;
+}
+td.sala-demo{
+    vertical-align: middle!important;
+    padding: 20px 20px;
+    background-color: #007ac2!important;
+    color: white;
+    border-bottom: 1px solid #007ac2!important;
+    border-top: 1px solid #007ac2!important;
+}
+#agenda_pre, #agenda_post, #agenda_general, #agenda_seguridad, #agenda_communities, #agenda_agricultura{
+    cursor: pointer;
+} 
+
+h4 .glyphicon{
+    font-size: 12px;
+}
+.tracks h4{
+    font-size: 14px;
+}
+ul li h5{
+    font-weight: bolder;
+}
+h4 span.plenaria-parte::before{
+    content: "(";
+}
+h4 span.plenaria-parte::after{
+    content: ")";
+}
+h4 span.plenaria-parte{
+    color: black;
+    font-size: 14px;
+}
+
+a span.titulo::before{
+    content: " - ";
+}
+a span.titulo::after{
+    content: "";
+}
+a span.titulo{
+    color: black;
+    font-size: 12px;
+}
+a:hover span.titulo::after{
+    content: " →"
+}
+span.titulo-nolink::before{
+    content: " - ";
+}
+span.titulo-nolink::after{
+    content: "";
+}
+span.titulo-nolink{
+    color: black;
+    font-size: 12px;
+}
+.tracks span.glyphicon{
+    font-size: 12px!important;
+    position: absolute;
+    left: 40px;
+    top: 10px;
+}
+.tracks{
+    position: relative;
+    padding-left: 60px!important;
+    margin-top: 20px!important;
+    max-height: auto;
+}
+.agenda{
+    position: relative;
+    padding-left: 60px!important;
+    height: 100%;
+    max-height: 70px;
+}
+.agenda h3:hover{
+    color: black;
+    cursor: pointer;
+}
+.agenda span.glyphicon{
+    font-size: 12px!important;
+    position: absolute;
+    left: 40px;
+    top: 25px;
+}
+.tracks h4:hover{
+    color: #007AC2;
+    cursor: pointer;
+}
+.agendaDate{
+    font-size: 12px!important;
+    position: absolute;
+    left: 60px;
+    bottom: 0px;
+}
+.tracksDate{
+    font-weight: bolder;
+    font-size: 14px!important;
+    position: absolute;
+    left: 40px;
+    top: 0px;
+}
+.btn-seguridad{
+    border:none!important;
+    border-radius:0px!important; 
+    font-size: 16px;
+    padding-top:30px!important;
+    padding-bottom:30px!important;
+}
+.btn-track{
+    border:none!important;
+    border-radius:0px!important; 
+    font-size: 16px;
+    padding-top:40px!important;
+    padding-bottom:40px!important;
+}
+.btn-track-agenda{
+    color: #FFF;
+    width: 100%;
+    height: 150px;
+    border:none!important;
+    border-radius:0px!important; 
+    font-size: 16px;
+    text-align: left;
+    padding: 30px 15px;
+    position: relative;
+}
+
+.btn-track-agenda span.partes{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 13px;
+}
+.btn-track-agenda span.mas{
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    font-size: 11px;
+}
+.btn-track-agenda:hover{
+    font-weight: bolder;
+}
+.btn-track-agenda span.mas::after{
+    content: " →";
+}
+.chooseTrack{
+    height: 150px;
+}
+
+ul.attendease-date-nav {
+    border-bottom: 0;
+}
+ul.attendease-date-nav > li:hover a, .nav-tabs>li:hover a{
+    background-color: inherit;
+    font-weight: bolder;
+    color: #FFF;
+}
+.attendease-date-nav > li {
+    background-color: #555;
+    color: #FFF!important;
+    font-size: 16px;
+}
+.nav-tabs>li.active>a, ul.attendease-date-nav > li.active{
+    border: 0px;
+    background-color: #555!important;
+    color: #FFF!important;
+    font-weight: bolder;
+}
+.nav-tabs>li {
+    float: left;
+    margin-bottom: -1px;
+}
+.nav>li {
+    position: relative;
+    display: block;
+}
+ul.attendease-date-nav li{
+    margin-right: 2px;
+    width: 14%;
+    height: 90px;
+
+}
+ul.attendease-date-nav li a {
+    color: #FFF;
+    height: 90px;
+    padding-top: 14px;
+}
+.nav-tabs > li > a {
+    border-radius: 0;
+    margin-right: 0;
+}
+.nav-tabs>li>a{
+    margin-right: 0px!important;
+    border-radius: 0px!important;
+}
+ul.attendease-date-nav li.active {
+    color: #FFF;
+    margin-bottom: -1px;
+}
+.control_plenaria{
+    cursor: pointer;
+}
+.pre-curso a{
+    text-decoration: none;
+}
+.pre-curso{
+    position: relative;
+    transition: all .3s ease-in;
+    float: left;
+    width: 20%;
+    height: 200px; 
+    padding: 45px 15px;
+    cursor: pointer;
+    color: #FFF;
+}
+.pre-curso h3{
+    font-size: 20px;
+}
+.pre-curso p.mas-info{
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    font-size: 14px;
+}
+.pre-curso:hover p.mas-info:after{
+    content: " →";
+}
+.pre-curso:hover{
+    background-color: lightgrey;
+    color: black;
+}
+.agricultura{
+    background-color: #4d9b69;
+}
+.gobierno{
+    background-color: grey;
+}
+.geomarketing{
+    background-color: #FFA500;
+}
+.servicios{
+    background-color: #3a0267;
+}
+.seguridad{
+    background-color: #007cbc;
+}
+.post-curso{
+    position: relative;
+    transition: all .3s ease-in;
+    float: left;
+    width: 33.33%;
+    height: 240px; 
+    padding: 60px 15px;
+    cursor: pointer;
+    color: #FFF;
+}
+.post-curso h3{
+    font-size: 20px;
+}
+.post-curso p.tiempo{
+    position: absolute;
+    top: 20px;
+    left: 15px;
+    font-size: 16px;
+}
+.post-curso p.mas-info{
+    position: absolute;
+    bottom: 20px;
+    left: 15px;
+    font-size: 14px;
+}
+.post-curso:hover p.mas-info:after{
+    content: "  →";
+}
+.post-curso:hover{
+    background-color: lightgrey;
+    color: black;
+}
+.workshop1{
+    background-color: #007cbc;
+}
+.workshop2{
+    background-color: #bb7cb3;
+}
+.workshop3{
+    background-color: #4d9b69;
+}
+
+.workshop4{
+    background-color: #b4b4b4;
+}
+.workshop5{
+    background-color: #969696;
+}
+.workshop6{
+    background-color: #6e6e6e;
+    }
+
+li.success, li.success.active>a{
+    background-color:#2f903c!important;
+    color: #FFF!important;
+}
+li.warning, li.warning.active>a{
+    background-color:#f0ad4e!important;
+    color: #FFF!important;
+}
+li.btn-rojo, li.btn-rojo.active>a{
+    background-color:rgb(143,0,0)!important;
+    color: #FFF!important;
+}
+li.btn-gris, li.btn-gris.active>a{
+    background-color: black!important;
+    color: #FFF!important;
+}
+li.btn-violeta, li.btn-violeta.active>a{
+    background-color:rgb(109, 60, 109)!important;
+    color: #FFF!important;
+}
+li.primary, li.primary.active>a{
+    background-color: #337ab7!important;
+    color: #FFF!important;
+}
+
+#links-section p{
+}
+#links-section p.links{
+    margin-bottom: 5px;
+    display: inline-block;
+    color: #007ac2;
+    height: 90px;
+    font-size: 50px;
+    vertical-align: bottom!important;
+}
+@media screen and (max-width: 650px){
+   /* ul li.success, ul li.warning, ul li.info, ul li.primary{
+        display: none;
+    }*/
+    .attendease-date-nav > li{
+        font-size: 10px!important;
+    }
+    .date td {
+        padding: 15px 10px; 
+    }
+    .pre-curso{
+        width: 100%;
+        height: 175px; 
+    }
+    .pre-curso h3{
+        font-size: 24px;
+    }
+    .pre-curso p.mas-info:after{
+        content: "  →"
+    }
+    a span.titulo::after{
+        content: ")  →"
+    }
+    .post-curso{
+        width: 100%;
+        height: 225px; 
+    }
+    .post-curso h3{
+        font-size: 24px;
+    }
+    .post-curso p.mas-info:after{
+        content: "  →"
+    }
+    tr.date td h2{
+        font-size: 22px;
+    }
+   
+}

@@ -1,0 +1,364 @@
+<style>
+  .form-group.half{
+    width: 49%;
+    float: left;
+  }
+  .form-group.half.right-side{
+    float: right;
+    margin-left: 2%;
+  }
+  .pre-uc-workshops, .post-uc-sesions{
+    padding-left: 15px;
+    font-size: 12px;
+  }
+  .hide{
+    display: none;
+  }
+  @media screen and (max-width: 650px){
+   .form-group.half{
+      width: 100%;
+      float: left;
+    }
+    .form-group.half.right-side{
+      margin-left: 0%;
+    } 
+  }
+</style>
+<script type="text/javascript">
+$( document ).ready(function() {
+  $("#pre-uc").change(function(){
+    $("#pre-uc-list-start").toggleClass("hide")
+  });
+  $("#post-uc").change(function(){
+    $("#post-uc-list-start").toggleClass("hide")
+  });
+  $("#workshop1").change(function(){
+    console.log("changed");
+    var choice = $(this).is(':checked');
+    if(choice){
+      $("div#wkshp1").append('<input type="hidden" name="Workshop1" value="ArcGIS para Agricultura" />');
+    } else {
+      $("div#wkshp1").empty();
+    }
+  });
+  $("#workshop2").change(function(){
+    console.log("changed");
+    var choice = $(this).is(':checked');
+    if(choice){
+      $("div#wkshp2").append('<input type="hidden" name="Workshop2" value="ArcGIS para Gobierno Inteligente" />');
+    } else {
+      $("div#wkshp2").empty();
+    }
+  });
+  $("#workshop3").change(function(){
+    console.log("changed");
+    var choice = $(this).is(':checked');
+    if(choice){
+      $("div#wkshp3").append('<input type="hidden" name="Workshop3" value="Workshop ArcGIS 10.5" />');
+    } else {
+      $("div#wkshp3").empty();
+    }
+  });
+  $("#sesion1").change(function(){
+    console.log("changed");
+    var choice = $(this).is(':checked');
+    if(choice){
+      $("div#ssion1").append('<input type="hidden" name="Sesion1" value="Explorando el GIS Corporativo" />');
+    } else {
+      $("div#ssion1").empty();
+    }
+  });
+  $("#sesion2").change(function(){
+    console.log("changed");
+    var choice = $(this).is(':checked');
+    if(choice){
+      $("div#ssion2").append('<input type="hidden" name="Sesion2" value="Introduccion a ArcGIS Pro" />');
+    } else {
+      $("div#ssion2").empty();
+    }
+  });
+  $("#sesion3").change(function(){
+    console.log("changed");
+    var choice = $(this).is(':checked');
+    if(choice){
+      $("div#ssion3").append('<input type="hidden" name="Sesion3" value="ArcGIS para Aplicaciones Microsoft" />');
+    } else {
+      $("div#ssion3").empty();
+    }
+  });
+
+  <!-- 
+  function formCheck(formobj){
+    // Enter name of mandatory fields
+    var fieldRequired = Array("Nombre", "Apellido", "E-mail", "Telefono", "Categoria", "Forma De Pago", "Industria de Interes", "Track de Interes", "Empresa", "Cargo", "Pais", "CUIT/DNI", "Domicilio", "Localidad", "Codigo Postal", "Provincia", "Referencia");
+    // Enter field description to appear in the dialog box
+    var fieldDescription = Array("Nombre", "Apellido", "E-mail", "Telefono", "Categoria", "Forma De Pago", "Industria de Interes", "Track de Interes", "Empresa", "Cargo", "Pais", "CUIT/DNI", "Domicilio", "Localidad", "Codigo Postal", "Provincia", "Referencia");
+    // dialog message
+    var alertMsg = "Por favor complete todos los campos que obligatorios marcados con *.";
+   
+    var l_Msg = alertMsg.length;
+    
+    if (formobj.elements["FiltroDeBot"].value !== "" || formobj.elements["FiltroDeBot2"].value !== ""){
+      window.location = "http://www.aeroterra.com/Contacto/Gracias_Registro.shtml";
+      return false;
+    }
+
+    for (var i = 0; i < fieldRequired.length; i++){
+        var obj = formobj.elements[fieldRequired[i]];
+        if (obj){
+           switch(obj.type){
+           case "select-one":
+               if (obj.selectedIndex == -1 || obj.options[obj.selectedIndex].text == ""){
+                           alertMsg += " - " + fieldDescription[i] + "\n";
+               }
+               break;
+           case "select-multiple":
+               if (obj.selectedIndex == -1){
+                           alertMsg += " - " + fieldDescription[i] + "\n";
+               }
+               break;
+           case "text":
+           case "textarea":
+               if (obj.value == "" || obj.value == null){
+                           alertMsg += " - " + fieldDescription[i] + "\n";
+               }
+               break;
+           default:
+           }
+           if (obj.type == undefined){
+               var blnchecked = false;
+               for (var j = 0; j < obj.length; j++){
+                           if (obj[j].checked){
+                                       blnchecked = true;
+                           }
+               }
+               if (!blnchecked){
+                           alertMsg += " - " + fieldDescription[i] + "\n";
+               }
+           }
+        }
+    }
+
+    if (alertMsg.length == l_Msg){
+      if($("#pre-uc").is(':checked')){
+        var wkshp_val = "";
+        if($("#workshop1").is(':checked')){
+          wkshp_val += " | ArcGIS para Agricultura | ";
+        }
+        if($("#workshop2").is(':checked')){
+          wkshp_val += " | ArcGIS para Gobierno Inteligente | ";
+        }
+        if($("#workshop3").is(':checked')){
+          wkshp_val += " | Workshop ArcGIS 10.5 | ";
+        }
+        $("workshops-pre-list").val(wkshp_val);
+      }
+      if($("#post-uc").is(':checked')){
+        var sesion_val = "";
+        if($("#sesion1").is(':checked')){
+          sesion_val += " | Explorando el GIS Corporativo | ";
+        }
+        if($("#sesion2").is(':checked')){
+          sesion_val += " | Introduccion a ArcGIS Pro | ";
+        }
+        if($("#sesion3").is(':checked')){
+          sesion_val += " | ArcGIS para Aplicaciones Microsoft | ";
+        }
+        $("sesiones-post-list").val(sesion_val);
+      }
+        return true;
+    }else{
+        alert(alertMsg);
+        return false;
+    }
+  }
+  //--> 
+});
+
+</script>
+<style>
+  option span.blue{
+    color: #007ac2!important;
+  }
+</style>
+<div style="text-align:left; width:90%; margin-left:auto;margin-right:auto;z-index:9999!important;">
+  <form action="/formmail.php" method="post" id="formu" onSubmit="return formCheck(this);" align="left">
+    <input class="form-control" type="hidden" name="recipient" value="registrouc@aeroterra.com" />
+    <input class="form-control" type="hidden" name="redirect" value="/UC2017/Gracias_Registro.shtml" />
+    <input class="form-control" type="hidden" name="subject" value="UC 2017 - Solicitud de Registro" />
+    <div class="form-group" style="display:none">
+      <label for="FiltroDeBot">Filter</label>
+      <input name="FiltroDeBot" type="text" class="form-control" value="" size="40" />
+    </div>
+    <div class="form-group half">
+      <label for="Nombre"><sup>*</sup>Nombre</label>
+      <input class="form-control" type="text" placeholder="nombre" name="Nombre" class="frame3" size="50" />
+    </div>
+    <div class="form-group half right-side">
+      <label for="Apellido"><sup>*</sup>Apellido</label>
+      <input class="form-control" type="text" placeholder="apellido" name="Apellido" class="frame3" size="50" />
+    </div>
+    <div class="form-group half">
+      <label for="email"><sup>*</sup>E-mail</label>
+      <input class="form-control" type="email" placeholder="e-mail" name="E-mail" class="frame3" size="50" />
+    </div>
+    <div class="form-group half right-side">
+      <label for="Telefono"><sup>*</sup>Telefono</label>
+      <input class="form-control" type="tel" placeholder="telefono" name="Telefono" class="frame3" size="20" />
+    </div>
+    <div id="categoria-wrap" class="form-group"><label for="Categoria"><sup>*</sup>Categoria</label><select class="form-control" name="Categoria" class="frame3"><option value="" selected>seleccionar</option><option value="A | Usuario con sede principal en Argentina o Uruguay y con Mantenimiento vigente">A | Usuario con sede principal en Argentina o Uruguay y con Mantenimiento vigente  - <span class="blue">SIN CARGO</span></option><option value="B | Usuario con sede principal en Argentina o Uruguay sin Mantenimiento vigente">B | Usuariosede principal en Argentina o Uruguay sin Mantenimiento vigente - <span class="blue">$2.500</span></option><option value="C | Usuario Adicional">C | Usuario Adicional  - <span class="blue">$2.000</span></option><option value="D | Usuarios o Partners sin sede principal en Argentina o Uruguay">D | Usuarios o Partnerssede principal en Argentina o Uruguay - <span class="blue">$4.000</span></option><option value="E | No usuarios">E | No usuarios - <span class="blue">$4.000</span></option><option value="F | Partner - Sponsor">F | Partner - Sponsor - <span class="blue">SIN CARGO</span></option><option value="G | Prensa">G | Prensa - <span class="blue">Consultar</span></option></select></div>
+    <div class="form-group half">
+      <label for="Industria de Interes"><sup>*</sup>Industria de Inter&eacute;s</label><select class="form-control" name="Industria de Interes" class="frame3">
+        <option value="" selected>seleccionar</option>
+        <option value="Agro, Ganaderia y Pesca">Agro, Ganader&iacute;a y Pesca</option>
+        <option value="Arquitectura, Ingenieria y Construcci&oacute;n">Arquitectura, Ingenier&iacute;a y Construcci&oacute;n</option>
+        <option value="Bancos y Seguros">Bancos y Seguros</option>
+        <option value="Consultoria">Consultor&iacute;a</option>
+        <option value="Educaci&oacute;n">Educaci&oacute;n</option>
+        <option value="Forestal">Forestal</option>
+        <option value="Medio Ambiente">Medio Ambiente</option>
+        <option value="Miner&iacute;a">Miner&iacute;a</option>
+        <option value="Petr&oacute;leo y Gas">Petr&oacute;leo y Gas</option>
+        <option value="Retail y Comercio">Retail y Comercio</option>
+        <option value="Salud y Servicios Sociales">Salud y Servicios Sociales</option>
+        <option value="Seguridad, Defensa y Emergencias">Seguridad, Defensa y Emergencias</option>
+        <option value="Servicios Publicos">Servicios P&uacute;blicos</option>
+        <option value="Transporte">Transporte</option>
+        <option value="Otro">Otro</option>
+      </select>
+    </div>
+    <div id="track-de-interes-wrap" class="form-group half right-side">
+      <label for="Track de Interes"><sup>*</sup>Track de Inter&eacute;s</label>
+      <select class="form-control" name="Track de Interes" class="frame3">
+        <option value="" selected>seleccionar</option>
+        <option value="Agricultura">Agricultura</option>
+        <option value="Developers">Developers</option>
+        <option value="Educacion">Educaci&oacute;n</option>
+        <option value="Oil & Gas">Oil & Gas</option>
+        <option value="Seguridad Nacional">Seguridad Nacional</option>
+        <option value="Smart Communities | Utilities">Smart Communities | Utilities</option>
+      </select>
+    </div>
+    <div class="form-group half">
+      <label for="CUIT/DNI"><sup>*</sup>CUIT/DNI</label>
+      <input class="form-control" placeholder="CUIT/DNI" type="text" name="CUIT/DNI" class="frame3" size="50" />
+    </div>
+    <div class="form-group half right-side">
+      <label for="Forma De Pago"><sup>*</sup>Forma de Pago</label><select class="form-control" name="Forma de pago" class="frame3">
+        <option value="" selected>seleccionar</option>
+        <option value="Efectivo">Efectivo</option>
+        <option value="Transferencia Bancaria">Transferencia Bancaria</option>
+        <option value="Deposito Bancario">Dep&oacute;sito Bancario</option>
+        <option value="Envio cheque">Env&iacute;o Cheque</option>
+        <option value="Tarjeta de Cr&eacute;dito">Tarjeta de Cr&eacute;dito/D&eacute;bito</option>
+        <option value="Sin cargo">Sin cargo</option>
+        </select>
+    </div>
+    <div class="form-group half">
+      <label for="Empresa"><sup>*</sup>Empresa</label>
+      <input class="form-control" placeholder="empresa" type="text" name="Empresa" class="frame3" size="50" />
+    </div>
+    <div class="form-group half right-side">
+      <label for="Empresa"><sup>*</sup>Cargo</label>
+      <input class="form-control" placeholder="cargo" name="Cargo" type="text" class="frame3" id="Cargo" size="50" />
+    </div>
+    <div class="form-group half">
+      <label for="Domicilio"><sup>*</sup>Domicilio</label>
+      <input class="form-control" placeholder="domicilio" type="text" name="Domicilio" class="frame3" size="50" />
+    </div>
+    <div class="form-group half right-side">
+      <label for="Localidad"><sup>*</sup>Localidad</label>
+      <input class="form-control" placeholder="localidad" type="text" name="Localidad" class="frame3" size="20" />
+    </div>
+    <div class="form-group half">
+      <label for="Codigo Postal"><sup>*</sup>Codigo Postal</label>
+      <input class="form-control" placeholder="codigo" type="text" name="Codigo Postal" class="frame3" size="20" />
+    </div>
+    <div class="form-group half right-side">
+      <label for="Provincia"><sup>*</sup>Provincia</label>
+      <input class="form-control" placeholder="provincia" type="text" name="Provincia" class="frame3" size="50" />
+    </div>
+    <div class="form-group half">
+      <label for="Pais"><sup>*</sup>Pa&iacute;s</label>
+      <select id="modalidad" class="form-control" name="Pais" class="frame3">
+        <option value="" selected>seleccionar</option>
+        <option value="Argentina">Argentina</option>
+        <option value="Estados Unidos">Estados Unidos</option>
+        <option value="Uruguay">Uruguay</option>
+        <option value="Otro">Otro</option>
+      </select>
+    </div>
+    
+    <div class="form-group half right-side">
+      <label for="Codigo Invitacion">C&oacute;digo Invitaci&oacute;n</label>
+      <input class="form-control" placeholder="codigo" type="text" name="Codigo" class="frame3" size="50" />
+    </div>
+    <div class="form-group">
+      <label for="Referencia"><sup>*</sup>Referido por</label>
+      <select class="form-control" name="Referencia" class="frame3">
+        <option value="Seleccionar" selected>Seleccionar</option>
+        <option value="Busqueda Internet">B&uacute;squeda Internet</option>
+        <option value="Redes sociales">Redes sociales</option>
+        <option value="Sitio Web Aeroterra">Sitio Web Aeroterra</option>
+        <option value="Publicidad">Publicidad</option>
+        <option value="Prensa">Prensa</option>
+        <option value="Otro">Otro</option>
+      </select>
+    </div>
+
+    <div class="form-group" style="display:none">
+      <label for="FiltroDeBot2">Filter</label>
+      <input name="FiltroDeBot2" type="text" class="form-control" value="" size="40" />
+    </div>
+    <div class="col-xs-12 col-md-12 col-lg-12" style="padding-left:0px!important;padding-right:0px!important;">
+      <div id="pre-uc-wrap" class="form-group half">
+        <input id="pre-uc" type="checkbox" name="Interesado en Cursos Pre-UC" value="Seguro" /> <strong>Estoy Interesado en Workshops Pre-UC</strong> - 10 de Mayo
+        <div id="pre-uc-list-start" class="form-group hide" style="padding-left:15px; padding-top:15px;">
+          <!--<div class="form-group">
+            <div id="wkshp1"></div>
+            <input type="checkbox" id="workshop1" name="Workshop1" value="ArcGIS para Agricultura" /> ArcGIS para Agricultura
+          </div>-->
+          <div class="form-group">
+            <div id="wkshp2"></div>
+            <input type="checkbox" id="workshop2" name="Workshop2" value="ArcGIS para Gobierno Inteligente" /> ArcGIS para Gobierno Inteligente
+          </div>
+          <div class="form-group">
+            <div id="wkshp3"></div>
+            <input type="checkbox" id="workshop3" name="Workshop3" value="Workshop ArcGIS 10.5" /> Workshop ArcGIS 10.5
+          </div>
+        </div>
+      </div>
+      <div id="post-uc-wrap" class="form-group half right-side">
+        <input id="post-uc" type="checkbox" value="Interesado en Cursos Post-UC" /> <strong>Estoy Interesado en Sesiones Post-UC</strong> - 12 de Mayo
+        <div id="post-uc-list-start" class="form-group hide" style="padding-left:15px; padding-top:15px;">
+          <div class="form-group">
+            <div id="ssion1"></div>
+            <input type="checkbox" id="sesion1" value="Explorando el GIS Corporativo" /> Explorando el GIS Corporativo - Azure
+          </div>
+          <div class="form-group">
+            <div id="ssion2"></div>
+            <input type="checkbox" id="sesion2" value="Introduccion a ArcGIS Pro" /> Introducci&oacute;n a ArcGIS Pro
+          </div>
+          <div class="form-group">
+            <div id="ssion3"></div>
+            <input type="checkbox" id="sesion3" value="ArcGIS para Aplicaciones Microsoft" /> ArcGIS para Aplicaciones Microsoft
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="Comentarios">Comentarios</label>
+      <textarea class="form-control" placeholder="Comentarios" name="Comentarios" type="text" value="" size="40"></textarea>
+    </div>
+    <div class="form-group">
+      <div align="left">
+        <input type="submit" name="Submit2" value="ENVIAR DATOS" class="btn btn-primary" style="margin-top:0px"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <span style="font-size: 11px;"><sup>(*)</sup> Campos Obligatorios</span>
+      <br>
+      <span style="font-size: 11px;"><sup>(1)</sup> El CUIT y/o DNI se usara para emisi&oacute;n de Factura y Control Registraci&oacute;n</span>
+    </div>
+  </form>
+</div>

@@ -1,10 +1,7 @@
 define({
   root: ({
-    _widgetLabel: "Environment",
-    dragSunSliderText: "Drag the slider to change the time of day.",
-    directShadow: "Direct Shadow (cast by sunlight)",
-    diffuseShadow: "Diffuse Shadows (ambient occlusion)",
-    shadowing: "Shadowing"
+    _widgetLabel: "Custom demo",
+    title: "Mini Map"
   }),
   "ar": 1,
   "bs": 1,

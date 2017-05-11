@@ -1,0 +1,83 @@
+h4{
+	font-weight: bolder!important;
+}
+h5{
+	font-weight: bolder!important;
+}
+h2{
+    color: #007AC2;
+}
+.bancaria{
+    text-align: left;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.bancaria-confirm{
+    font-size: 12px;
+}
+.uc-featured-image {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 100%;
+}
+.uc-featured-blurb {
+	padding-bottom: 3px;
+	font-size: 15px !important;
+	color: #696969;
+	line-height: 1.5em;
+	text-align: left;
+}
+.btn-esri{
+	border-radius:0px!important;
+	margin-bottom: 15px!important;
+}
+.uc-table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    font-size: 14px !important;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    color: #696969;
+}
+.uc-table th {
+	padding-left: 10px;
+	padding-right: 15px;
+	background: #fff;
+	text-align: left;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 16pt;
+	font-weight: bold;
+}
+.uc-table td{
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.uc-table tr:nth-child(even) {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #e4e4e4;
+    border-top: 1px solid #e4e4e4;
+}
+
+p {
+	padding-bottom: 3px;
+    font-size: 16px !important;
+    color: #696969;
+    line-height: 1.5em;
+    text-align: left;
+}
+
+li {
+	padding-bottom: 3px;
+    font-size: 16px !important;
+    color: #696969;
+    margin-bottom: 5px;
+    text-align: left;
+}

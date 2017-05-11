@@ -1,0 +1,737 @@
+#network-learn-solve-connect .col-xs-6{
+    margin-top: 15px;
+}
+h1{
+    color: #007AC2;
+}
+#numbers-section{
+    background-color: #eaeaea;
+    padding-top: 50px;
+}
+body{
+    position: relative;
+}
+.btn-clear:hover {
+    background: rgba(0, 0, 0, .6);
+    color: #FFF;
+    border-color: #000;
+}
+#organizadores {
+    text-align: left;
+}
+#organizadores img{
+    max-width: 100%;
+}
+.btn-clear {
+    width: 640px;
+    height: 50px;
+    font-size: 14px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, .7);
+    transition: all .4s ease-in;
+    color: #000;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #000;
+}
+.modal-content{
+    margin-top: 100px;
+}
+#page-navigation {
+    position: fixed;
+    top: 100px;
+    left: 15px;
+    z-index: 9999;
+}
+#page-navigation ul li a {
+    transition: all .5s ease-in-out;
+    background-image: url("//www.esri.com/~/media/E42CD0BB5BF54711A0FCC25A232AC956.png");
+    background-repeat: no-repeat;
+    background-position: -18px -18px;
+    /* background-position: -50px 10px; */
+    display: block;
+    height: 18px;
+    width: 18px;
+    margin: 10px 15px;
+    padding: 0;
+    position: relative;
+}
+#page-navigation ul {
+    margin: 0;
+}
+#page-navigation ul li {
+    background: transparent;
+    margin: 5px 0;
+    height: 25px;
+    padding: 0;
+    /* width: 35px; */
+}
+#page-navigation ul li a.scroll-item.scroll-home:hover, #page-navigation ul li a.scroll-home.scroll-active {
+    background-position: -1px -1px;
+}
+#page-navigation ul li a.scroll-home {
+    background-position: -1px -18px;
+}
+#page-navigation ul li a.scroll-item:hover {
+    background-position: -18px 0;
+    /* background-position: 10px 10px; */
+}
+#page-navigation ul li a.scroll-active {
+    background-position: -18px 0;
+    /* background-position: 10px 10px; */
+}
+#page-navigation ul li a:hover span {
+    /*background: rgba(255, 255, 255, 0.9);*/
+    color: #000;
+    transition: all .3s ease-in-out;
+    display: block;
+    text-indent: 0;
+    top: 0px;
+    left: 14px;
+    padding: 3px 0 3px 20px;
+    /* width: 170px; */
+}
+#page-navigation ul li a span {
+    transition: all .3s ease-in-out;
+    text-indent: -9999px;
+    position: absolute;
+    top: -3px;
+    left: 45px;
+    width: 160px;
+}
+section{
+    margin: 10px 0;
+}
+.btn-lg{
+    border-radius: 0px!important;
+}
+.container .center-grid, .container .centerGrid {
+    display: block;
+    float: none;
+    margin: 0 auto;
+}
+.container .grid-65 {
+    width: 65%;
+}
+.banner .uc-date img {
+    text-align: center;
+}
+.banner .uc-date h3 {
+    font-size: 30px;
+    padding: 4px 0 2px;
+    margin: 0;
+    letter-spacing: -0.15px;
+}
+.banner .uc-date p {
+    font-size: 20px;
+}
+.uc-date {
+    text-align: center;
+    color: #FFF;
+}
+
+.banner__title {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    line-height: 35px;
+    font-size: 18px;
+}
+.banner__subtitle {
+    text-transform: uppercase;
+    font-size: 14px;
+    color: white;
+    padding: 30px 0 0;
+}
+.banner__subtitle button{
+    margin-right: 30px;
+}
+.banner__borderline {
+    border-bottom: 2px solid #ff2bff;
+    margin: 27px 0 39px;
+    background: none;
+    display: block;
+    width: 50%;
+    clear: both;
+}
+.banner__uc-logo {
+    position: relative;
+    /*background-size: cover;*/
+    margin-right: 20px;
+    width: 160px;
+    height: auto;
+    float: left;
+    left: 0px;
+    top: -10px;
+}
+.banner__uc-logo img{
+    width: 100%;
+}
+.banner__uc-title {
+    text-transform: capitalize;
+    letter-spacing: -0.04em;
+    margin: 0px 0 21px;
+    font-size: 30px;
+    color: white;
+}
+.banner__uc-date {
+    text-transform: uppercase;
+    letter-spacing: -0.04em;
+    font-size: 18px;
+    color: white;
+}
+.page-section {
+    background-position: top center !important;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    height: auto;
+    /* height: 100%; */
+    padding: 2em 0;
+    position: relative;
+    width: 100%;
+}
+.clearfix {
+    display: block;
+}
+.container .grid-100 {
+    width: 100%;
+}
+#btn-bg{
+    background: url("../images/Play_Download_Sprite.png") 0 0 no-repeat;
+    height: 75px;
+    margin: auto;
+    width: 62px;
+    position: absolute;
+    left: 45%;
+    display: inline-block;
+}
+
+#btn-bg1{
+    background: url("../images/Play_Download_Sprite.png") 0 0 no-repeat;
+    height: 75px;
+    margin: auto;
+    width: 62px;
+    position: absolute;
+    left: 48%;
+    display: inline-block;
+}
+
+.video-cover{
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 300px;
+    margin: 20px auto 20px;
+    padding-top: 115px;
+    width: auto;
+    position: relative;
+    background-size: contain;
+}
+.index1{
+    padding-top: 50px;
+}
+.index1 p{
+    font-size: 17px;
+    color: #4d4d4d;
+    line-height: 1.5em;
+    padding: 0;
+    margin: 0 0 10px 0;
+}
+h1.headr{
+    text-align: center;
+    line-height: 32px;
+    font-size: 32px;
+    margin: 18px 0 18px 0;
+}
+h5{
+    text-transform: uppercase;
+}
+#why-attend {
+    background: url("../images/Why-Attend-Panel.jpg") center center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 500px;
+    padding: 20px 0;
+    position: relative;
+}
+#why-attend .ribbon {
+    background: none !important;
+    margin: 0 auto;
+    min-height: 185px;
+    text-align: center;
+}
+.page-section {
+    background-position: top center !important;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    height: auto;
+    /* height: 100%; */
+    padding: 2em 0;
+    position: relative;
+    width: 100%;
+}
+#boost-your-skills {
+    background-color: #6d1e6d !important;
+    background-image: url('//www.esri.com/~/media/366BE3BBC9184A689F6EAD30B7A6CD5A'), url('//www.esri.com/~/media/938146F02EF74C0E8952DBE193295D24');    background-position: left center, right top !important;
+    background-repeat: no-repeat;
+    position: relative;
+}
+#boost-your-skills p.copy {
+    background-image: url('../images/Line_arrow.png');
+    background-repeat: no-repeat;
+    padding-left: 85px;
+    color: #FFF;
+    font-size: 22px;
+    line-height: 1.5;
+    margin: 50px auto;
+    text-align: left;
+    width: 80%;
+}
+#boost-your-skills p.copy1 {
+    color: lightgray;
+    font-size: 13px;
+    line-height: 1.5;
+    margin: 5px auto 5px auto;
+    text-align: left;
+}
+#boost-your-skills p.testimonio {
+    color: #FFF;
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 5px auto;
+    text-align: left;
+}
+.container .grid-25 {
+    width: 25%;
+}
+#boost-your-skills .circle {
+    text-align: center;
+    min-height: 490px;
+}
+#boost-your-skills .circle h3 {
+    color: #FFF;
+    font-size: 17px;
+    letter-spacing: 1px;
+    margin-top: 30px;
+}
+#boost-your-skills .circle hr.hr-purple {
+    color: #972d9d;
+    margin: 20px auto;
+    width: 25%;
+}
+hr.hr-purple {
+    background-color: #9b2d9b;
+    border: none !important;
+    height: 2px;
+    margin: 30px auto;
+    width: 50%;
+}
+#sheraton {
+    background: url("/UC2016/images/BANNER_UC_CIERRE_2.jpg") center center no-repeat;
+    background-size: cover;
+    min-height: 500px;
+    padding: 20px 0;
+    position: relative;
+    background-attachment: fixed;
+}
+#sheraton .ribbon {
+    background: none !important;
+    margin: 40px auto;
+    min-height: 185px;
+    text-align: center;
+}
+#el_lugar {
+    color: white;
+    background-color: #00aab7 !important;
+    background-position: left top, right bottom !important;
+    background-repeat: no-repeat;
+    position: relative;
+}
+#el_lugar p.copy {
+    background-image: url('../images/Line_arrow.png');
+    background-repeat: no-repeat;
+    background-position: left 20px;
+    padding-left: 85px;
+    color: #FFF;
+    font-size: 22px;
+    line-height: 1.5;
+    margin: 50px auto;
+    text-align: left;
+    width: 80%;
+}
+#el_lugar p.copy1 {
+    color: #FFF;
+    font-size: 19px;
+    line-height: 1.5;
+    margin: 5px auto;
+}
+#el_lugar p.copy2 {
+    color: #FFF;
+    font-size: 17px;
+    line-height: 1.5;
+    margin: 5px auto;
+}
+#el_lugar .circle {
+    text-align: center;
+    min-height: 490px;
+}
+#el_lugar .circle h3 {
+    color: #FFF;
+    font-size: 17px;
+    letter-spacing: 1px;
+    margin-top: 30px;
+}
+#el_lugar .circle hr.hr-purple {
+    color: #972d9d;
+    margin: 20px auto;
+    width: 25%;
+}
+hr.hr-blue {
+    background-color: #0f7079;;
+    border: none !important;
+    height: 2px;
+    margin: 30px auto;
+    width: 50%;
+}
+hr {
+    background: #FFF;
+    border: none;
+    border-collapse: collapse;
+    color: #FFF;
+    display: block;
+    margin: 15px 0;
+    padding: 0;
+    width: 100%;
+    display: block;
+    -webkit-margin-before: 0.5em;
+    -webkit-margin-after: 0.5em;
+    -webkit-margin-start: auto;
+    -webkit-margin-end: auto;
+    border-style: inset;
+    border-width: 1px;
+    border-color: #FFF;
+}
+hr.banner {
+    background: #FFF;
+    border: none;
+    border-collapse: collapse;
+    color: #FFF;
+    display: block;
+    margin: 15px 0;
+    padding: 0;
+    width: 64%;
+    display: block;
+    -webkit-margin-before: 0.5em;
+    -webkit-margin-after: 0.5em;
+    -webkit-margin-start: auto;
+    -webkit-margin-end: auto;
+    border-style: inset;
+    border-width: 1px;
+    border-color: #FFF;
+}
+#network-learn-solve-connect{
+    background: url("../images/Bottom_Panel.jpg") top center repeat-y;
+    position: relative;
+    height: auto !important;
+    background-size: cover;
+    min-height: 500px;
+}
+#network-learn-solve-connect h1{
+    margin-bottom: 50px;
+}
+.panel-card {
+    background: rgba(40, 40, 84, 0.8);
+    padding-top: 35px;
+    padding-right: 35px;
+    padding-bottom: 15px;
+    height: 430px;
+    min-height: auto;
+}
+/*Network*/
+#network-learn-solve-connect .panel-card .panel-card-icon_network {
+    background-image: url('../images/Bottom_Icon_Sprite.png');
+    background-repeat: no-repeat;
+    display: block;
+    height: 35px;
+    margin: 0 auto;
+    width: 30px;
+}
+/*Learn*/
+#network-learn-solve-connect .panel-card .panel-card-icon_learn {
+    background-image: url('../images/Bottom_Icon_Sprite.png');
+    background-repeat: no-repeat;
+    display: block;
+    height: 35px;
+    margin: 0 auto;
+    width: 30px;
+    background-position: -30px 0;
+}
+/*Solve*/
+#network-learn-solve-connect .panel-card .panel-card-icon_solve {
+    background-image: url('../images/Bottom_Icon_Sprite.png');
+    background-repeat: no-repeat;
+    display: block;
+    height: 35px;
+    margin: 0 auto;
+    width: 35px;
+    background-position: -60px 0;
+}
+/*Connect*/
+#network-learn-solve-connect .panel-card .panel-card-icon_connect {
+    background-image: url('../images/Bottom_Icon_Sprite.png');
+    background-repeat: no-repeat;
+    display: block;
+    height: 35px;
+    margin: 0 auto;
+    width: 38px;
+    background-position: -95px 0;
+}
+#network-learn-solve-connect .panel-card h2 {
+    color: #FFF;
+    font-family: "Avenir LT W01 85 Heavy", Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    text-align: center;
+}
+#network-learn-solve-connect .panel-card ul {
+    color: #FFF;
+    font-size: 15px;
+    text-align: left;
+    line-height: 1.5em;
+}
+#network-learn-solve-connect ul li {
+    background: url("../images/uc-list-icon.png") no-repeat scroll 0px 7px transparent;
+    font-size: 14px;
+    line-height: 26px;
+    list-style: outside none none;
+    padding-left: 20px;
+    margin-left: 0px;
+}
+#speakers {
+    background: url("../images/oradores_cierre.jpg") center center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 500px;
+    padding: 20px 0;
+    position: relative;
+    text-decoration: none;
+}
+#speakers .ribbon {
+    background: none !important;
+    margin: 0 auto;
+    text-align: center;
+    text-decoration: none;
+}
+#pulling-back {
+    background-color: #00aab7;
+    background-image: url('//www.esri.com/~/media/6678ECB1CAC14162B252C94173B76391'), url('//www.esri.com/~/media/A882610F3D4642D69A1AC5145605E2BA');
+    background-position: left center, right top !important;
+    background-repeat: no-repeat;
+    min-height: 500px;
+    position: relative;
+    text-decoration: none;
+}
+#pulling-back p.copy {
+    background-image: url('//www.esri.com/~/media/3470A98F92474A679ED3BCEB61D740E3');
+    background-repeat: no-repeat;
+    padding-left: 85px;
+    color: #FFF;
+    font-size: 22px;
+    line-height: 1.2;
+    margin: 10px auto 0 auto;
+    text-align: left;
+    width: 70%;
+    text-decoration: none;
+}
+#pulling-back .circle {
+    margin-top: 35px;
+    text-align: center;
+    min-height: 325px;
+    text-decoration: none;
+}
+#pulling-back .circle h3 {
+    color: #FFF;
+    font-size: 17px;
+    letter-spacing: 1px;
+    margin-top: 20px;
+}
+#pulling-back .circle hr.hr-blue {
+    background-color: #0f7079;
+    margin: 10px auto;
+    width: 25%;
+}
+#pulling-back p.copy.pt-strong {
+    font-weight: bold;
+}
+#pulling-back .circle .copy {
+    background-image: none;
+    font-size: 15px;
+    line-height: 23px;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+}
+#pulling-back .circle .pt-10 {
+    padding-top: 10px;
+}
+
+
+.lg-icon-wrapper {
+    margin: 30px 0 0 0;
+}
+.show-saved-annually{
+    background-position: 25px 0px;
+}
+.saved-annually {
+    transition: all 2.25s ease-out;
+}
+.transition-icon{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background: white 25px 235px no-repeat;
+    height: 230px;
+    overflow: hidden;
+    margin: auto auto;
+    width: 230px;
+    -webkit-animation: mymove 9s;  /* Chrome, Safari, Opera */
+    -webkit-animation-iteration-count: 1;  /* Chrome, Safari, Opera */
+    -webkit-animation-fill-mode: forwards;  /* Chrome, Safari, Opera */
+    animation: mymove 9s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+/* Chrome, Safari, Opera */
+/*@-webkit-keyframes mymove {
+    from {height: 230px;}
+    to {height: 0px;}
+}
+
+@keyframes mymove {
+    from {height: 230px;}
+    to {height: 0px;}
+}*/
+.lg-icon {
+    position: relative;
+    background: black 25px 235px no-repeat;
+    height: 230px;
+    overflow: hidden;
+    margin: auto auto;
+    width: 230px;
+    z-index: 10;
+}
+.lg-icon img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+.stats {
+    height: 250px;
+    text-align: center;
+}
+.stats .numbers {
+    color: #007AC2;
+    font-size: 50px;
+    margin-bottom: 0px;
+    margin-top: 15px;
+}
+.stats p:first-of-type {
+    letter-spacing: 2px;
+}
+.stats p {
+    color: #000;
+    font-size: 16px;
+}
+.stats .more-info {
+    color: #000;
+    font-size: 15px;
+    margin: auto auto;
+    opacity: 0;
+    cursor: pointer;
+    height: 0px;
+    overflow: hidden;
+    padding-top: 10px;
+    transition: all .5s ease-in-out;
+    width: 71%;
+}
+.stats .show-info {
+    cursor: pointer;
+    height: 130px;
+    opacity: 1;
+}
+.stats .more-hide {
+    opacity: 0;
+}
+.stats .show-more {
+    cursor: pointer;
+    border-top: thin solid #007AC2;
+    color: #007AC2;
+    font-size: 14px;
+    height: 30px;
+    margin: auto auto;
+    padding-top: 10px;
+    width: 70%;
+}
+div.intro-copy{
+    text-align: center;
+    margin: 75px 0;
+}
+div.intro-copy h1{
+    text-transform: uppercase;
+    color: #FFF;
+    font-size: 34px;
+    margin: 0 0 18px 0;
+}
+div.intro-copy p{
+    color: #000;
+    font-size: 20px;
+    line-height: 30px;
+    margin: 0 0 10px 0;
+}
+@media screen and (max-width: 900px) {
+    #page-navigation {
+        display: none!important;
+        visibility: hidden;
+    }
+}
+#pulling-back .circle img{
+    width: 95%;
+    transition: all .5s ease-in-out;
+}
+#pulling-back .circle img:hover{
+    width: 105%;
+}
+/* line 66, /components/sass/mobile-app.scss */
+#live-banner {
+    background: #2d01fb url("../images/banner-uc2017.png") top right;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 400px;
+    width: 100%; 
+}
+.banner p {
+    font-size: 18px; 
+}
+.pad100{
+    padding: 100px;
+}
+.pad50{
+    padding: 50px;
+}
+@media screen and (max-width: 420px) {
+    h3{
+        font-size: 26px;
+    }
+    h3 strong{
+        font-size: 36px;
+        font-weight: bolder;
+    }
+    #live-banner{
+        height: 500px;
+    }
+}

@@ -23,26 +23,31 @@ Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ80
 DHT dht(DHTPIN, DHTTYPE);
 
 //TinyGPSPlus gps;
-#define PIN_GPS_TX      15            //GPS TX
-#define PIN_GPS_RX      13            //GPS RX
+#define PIN_GPS_TX      13            //GPS TX
+#define PIN_GPS_RX      15            //GPS RX
 static const uint32_t GPSBaud = 9600; //GPS Baudrate
 SoftwareSerial ss(PIN_GPS_RX, PIN_GPS_TX);
 
+#define PIN_W_TX      4             //GPS TX
+#define PIN_W_RX      0            //GPS RX
 
-#define PIN_US_TR      5            //ULTRASONIC TRIGGER PIN
-#define PIN_US_EC      4            //ULTRASONIC ECHO PIN
+SoftwareSerial weather(PIN_W_RX, PIN_W_TX);
+
 
 
 #define HOSTNAME     "ASA-TEMP-001"
 const char *ssidAP = "UC2k17";
 const char *passwordAP = "asa12345678";
 
-//const char* ssid = "ASA-VISITAS";
-//const char* password = "Strong776655";
-
-const char* ssid = "wawawan2";
+const char* ssid = "ASA-MET";
+const char* password = "195131010";
+/*
+const char* ssid = "ASA-VISITAS";
+const char* password = "Strong776655";
+*/
+/*const char* ssid = "wawawan2";
 const char* password = "pabloandres";
-
+*/
 ESP8266WebServer server(80);
 long dit;
 const int led = 13;
@@ -101,24 +106,7 @@ String htmlSelector =  "   <div >"
 " });"
 " </script>";
 
-long getDistance(){
-  long duration;
-  int distance;
 
-  digitalWrite(PIN_US_TR, LOW);
-  delayMicroseconds(2);
-  // Sets the trigPin on HIGH state for 10 micro seconds
-  digitalWrite(PIN_US_TR, HIGH);
-  delayMicroseconds(10);
-  digitalWrite(PIN_US_TR, LOW);
-  // Reads the echoPin, returns the sound wave travel time in microseconds
-  duration = pulseIn(PIN_US_EC, HIGH);
-  
-  // Calculating the distance
-  distance= duration*0.034/2;
-
-  return distance;
-}
 
 void pixelColor(short r, short g, short b){
   for(int i=0;i<NUMPIXELS;i++){
@@ -319,9 +307,41 @@ String getGPS(){
   String message = "";
   
   Serial.println("GPS");
-  ss.print("GET");
+  //clean
   while(ss.available())
-    message = message + (char)ss.read();
+    ss.read();
+  ss.print("GET");
+  delay(50);
+  
+  unsigned long _ini = millis();
+  do{
+    while(ss.available())
+      message += (char)ss.read();  
+  }while(millis() - _ini  < 400);
+  
+  Serial.println(message);
+  return message;
+}
+
+String getW(){
+  String message = "";
+  //clean
+  while(weather.available())
+    weather.read();
+  Serial.println("weather");
+  weather.print("GET");
+  delay(50);
+  unsigned long _ini = millis();
+  do{
+    while(weather.available()){
+      message += (char)weather.read();  
+    }
+    delay(50);
+    while(weather.available()){
+      message += (char)weather.read();  
+    }
+  }while(millis() - _ini  < 800);
+  
   Serial.println(message);
   return message;
 }
@@ -342,23 +362,23 @@ void handleGPS(){
 }
 
 void handleTEM() {
-  String message = "{\"lat\":-58.3728,\"lon\":-34.5935,\"temp\":";
+  String message = "{\"temp\":";
   float t = dht.readTemperature();
   Serial.print("Temperatura:");
   Serial.println(t);
-  Serial.print("Distance:");
-  Serial.println(dit);
+  
   float h = dht.readHumidity();
   float hic = dht.computeHeatIndex(t, h, false);
-  message = message + t;
-  message = message + ",\"hum\":";
-  message = message + h;
-  message = message + ",\"dist\":";
-  message = message + dit;
-  message = message + ", \"gps:\"";
-  message = message + getGPS();
-  message = message + ", \"utc:\"";
-  message = message + getUTC();
+  message += t;
+  message += ",\"hum\":";
+  message += h;
+  message += ",\"dist\":";
+  message += dit;
+  message += ",\"gps\":";
+  message += getGPS();
+  message += ",\"weather\":";
+  message += getW();
+  
   message = message + "}";
 
   if(t > 25){
@@ -506,9 +526,6 @@ void setup(void){
   if (F_CPU == 16000000) clock_prescale_set(clock_div_1);
 #endif
 
-  pinMode(PIN_US_TR, OUTPUT);
-  pinMode(PIN_US_EC, INPUT);
-  
   pinMode(PIN_RELAY, OUTPUT);
   digitalWrite(PIN_RELAY, 0);  
   // End of trinket special code
@@ -599,6 +616,7 @@ void setup(void){
 
   delay(1500);     
   ss.begin(GPSBaud);
+  weather.begin(GPSBaud);
   
   server.on("/", handleRoot);
   server.on("/LED", handleLED);
@@ -627,6 +645,5 @@ void setup(void){
 
 
 void loop(void){  
-  dit = getDistance();
   server.handleClient();
 }

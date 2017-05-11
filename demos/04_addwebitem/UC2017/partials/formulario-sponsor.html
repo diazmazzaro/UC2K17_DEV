@@ -1,0 +1,124 @@
+<style>
+  #contact-form{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .pad50{
+    padding: 50px;
+  }
+  .form-group.half{
+    width: 49%;
+    float: left;
+  }
+  .form-group.half.right-side{
+    margin-left: 2%;
+  }
+</style>
+<script>
+  function formCheck(formobj){
+    // Enter name of mandatory fields
+    var fieldRequired = Array("Nombre", "Apellido", "E-mail", "Empresa", "Cargo", "Consulta");
+    // Enter field description to appear in the dialog box
+    var fieldDescription = Array("Nombre", "Apellido", "E-mail", "Empresa", "Cargo", "Consulta");
+    // dialog message
+    var alertMsg = "Por favor complete los campos obligatorios marcados con * ";
+    
+    var l_Msg = alertMsg.length;
+    
+    if (formobj.elements["FiltroDeBot"].value !== "" || formobj.elements["FiltroDeBot2"].value !== ""){
+      window.location = "http://www.aeroterra.com/Contacto/Gracias_consultas.shtml";
+      return false;
+    }
+
+    for (var i = 0; i < fieldRequired.length; i++){
+      var obj = formobj.elements[fieldRequired[i]];
+      if (obj){
+        switch(obj.type){
+        case "select-one":
+          if (obj.selectedIndex == -1 || obj.options[obj.selectedIndex].text == ""){
+            alertMsg += " - " + fieldDescription[i] + "\n";
+          }
+          break;
+        case "select-multiple":
+          if (obj.selectedIndex == -1){
+            alertMsg += " - " + fieldDescription[i] + "\n";
+          }
+          break;
+        case "text":
+        case "textarea":
+          if (obj.value == "" || obj.value == null){
+            alertMsg += " - " + fieldDescription[i] + "\n";
+          }
+          break;
+        default:
+        }
+        if (obj.type == undefined){
+          var blnchecked = false;
+          for (var j = 0; j < obj.length; j++){
+            if (obj[j].checked){
+              blnchecked = true;
+            }
+          }
+          if (!blnchecked){
+            alertMsg += " - " + fieldDescription[i] + "\n";
+          }
+        }
+      }
+    }
+
+    if (alertMsg.length == l_Msg){
+      return true;
+    }else{
+      alert(alertMsg);
+      return false;
+    }
+  }
+  // -->
+</script>
+<div id="form-consultas">
+  <form action="http://www.aeroterra.com/formmail.php" method="post" id="formu" onSubmit="return formCheck(this);">
+    <input type="hidden" name="recipient" value="aschlossberg@aeroterra.com" />
+    <input type="hidden" name="redirect" value="/UC2017/Gracias.shtml" />
+    <input type="hidden" name="subject" value="UC2017 - Sponsors" />
+    <div class="form-group" style="display:none">
+      <label for="FiltroDeBot">Filter</label>
+      <input name="FiltroDeBot" type="text" class="form-control" value="" size="40" />
+    </div>
+    <div class="form-group half">
+      <label for="Nombre">*Nombre</label>
+      <input class="form-control" placeholder="Nombre" name="Nombre" type="text" value="" size="40">
+    </div>
+    <div class="form-group half right-side">
+      <label for="Apellido">*Apellido</label>
+      <input class="form-control" placeholder="Apellido" name="Apellido" type="text" value="" size="40">
+    </div>
+    <div class="form-group half">
+      <label for="E-mail">*E-mail</label>
+      <input class="form-control" placeholder="E-mail" name="E-mail" type="text" value="" size="40">
+    </div>
+    <div class="form-group half right-side">
+      <label for="Tel.Cel">Tel. Cel.</label>
+      <input class="form-control" placeholder="Telefono/Celular" name="Tel.Cel" type="text" value="" size="40">
+    </div>
+    <div class="form-group half">
+      <label for="Empresa">*Empresa</label>
+      <input class="form-control" placeholder="Empresa" name="Empresa" type="text" value="" size="40">
+    </div>
+    <div class="form-group half right-side">
+      <label for="Cargo">*Cargo</label>
+      <input class="form-control" placeholder="Cargo" name="Cargo" type="text" value="" size="40">
+    </div>
+    <div class="form-group" style="display:none">
+      <label for="FiltroDeBot2">Filter</label>
+      <input name="FiltroDeBot2" type="text" class="form-control" value="" size="40" />
+    </div>
+    <div class="form-group">
+      <label for="Consulta">*Tu Consulta</label>
+      <textarea class="form-control" placeholder="Consulta" name="Consulta" type="text" value="" size="40"></textarea>
+    </div>
+    <div class="form-group text-center">
+      <span style="font-size: 11px; color: #999;">Todos los campos marcados con * son obligatorios.</span><br>
+      <input type="submit" name="Submit2" value="ENVIAR" class="btn-lg btn-primary"/>
+    </div>
+  </div>
+</form>    

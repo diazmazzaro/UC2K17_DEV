@@ -1,0 +1,122 @@
+<html>
+<head>
+ <title>Conferencia Esri 2017 - Workshops Post-Conferencia </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" href="/UC2017/css/agenda.css">
+  <link rel="stylesheet" href="/home/css/fonts.css">
+   <!-- Keywords -->
+  <meta name="Keywords" content="Agenda, User Conference, UC 2017, Conferencia de Usuarios, Aeroterra, Conferencia Esri" />
+
+  <!-- Description -->
+  <meta name="Description" content="La Conferencia Esri 2017 presenta los adelantos, lanzamientos y nuevos desarrollos en la utilización de Sistemas de Información Geográfica, así como su integración con otros sistemas." />
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+</head>
+
+<body>
+  <div id="header"></div>
+  <div id="topBanner-import"></div>
+  <div id="subnav-import"></div>
+  <script type="text/javascript">
+    $( document ).ready(function() {
+      $("#header").load("/home/partials/header.html"); 
+      $("#subnav-import").load("./partials/header.html");
+      $("#topBanner-import").load("./partials/banner.html");
+    });
+  </script>
+  <div class="container section">
+    <!-- <img class="uc-featured-image" alt="Agenda" src="./images/uc17_banner_agenda.jpg"> -->
+    <!--<p class="uc-featured-blurb" style="text-align: left">Estamos planificado en detalle la agenda completa. Pr&oacute;ximamente publicaremos m&aacute;s informaci&oacute;n de todas las sesiones, invitados especiales, profesionales de Esri y Aeroterra S.A., casos de éxito, industrias y horarios detallados.
+    </p>-->    
+   <div style="margin-bottom:70px;"></div>
+
+    <!-- Viernes 12 de mayo -->
+    <table class="uc-table agenda_post" style="display: table;">
+      <tbody>
+        <tr class="date">
+          <td colspan="2">
+            <h2>Business Sessions</h2> 
+            <div class="head-info">Microsoft Argentina S.A. | Bouchard 710 Piso 4, CABA</div>
+            <div class="head-info">Viernes 12 de Mayo</div>
+          </td>
+          <td align="center" valign="middle"><br><img src="./images/logos/microsoft-logo-blanco.png" alt="Logo Microsoft" width="200p">
+            <!-- <a class="btn-registrar" type="button" href="/UC2016/POST_Conferencia.shtml">
+            <button class="btn btn-warning btn-lg" style="margin-top:30px; padding:10px;">+ Informaci&oacute;n </button>
+          </a> --></td>
+        </tr>
+        <tr>
+          <th colspan="1" class="time">
+            Hora
+          </th>
+          <th colspan="5" class="pre-conferencia">
+            Curso
+          </th>
+        </tr>
+        <tr>
+          <td colspan="1" class="time" style="vertical-align: middle;">
+            9:00 - 16:00hs
+          </td>
+          <td colspan="5">
+            <a href="/capacitacion/GIS/cursos-uc/2017/post-conferencia/GIS-corporativo.php"><div class="post-curso workshop4">
+                <h3>GIS Corporativo</h3> <p>en la Nube Azure de Microsoft</p><p class="tiempo">9:00 - 10:00hs</p> <p class="mas-info">Conoce m&aacute;s</p>
+              </div></a>
+            <a href="/capacitacion/GIS/cursos-uc/2017/post-conferencia/maps-for-microsoft.php"><div class="post-curso workshop5">
+                 <h3>Maps for Microsoft Applications</h3><p>PowerBI, Office, SharePoint, etc.</p><p class="tiempo">10:30 - 12:00hs</p> <p class="mas-info">Conoce m&aacute;s</p>
+              </div></a>
+            <a href="/capacitacion/GIS/cursos-uc/2017/post-conferencia/ArcGIS-pro-introduccion.php"><div class="post-curso workshop6">
+                 <h3>ArcGIS Pro</h3><p>Introducci&oacute;n</p><p class="tiempo">13:30 - 16:00hs</p> <p class="mas-info">Conoce m&aacute;s</p>
+              </div></a>
+          </td>
+        </tr>
+        <tr class="confirmacion-msg">
+          <td colspan="6" style="padding: 15px 25px;">
+            <h4>Confirmación</h4>
+            <p style="font-size:13px;">Aeroterra S.A. se reserva el derecho a realizar cambios y modificaciones en la agenda. Todo registro está sujeto a aprobación y a disponibilidad de vacantes. La confirmación de registro se comunicará por correo electrónico. El acceso a los workshops post-conferencia sólo estará disponible en forma gratuita para registrados a la Conferencia Esri UC 2017.</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="row text-center" style="margin-bottom:30px;">
+      <a href="./registro.shtml">
+        <button style="border:none!important;border-radius:0px!important" class="btn-lg btn-primary"> REGISTRO</button>
+      </a>
+    </div>
+  </div>
+  <div style="margin-bottom:70px;"></div>
+
+  <div id="footer-import"></div>
+  <div id="footer"></div>
+<script type="text/javascript">
+  $( document ).ready(function() {
+    $("#footer-import").load("./partials/footer.html"); 
+    $("#footer").load("/home/partials/fat_footer.html");
+    $("td.expo-gis").on("mouseover", function(){
+      $("td.expo-gis").css("background-color", "#00aab7");
+      $("td.expo-gis").css("border-top", "1px solid #00aab7");
+      $("td.expo-gis").css("border-bottom", "1px solid #00aab7");
+    });
+    $("td.expo-gis").on("mouseout", function(){
+      $("td.expo-gis").css("background-color", "#6d1e6d");
+      $("td.expo-gis").css("border-top", "1px solid #6d1e6d");
+      $("td.expo-gis").css("border-bottom", "1px solid #6d1e6d");
+    });
+    $("td.expo-gis").on("click", function(){
+      window.location = "./expo.shtml"
+    });
+  });
+</script>
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1146889-1";
+urchinTracker();
+</script>
+</body>
+</html>

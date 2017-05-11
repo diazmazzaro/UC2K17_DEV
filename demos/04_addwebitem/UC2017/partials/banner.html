@@ -1,0 +1,102 @@
+<style>
+	.top-banner{
+		height: 150px;
+		min-height: auto;
+		background: url('./images/banner-uc2017.png') top center;
+		background-size: cover;
+		background-color: blue;
+		position: relative;
+	}
+	.top-banner img{
+		margin-top: 30px;
+	    height: 95px;
+	    width: 160px;
+	}
+	.top-banner h2{
+		color: #FFF;
+	}
+
+	.top-banner h3{
+		color: #FFF;
+		font-size: 22px;
+	}
+	.top-banner p{
+		font-weight: 400;
+		color: #FFF;
+		font-size: 15px!important;
+		line-height: 1.5em;
+	}
+	.banner-header{
+		margin-top: 35px;
+	}
+	#small-banner{
+		display: none;
+	}
+	#big-banner{
+		display: block;
+	}
+	span.bigger-num{
+		font-size: 22px!important;
+		font-weight: bolder;
+	}
+	@media screen and (max-width: 420px) {
+		#small-banner{
+			display: block;
+		}
+		#big-banner{
+			display: none;
+		}
+		.top-banner img {
+			margin-top: 0px;
+		}
+		.top-banner h3 {
+			font-size: 20px;
+			text-align: center;
+			margin-top: 10px;
+			margin-bottom: 0px;
+			font-weight: bold;
+		}
+		.banner-header-sm{
+			margin-top: 0px;
+			margin-bottom: 20px;
+			text-align: center;
+			font-size: 18px;
+		}
+		.top-banner p {
+			font-size: 16px!important;
+		}
+		.attendease-date-nav > li {
+			font-size: 13px;
+		}
+		.uc-featured-blurb{
+			font-size: 20px!important;
+		}
+	}
+</style>
+<a href="./index.shtml">
+<div id="big-banner" class="row top-banner">
+	<div class="container">
+	  <div class="col-xs-3 col-md-3 col-lg-3 text-right">
+	   <img src="./images/uc17_logo.png">
+	  </div>
+	  <div class="col-xs-9 col-md-9 col-lg-9 text-left">
+	   <h3 class="banner-header">Conferencia Esri | Sistemas de Informaci&oacute;n Geogr&aacute;fica</h3>
+	   <p>Mayo 10<span class="bigger-num">&nbsp;11&nbsp;</span>12 del 2017 en el Hotel Sheraton | San Martin 1225/1275, C1104AKC, Buenos Aires </p>
+	  </div>
+	</div>
+</div>
+<div id="small-banner" class="row top-banner">
+	<div class="container">
+	  <div clas="row">
+	  	<h3 class="banner-header">CONFERENCIA ESRI</h3>
+	  	<h2 class="banner-header-sm">Sistemas de Informaci&oacute;n Geogr&aacute;fica</h2>
+	  </div>
+	  <div class="col-xs-4 col-md-3 col-lg-3 text-right">
+	   <img src="./images/uc17_logo.png">
+	  </div>
+	  <div class="col-xs-8 col-md-9 col-lg-9 text-left">
+	   <p>10<span class="bigger-num">&nbsp;11&nbsp;</span>12 &nbsp;- &nbsp;Mayo 2017<br>Sheraton Hotel, Argentina </p>
+	  </div>
+	</div>
+</div>
+</a>

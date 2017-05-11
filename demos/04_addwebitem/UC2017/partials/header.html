@@ -1,0 +1,242 @@
+<style>
+	.fixed-header {
+	  position: fixed;
+	  top:0; 
+	  left:0;
+	  width: 100%; 
+	  z-index: 9999!important;
+	}
+	.navbar-default div ul li{
+		min-width: 110px;
+	}
+	.navbar-default div ul li:hover a{
+		color: #1874CD!important;
+		font-weight: 600;
+		cursor: pointer!important;
+	}
+	.navbar-default div ul li a{
+		text-transform: uppercase;
+		color: white;
+	}
+	.navbar-default div ul.dropdown-menu li a{
+		color: black!important;
+	}
+	.navbar-default div ul.dropdown-menu li:hover a{
+		color: #337ab7!important;
+	}
+	#sub-navigation div ul li.active{
+		color: #1874CD!important;
+		font-weight: 600;
+		border-width: 1px; 
+		border-bottom: solid;
+		border-color: #1874CD;
+	}
+	#sub-navigation div ul li.active:hover{
+		color: #1874CD!important;
+	}
+	.btn-lg-nav{
+		border:none!important;
+		border-radius:0px!important;
+		position: absolute;
+		top: 3px;
+		right: -130px;
+	}
+	#sub-navigation{
+		text-align:center!important;
+		font-size:15px; 
+		text-transform:uppercase;
+		background-color: #f5f5f5;
+	}
+	.sub-nav-wrap{
+		position: relative;
+	}
+	.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
+		cursor: pointer!important;
+	}
+	@media screen and (max-width: 1200px) {
+		.row{
+			margin: 0px 0px;
+		}
+		.btn-lg-nav{
+			right: -70px;
+		}
+	}
+	@media screen and (min-width: 765px) and (max-width: 1025px) {
+		.btn-lg-nav{
+			right: -110px;
+		}
+		#sub-navigation{
+			font-size: 11px;
+		}
+		.navbar-default div ul li{
+			min-width: 0px;
+		}
+		
+	}
+	@media screen and (max-width: 764px) {
+		.fixed-header{
+			position: relative;
+		}
+		#sub-navigation  ul li{
+			border-bottom: 1px solid;
+		}
+		#sub-navigation  ul li a{
+			text-align: left;
+			padding-left: 50px;
+		}
+		.btn-lg-nav{
+			position: relative;
+			right: 0px;
+		}		
+		#organizadores img{
+			width: 100%;
+		}
+		#btn-bg1{
+			left: 46%;
+		}
+		#pulling-back .circle h3 {
+			font-size: 15px;
+		}
+		.panel-card{
+			margin-bottom: 15px;
+			height: 330px;
+		}
+		.top-banner img {
+			width: 100%;
+			height: auto;
+		}
+	}
+	@media screen and (max-width: 420px) {
+		.ribbon img{
+			width: 100%!important;
+		}
+		#pulling-back p.copy {
+			padding-left: 0px;
+		}
+		#boost-your-skills p.copy {
+			padding-left: 0px;
+		}
+		#btn-bg1{
+			left: 43%;
+		}
+		.container .grid-65 {
+			width: 100%;
+		}
+		.panel-card{
+			margin-bottom: 15px;
+			height: 380px;
+		}
+	}
+
+</style>
+<div id="sub-navigation" class="navbar-default">
+	<div class="sub-nav-wrap container">
+		<ul class="nav navbar-nav" style="float: none;">
+			<li id="subnav1" class="menu-margin">
+				<a href="./index.shtml"> <span class="glyphicon glyphicon-home"></span> </a>
+			</li>
+			<li id="subnav2" style="cursos:pointer;"> 
+			  <a href="./agenda.shtml">
+			    Agenda
+			  </a>
+			</li>
+			<li id="subnav3"> 
+				<a href="./expo.shtml">Expo & Sponsors </a>
+			</li> 
+			<li id="subnav4"> 
+				<a href="./porque_asistir.shtml">Por Qu&eacute; Asistir</a>
+			</li>
+ 			<li id="subnav5"> 
+				<a href="./streaming.shtml">En Vivo</a>
+			</li> 
+			<li id="subnav6"> 
+				<a href="./contacto.shtml">Consultas</a>
+			</li> 
+			<li id="subnav7">
+				<a href="./registro.shtml"><button class="btn-lg-nav btn-lg btn-primary"> REGISTRO→</button></a>
+			</li>
+		</ul>
+	</div>
+</div>
+<script type="text/javascript">
+	// Scroll feature to header
+    var $window = $(window);
+    var nav = $('#sub-navigation');
+
+	var long_url = window.location.pathname;
+	var url_array = long_url.split("/");
+	var url_length = url_array.length; 
+    var url = url_array[url_length - 1];
+	if(url === "index.shtml" || url === "/" || url === ""){
+		$('#subnav1').addClass('active');
+		$window.scroll(function(){
+          if ($window.scrollTop() >= 495) {
+             nav.addClass('fixed-header');
+          }
+          else {
+             nav.removeClass('fixed-header');
+          }
+      }); 
+	} else if(url === "agenda.shtml"){
+		$('#subnav2').addClass('active');
+		$window.scroll(function(){
+          if ($window.scrollTop() >= 200) {
+             nav.addClass('fixed-header');
+          }
+          else {
+             nav.removeClass('fixed-header');
+          }
+      }); 
+	} else if(url === "expo.shtml"){
+		$('#subnav3').addClass('active');
+		$window.scroll(function(){
+          if ($window.scrollTop() >= 200) {
+             nav.addClass('fixed-header');
+          }
+          else {
+             nav.removeClass('fixed-header');
+          }
+      }); 
+	} else if(url === "porque_asistir.shtml"){
+		$('#subnav4').addClass('active');
+		$window.scroll(function(){
+          if ($window.scrollTop() >= 200) {
+             nav.addClass('fixed-header');
+          }
+          else {
+             nav.removeClass('fixed-header');
+          }
+      }); 
+	} else if(url === "galeria-de-mapas.shtml"){
+		$('#subnav5').addClass('active');
+		$window.scroll(function(){
+          if ($window.scrollTop() >= 200) {
+             nav.addClass('fixed-header');
+          }
+          else {
+             nav.removeClass('fixed-header');
+          }
+      }); 
+	} else if(url === "contacto.shtml"){
+		$('#subnav6').addClass('active');
+		$window.scroll(function(){
+          if ($window.scrollTop() >= 200) {
+             nav.addClass('fixed-header');
+          }
+          else {
+             nav.removeClass('fixed-header');
+          }
+      }); 
+	} else if(url === "registro.shtml"){
+		$('#subnav7').css('display', 'none');
+		$window.scroll(function(){
+          if ($window.scrollTop() >= 200) {
+             nav.addClass('fixed-header');
+          }
+          else {
+             nav.removeClass('fixed-header');
+          }
+      }); 
+
+	}
+</script>

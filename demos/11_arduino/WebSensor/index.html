@@ -55,12 +55,116 @@
       text-align: center;
     }
     div.temperatura > div:first-child{
-      background-color: #ff8282;
+      background-color: #ffc14f;
       padding: 4px;
     }
     div.temperatura > div:last-child{
       font-size: 70pt;
       color:white;
+    }
+
+
+    div.presion {
+      position: absolute;
+      right: 15px;
+      top: 230px; 
+      background-color: #ff4f69;
+      font-family: Verdana, sans-serif;
+      font-size: 50pt;
+    }
+
+    div.presion > div{
+      
+      text-align: center;
+    }
+    div.presion > div:first-child{
+      background-color: #ff724f;
+      padding: 4px;
+    }
+    div.presion > div:last-child{
+      font-size: 70pt;
+      color:white;
+    }
+
+    div.humedad {
+      position: absolute;
+      right: 15px;
+      top: 450px; 
+      background-color: #63f2e3;
+      font-family: Verdana, sans-serif;
+      font-size: 50pt;
+    }
+
+    div.humedad > div{
+      
+      text-align: center;
+    }
+    div.humedad > div:first-child{
+      background-color: #27cebd;
+      padding: 4px;
+    }
+    div.humedad > div:last-child{
+      font-size: 70pt;
+      color:white;
+    }
+
+    div.hidro {
+      position: absolute;
+      right: 370px;
+      top: 450px; 
+      background-color: #2796ce;
+      font-family: Verdana, sans-serif;
+      font-size: 50pt;
+    }
+
+    div.hidro > div{      
+      text-align: center;
+    }
+    div.hidro > div:first-child{
+      background-color: #4fc4ff;
+      padding: 4px;
+    }
+    div.hidro > div:last-child{
+      font-size: 70pt;
+      color:white;
+    }
+
+    div.bto{
+      position: absolute;
+      left: 15px;
+      bottom: 15px; 
+      background-color: red;
+      color: #FFF;
+      font-family: Verdana, sans-serif;
+      font-size: 35pt;
+      border-radius: 15px;
+      padding: 12px;
+      cursor: pointer;
+    }
+    div.bto:hover{
+      background-color: #ff4242;
+    }
+
+    #dropDiv{
+      position: absolute;
+      right: 600px;
+      top: 15px;
+    }
+
+    #dropDiv > img{
+      height: 150px;
+      width: 150px;
+    }
+
+    #snowDiv{
+      position: absolute;
+      left: 70px;
+      top: 15px;
+    }
+
+    #snowDiv > img{
+      height: 150px;
+      width: 150px;
     }
   </style>
 
@@ -92,53 +196,204 @@
 
       var graphicsLayer = new GraphicsLayer();
       map.add(graphicsLayer);
+      var editPoint = function(){
+        var obj= {gps:{}}; 
+
+        obj.gps.Pos = {  lon : -65.45, lat: -24.5935};
+        
+
+        var point = new Point({
+            y: obj.gps.Pos.lat,
+            x: obj.gps.Pos.lon/*,
+            z: 100*/
+          });
+
+        var markerSymbol = new SimpleMarkerSymbol({
+          color: [226, 0, 140],
+
+          outline: { // autocasts as new SimpleLineSymbol()
+            color: [255, 0,255],
+            width: 2
+          }
+        });
+
+        var pointGraphic = new Graphic({
+          geometry: point,
+          symbol: markerSymbol
+        });
+
+
+        graphicsLayer.add(pointGraphic);
+        var oReqLed = new XMLHttpRequest();
+        oReqLed.addEventListener("load", function(data){
+          console.log(oReqLed.response);
+          
+          setTimeout(function(){ 
+            intSensors();
+          }, 800);
+        });
+        //oReq.open("GET", "http://192.168.125.145/TEM?" + Math.random().toString());
+        oReqLed.open("GET", window._url + "/LED?r=255&b=255" + Math.random().toString());
+        oReqLed.send();
+
+        
+      };
+
+      window.ePoint = editPoint;
 
       var addPoint = function(obj){
-      var point = new Point({
-        x: obj.lat,
-        y: obj.lon/*,
-        z: 100*/
-      }),
+        if(!(obj.gps && obj.gps.Pos))
+          obj.gps.Pos = {  lat : -58.3728, lon: -34.5935};
 
-      markerSymbol = new SimpleMarkerSymbol({
-        color: [226, 119, 40],
+        var point = new Point({
+            y: obj.gps.Pos.lat,
+            x: obj.gps.Pos.lon/*,
+            z: 100*/
+          });
 
-        outline: { // autocasts as new SimpleLineSymbol()
-          color: [65, 65, 65],
-          width: 2
+        markerSymbol = new SimpleMarkerSymbol({
+          color: [226, 119, 40],
+
+          outline: { // autocasts as new SimpleLineSymbol()
+            color: [65, 65, 65],
+            width: 2
+          }
+        });
+
+        var pointGraphic = new Graphic({
+          geometry: point,
+          symbol: markerSymbol
+        });
+        
+        
+        
+        document.getElementById("txtTemp").innerHTML = obj.temp + "°";
+        if(obj.temp > 25){
+          document.getElementById("tempDiv").setAttribute("t", "hot");
+          pointGraphic.symbol.color = "red";
         }
-      });
+        else if(obj.temp > 18){
+          document.getElementById("tempDiv").setAttribute("t", "warm");
+          pointGraphic.symbol.color = "orange";
+        }
+        else if(obj.temp > 10){
+          document.getElementById("tempDiv").setAttribute("t", "temp");
+          pointGraphic.symbol.color = "yelow";
+        }
+        else if(obj.temp > 1){
+          document.getElementById("tempDiv").setAttribute("t", "low");
+          pointGraphic.symbol.color = "green";
+        }
+        else{
+          document.getElementById("tempDiv").setAttribute("t", "cold");
+          pointGraphic.symbol.color = "blue";
+        }
 
-      var pointGraphic = new Graphic({
-        geometry: point,
-        symbol: markerSymbol
-      });
-      
-      graphicsLayer.removeAll();
+        graphicsLayer.removeAll();
+        graphicsLayer.add(pointGraphic);
 
-      document.getElementById("txtTemp").innerHTML = obj.temp + "°";
-      if(obj.temp > 25){
-        document.getElementById("tempDiv").setAttribute("t", "hot");
-        pointGraphic.symbol.color = "red";
-      }
-      else if(obj.temp > 18){
-        document.getElementById("tempDiv").setAttribute("t", "warm");
-        pointGraphic.symbol.color = "orange";
-      }
-      else if(obj.temp > 10){
-        document.getElementById("tempDiv").setAttribute("t", "temp");
-        pointGraphic.symbol.color = "yelow";
-      }
-      else if(obj.temp > 1){
-        document.getElementById("tempDiv").setAttribute("t", "low");
-        pointGraphic.symbol.color = "green";
-      }
-      else{
-        document.getElementById("tempDiv").setAttribute("t", "cold");
-        pointGraphic.symbol.color = "blue";
-      }
-      
-      graphicsLayer.add(pointGraphic);
+        var markerSymbol3 = new SimpleMarkerSymbol({
+          color: [255,79,105],
+
+          outline: { // autocasts as new SimpleLineSymbol()
+              color: [65,65,65],
+              width: 2
+            }
+          });
+          var point3 = new Point({
+            x: -54.524778,
+            y: -25.63039/*,
+            z: 100*/
+          });
+
+          var pointGraphic3 = new Graphic({
+            geometry: point3,
+            symbol: markerSymbol3
+          });
+        graphicsLayer.add(pointGraphic3);
+        
+        var markerSymbol4 = new SimpleMarkerSymbol({
+          color: [79,196,255],
+
+          outline: { // autocasts as new SimpleLineSymbol()
+              color: [65,65,65],
+              width: 2
+            }
+          });
+          var point4 = new Point({
+            x: -57.99695,
+            y: -31.39913/*,
+            z: 100*/
+          });
+
+          var pointGraphic4 = new Graphic({
+            geometry: point4,
+            symbol: markerSymbol4
+          });
+        graphicsLayer.add(pointGraphic4);
+        
+        if(obj.weather.Humidity && obj.weather.Humidity.hum && obj.weather.Humidity.hum > 0){
+          document.getElementById("dropDiv").style.display = "";
+          var markerSymbol2 = new SimpleMarkerSymbol({
+          color: [183, 210, 255],
+
+          outline: { // autocasts as new SimpleLineSymbol()
+              color: [183, 210, 155],
+              width: 2
+            }
+          });
+          var point2 = new Point({
+            x: -55.90,
+            y: -34.13/*,
+            z: 100*/
+          });
+
+          var pointGraphic2 = new Graphic({
+            geometry: point2,
+            symbol: markerSymbol2
+          });
+          graphicsLayer.add(pointGraphic2);
+        }
+        else
+          document.getElementById("dropDiv").style.display = "none";
+
+        if(obj.weather && obj.weather.BMP && obj.weather.BMP.bmpResure){         
+         document.getElementById("txtPres").innerHTML = obj.weather.BMP.bmpResure + "pa"; 
+        }
+
+        if(obj.hum){         
+         document.getElementById("txtHum").innerHTML = obj.hum + "%"; 
+        }
+
+        if(obj.weather && obj.weather.Distance && obj.weather.Distance.distance){         
+         document.getElementById("txtHidro").innerHTML = obj.weather.Distance.distance; 
+        }
+
+        if(obj.weather && obj.weather.DS18B20 && obj.weather.DS18B20 && obj.weather.DS18B20.temp < 11){
+          //document.getElementById("iceDiv").style.display = "";
+          var markerSymbol5 = new SimpleMarkerSymbol({
+          color: [204,245,249],
+
+          outline: { // autocasts as new SimpleLineSymbol()
+              color: [65,65,65],
+              width: 2
+            }
+          });
+          var point5 = new Point({
+            x: -65.082729,
+            y: -40.81605/*,
+            z: 100*/
+          });
+
+          var pointGraphic5 = new Graphic({
+            geometry: point5,
+            symbol: markerSymbol5
+          });
+          graphicsLayer.add(pointGraphic5);
+          document.getElementById("snowDiv").style.display = "";      
+        }
+        else
+          document.getElementById("snowDiv").style.display = "none";
     }
 
     var intSensors = function(){
@@ -146,32 +401,57 @@
         var oReq = new XMLHttpRequest();
         oReq.addEventListener("load", function(data){
           console.log(oReq.response);
-          var jObj = JSON.parse(oReq.response);
-          addPoint(jObj);
+          try{
+            var jObj = JSON.parse(oReq.response);
+            addPoint(jObj);
+          }catch(ex){};
+          
           setTimeout(function(){ 
             intSensors();
-          }, 1500);
+          }, 800);
         });
         //oReq.open("GET", "http://192.168.125.145/TEM?" + Math.random().toString());
-        oReq.open("GET", "http://192.168.125.145/TEM?" + Math.random().toString());
+        oReq.open("GET", window._url + "/TEM?" + Math.random().toString());
         oReq.send();
-          
-        
     }
-
-    intSensors();
+    //intSensors();
 
     });
     window._last = null;
-
+    window._url = "http://192.168.126.193";
   </script>
 </head>
 
 <body>
   <div id="viewDiv"></div>
+  <div id="dropDiv" style="display: none;">
+    <img src="img/drop.png" />
+  </div>
+
+  <div id="snowDiv" style="display: none;">
+    <img src="img/snow.png" />
+  </div>
+
   <div id="tempDiv" class="temperatura">
     <div>Temperatura</div>
     <div id="txtTemp"></div>
+  </div>
+
+  <div id="preDiv" class="presion">
+    <div>Presión</div>
+    <div id="txtPres"></div>
+  </div>
+
+  <div id="humDiv" class="humedad">
+    <div>Humedad</div>
+    <div id="txtHum"></div>
+  </div>
+  <div id="hidroDiv" class="hidro">
+    <div>Hidrógrafo</div>
+    <div id="txtHidro"></div>
+  </div>
+  <div id="btoDiv" class="bto" onclick="window.ePoint()">
+    <div>Guardar</div>
   </div>
 </body>
 </html>

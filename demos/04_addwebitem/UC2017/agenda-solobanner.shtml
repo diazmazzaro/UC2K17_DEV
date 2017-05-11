@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+ <title>Aeroterra UC 2017 - Agenda</title>
+  <meta charset="utf-8">
+    
+  <!-- Jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+  
+  <!-- Latest compiled and minified Bootstrap JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <!-- Google Analytics -->
+  <meta name="google-site-verification" content="TxbVVwtFgPDn-uRV9WwKYJQNC_-Puc3tPy-xfEpcn2g" />
+
+  <!-- Keywords -->
+  <meta name="Keywords" content="Aeroterra, Aeroterra SA, Aeroterra S.A., GIS. SIG, Esri, ArcGIS,  Mapas, geógrafos, cartógrafos, Información geográfica, UC2016, User Conference 2016, Eventos" />
+
+  <!-- Description -->
+  <meta name="Description" content="¡Un solo lugar y mucho por aprender de GIS! La UC2017 presenta los adelantos, lanzamientos y nuevos desarrollos en la utilización de Sistemas de Información Geográfica, así como su integración con otros sistemas. La UC2017 proporciona un lugar para aprender, conectar, hacer preguntas y obtener respuestas. Disfruta junto a tus colegas en un espacio donde TODOS SOMOS GIS." />
+
+  <link rel="stylesheet" href="/home/css/main.css">
+  <link rel="stylesheet" href="./css/agenda.css">
+  
+</head>
+<body>
+  <!-- Modal Notificar -->
+  <div style="margin-top: 100px" class="modal fade" id="modal-notificar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h2>Notificame</h2>
+        </div>
+        <div class="modal-body">
+          <div id="form-agenda"></div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <!-- Modal Notificar End -->
+
+  <div id="header"></div>
+  <div id="topBanner-import"></div>
+  <div id="subnav-import"></div>
+  <script type="text/javascript">
+    $( document ).ready(function() {
+      $("#form-agenda").load("./partials/formulario-agenda.html"); 
+
+
+      $("#header").load("/home/partials/header.html"); 
+      $("#subnav-import").load("./partials/header.html");
+      $("#topBanner-import").load("./partials/banner.html");
+      $("#sub-footer").load("./partials/footer.html");
+      $("#footer").load("/home/partials/fat_footer.html");
+    });
+  </script>
+
+  <div class="container pad50">
+    <img class="uc-featured-image" alt="Agenda" src="./images/uc17_banner_agenda.jpg">
+    <p class="uc-featured-blurb" style="text-align: left">La Agenda de la UC2016 fue diagramada para que el usuario aprovechara al máximo su jornada. El  Programa incluy&oacute; presentaciones de especialistas e implementaciones de éxito por parte de los usuarios de la Plataforma.
+    </p>
+    <div class="row text-center">
+      <p class="notificar-info">Se el primero en enterarte cuando se publique la agenda completa.</p>
+      <a type"button" data-toggle="modal" data-target="#modal-notificar"><button class="btn-lg btn-primary"><span class="glyphicon glyphicon-thumbs-up"></span> Notifícame</button></a>
+    </div>
+  </div>
+  <div id="sub-footer"></div>
+  <div id="footer"></div>
+  <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    _uacct = "UA-1146889-1";
+    urchinTracker();
+  </script>
+</body>
+</html>

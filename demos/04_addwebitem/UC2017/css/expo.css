@@ -1,0 +1,19 @@
+.uc-featured-image {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 100%;
+}
+.uc-featured-blurb{
+    padding-bottom: 3px;
+    font-size: 18px !important;
+    color: #696969;
+    line-height: 1.5em;
+    text-align: left;
+}
+.pad50{
+    padding: 50px 0px;
+}
+.notificar-info{
+    font-size: 20px;
+    margin-bottom: 20px;
+}

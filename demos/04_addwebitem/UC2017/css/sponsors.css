@@ -1,0 +1,61 @@
+.uc-featured-image {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 100%;
+}
+.uc-featured-blurb {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-bottom: 3px;
+    font-size: 16px !important;
+    color: #696969;
+    line-height: 1.5em;
+    text-align: center;
+}
+.section ul {
+    font-size: 15px;
+    text-align: left;
+    line-height: 1.5em;
+}
+.section ul li {
+    background: url("../images/uc-list-icon.png") no-repeat scroll 0px 7px transparent;
+    background-size: 15px 15px;
+    font-size: 14px;
+    line-height: 26px;
+    list-style: outside none none;
+    padding-left: 20px;
+}
+.col-md-4 img{
+	width: 100%;
+}
+.col-md-4 div.subtitle{
+	color: white;
+	padding-top: 15px;
+	height: 50px;
+	font-size: 16px;
+	background-color: #007ac2;
+	text-align: center;	
+}
+.col-md-4 .info{
+	padding-top: 15px;
+	height: 220px;
+	font-size: 16px;
+	background-color: #d3eaf9;
+	text-align: center;
+    position: relative;	
+}
+.btn-consultas{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+.consultar{
+	height: 40px;
+	font-size: 16px;
+	background-color: #d3eaf9;
+	text-align: center;
+	padding-bottom: 30px;	
+}
+.btn{
+	margin-top: 10px;
+}
