@@ -232,6 +232,13 @@
             intSensors();
           }, 800);
         });
+        oReqLed.addEventListener("error", function(data){
+          console.log(oReqLed.response);
+          
+          setTimeout(function(){ 
+            intSensors();
+          }, 800);
+        });
         //oReq.open("GET", "http://192.168.125.145/TEM?" + Math.random().toString());
         oReqLed.open("GET", window._url + "/LED?r=255&b=255" + Math.random().toString());
         oReqLed.send();
@@ -331,6 +338,32 @@
             symbol: markerSymbol4
           });
         graphicsLayer.add(pointGraphic4);
+
+
+        
+
+        var point = new Point({
+            y: -24.5935,
+            x: -65.45/*,
+            z: 100*/
+          });
+
+        var markerSymbol = new SimpleMarkerSymbol({
+          color: [226, 0, 140],
+
+          outline: { // autocasts as new SimpleLineSymbol()
+            color: [255, 0,255],
+            width: 2
+          }
+        });
+
+        var pointGraphic = new Graphic({
+          geometry: point,
+          symbol: markerSymbol
+        });
+
+
+        graphicsLayer.add(pointGraphic);
         
         if(obj.weather.Humidity && obj.weather.Humidity.hum && obj.weather.Humidity.hum > 0){
           document.getElementById("dropDiv").style.display = "";
@@ -404,8 +437,20 @@
           try{
             var jObj = JSON.parse(oReq.response);
             addPoint(jObj);
-          }catch(ex){};
+          }catch(ex){/*addPoint(/*{temp:21, hum:43, gps: {Pos:{lat: -36.2728, lon: -64.2835}}, weather:{Humidity :{hum : 150}, Distance:{distance : 15}, DS18B20:{temp:9},BMP:{bmpResure:102000}}});*/};
           
+          setTimeout(function(){ 
+            intSensors();
+          }, 800);
+        });
+
+        oReq.addEventListener("error", function(data){
+          console.log(oReq.response);
+          /*try{
+            var jObj = JSON.parse(oReq.response);
+            addPoint(jObj);
+          }catch(ex){addPoint({temp:21, hum:43, gps: {Pos:{lat: -36.2728, lon: -64.2835}}, weather:{Humidity :{hum : 150}, Distance:{distance : 15}, DS18B20:{temp:9},BMP:{bmpResure:102000}}});};
+          */
           setTimeout(function(){ 
             intSensors();
           }, 800);
@@ -418,7 +463,7 @@
 
     });
     window._last = null;
-    window._url = "http://192.168.126.193";
+    window._url = "http://192.168.43.147";
   </script>
 </head>
 
@@ -451,7 +496,7 @@
     <div id="txtHidro"></div>
   </div>
   <div id="btoDiv" class="bto" onclick="window.ePoint()">
-    <div>Guardar</div>
+    <div>Activar</div>
   </div>
 </body>
 </html>

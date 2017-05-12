@@ -36,11 +36,11 @@ SoftwareSerial weather(PIN_W_RX, PIN_W_TX);
 
 
 #define HOSTNAME     "ASA-TEMP-001"
-const char *ssidAP = "UC2k17";
+const char *ssidAP = "wrdf78";
 const char *passwordAP = "asa12345678";
 
-const char* ssid = "ASA-MET";
-const char* password = "195131010";
+const char* ssid = "aeroterra";
+const char* password = "12345678";
 /*
 const char* ssid = "ASA-VISITAS";
 const char* password = "Strong776655";
@@ -551,6 +551,7 @@ void setup(void){
     Serial.print("Connecting to:");
     Serial.println(ssid);
     WiFi.begin(ssid, password);
+    //WiFi.begin(ssid);
   }
   //WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
@@ -571,7 +572,7 @@ void setup(void){
     setAP();
   }
 
-  setAP();
+  //setAP();
   
   /*WiFi.begin();
   Serial.println("");
