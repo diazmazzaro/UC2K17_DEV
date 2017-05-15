@@ -1,0 +1,28 @@
+{
+  "name": "geo-json-feeder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://aeroterrasa.visualstudio.com/ASA_GRAL/_git/UC2K17_geo-json-feeder"
+  },
+  "keywords": [
+    "uc2k17"
+  ],
+  "author": "pdm",
+  "license": "ISC",
+  "devDependencies": {
+    "colors": "^1.1.2",
+    "geojson": "^0.4.1",
+    "mocha": "^3.2.0",
+    "nodejs-websocket": "^1.7.1",
+    "should": "^11.2.1"
+  },
+  "dependencies": {
+    "babel-register": "^6.24.1"
+  }
+}
